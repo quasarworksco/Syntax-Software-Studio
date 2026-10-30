@@ -510,7 +510,7 @@
 
   /* ---------- Títulos: palabras que suben ---------- */
   $$("[data-split]").forEach((el) => {
-    gsap.from(splitWords(el), { yPercent: 115, rotate: 4, duration: 1.4, stagger: 0.05, ease: expo, scrollTrigger: { trigger: el, start: "top 88%" } });
+    gsap.from(splitWords(el), { yPercent: 115, rotate: 4, duration: 0.9, stagger: 0.03, ease: expo, scrollTrigger: { trigger: el, start: "top 94%" } });
   });
 
   /* ---------- Etiquetas que se descifran ---------- */
@@ -522,21 +522,21 @@
   });
 
   /* ---------- Revelado general en lotes ---------- */
-  gsap.set("[data-reveal]", { y: 60, autoAlpha: 0 });
+  gsap.set("[data-reveal]", { y: 36, autoAlpha: 0 });
   ScrollTrigger.batch("[data-reveal]", {
-    start: "top 92%",
-    onEnter: (batch) => gsap.to(batch, { y: 0, autoAlpha: 1, duration: 1.3, stagger: 0.08, ease: expo, overwrite: true, clearProps: "transform" }),
+    start: "top 96%",
+    onEnter: (batch) => gsap.to(batch, { y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.05, ease: expo, overwrite: true, clearProps: "transform" }),
   });
 
   /* ---------- Tabla comparativa: filas en cascada ---------- */
   if ($(".compare")) {
-    gsap.from(".compare__row", { x: -30, autoAlpha: 0, duration: 1, stagger: 0.07, ease: expo, scrollTrigger: { trigger: ".compare", start: "top 75%" } });
+    gsap.from(".compare__row", { x: -30, autoAlpha: 0, duration: 0.7, stagger: 0.05, ease: expo, scrollTrigger: { trigger: ".compare", start: "top 75%" } });
   }
 
   /* ---------- Flujograma: pasos en cascada ---------- */
   const flow = $(".flow__steps");
   if (flow) {
-    gsap.from($$(".flow__step", flow), { y: 30, autoAlpha: 0, duration: 1, stagger: 0.09, ease: expo, scrollTrigger: { trigger: flow, start: "top 85%" } });
+    gsap.from($$(".flow__step", flow), { y: 24, autoAlpha: 0, duration: 0.7, stagger: 0.06, ease: expo, scrollTrigger: { trigger: flow, start: "top 92%" } });
   }
 
   /* ---------- Tarjetas de «Por qué Syntax»: el ícono y la barra entran al aparecer ---------- */
@@ -557,14 +557,14 @@
   /* ---------- Labs: la foto se revela como una cortina y se mueve con el scroll ---------- */
   $$(".lab__media").forEach((m) => {
     const img = $("img", m);
-    gsap.fromTo(m, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.6, ease: "expo.inOut", scrollTrigger: { trigger: m, start: "top 88%" } });
+    gsap.fromTo(m, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1, ease: "expo.inOut", scrollTrigger: { trigger: m, start: "top 94%" } });
     gsap.fromTo(img, { yPercent: -6 }, { yPercent: 6, ease: "none", scrollTrigger: { trigger: m, start: "top bottom", end: "bottom top", scrub: true } });
   });
 
   /* ---------- Bento de servicios: tarjetas que se revelan y foto con parallax ---------- */
   $$(".svc").forEach((card, n) => {
     const img = $(".svc__img", card);
-    gsap.fromTo(card, { clipPath: "inset(18% 6% 18% 6% round 24px)", autoAlpha: 0 }, { clipPath: "inset(0% 0% 0% 0% round 24px)", autoAlpha: 1, duration: 1.4, clearProps: "clipPath", ease: "expo.out", delay: (n % 2) * 0.12, scrollTrigger: { trigger: card, start: "top 90%" } });
+    gsap.fromTo(card, { clipPath: "inset(18% 6% 18% 6% round 24px)", autoAlpha: 0 }, { clipPath: "inset(0% 0% 0% 0% round 24px)", autoAlpha: 1, duration: 0.9, clearProps: "clipPath", ease: "expo.out", delay: (n % 2) * 0.06, scrollTrigger: { trigger: card, start: "top 96%" } });
     gsap.fromTo(img, { yPercent: -5 }, { yPercent: 5, ease: "none", scrollTrigger: { trigger: card, start: "top bottom", end: "bottom top", scrub: true } });
   });
 
@@ -703,7 +703,7 @@
   });
   $$(".device-phone").forEach((ph) => gsap.fromTo(ph, { y: 50, rotate: 4 }, { y: -30, rotate: -2, ease: "none", scrollTrigger: { trigger: ph.parentElement, start: "top bottom", end: "bottom top", scrub: true } }));
   $$(".appshot").forEach((img) => gsap.fromTo(img, { scale: 1 }, { scale: 1.12, ease: "none", scrollTrigger: { trigger: img.parentElement, start: "top bottom", end: "bottom top", scrub: true } }));
-  $$(".showcase .device-browser").forEach((d) => gsap.fromTo(d, { clipPath: "inset(0% 0% 100% 0% round 14px)" }, { clipPath: "inset(0% 0% 0% 0% round 14px)", duration: 1.4, ease: "expo.inOut", scrollTrigger: { trigger: d, start: "top 85%" } }));
+  $$(".showcase .device-browser").forEach((d) => gsap.fromTo(d, { clipPath: "inset(0% 0% 100% 0% round 14px)" }, { clipPath: "inset(0% 0% 0% 0% round 14px)", duration: 0.9, ease: "expo.inOut", scrollTrigger: { trigger: d, start: "top 94%" } }));
 
   /* ---------- Banda final: foto en cortina, tarjetas que aparecen y barras que crecen ---------- */
   if ($(".band__visual")) {

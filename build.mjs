@@ -35,6 +35,42 @@ function render(tpl, page) {
     .replace(/\{\{year\}\}/g, String(new Date().getFullYear()));
 }
 
+// CSS minificado (se edita styles.css; se publica styles.min.css)
+const css = readFileSync(join(root, "assets/css/styles.css"), "utf8")
+  .replace(/\/\*[\s\S]*?\*\//g, "")
+  .replace(/\s+/g, " ")
+  .replace(/\s*([{};,>])\s*/g, "$1")
+  .replace(/;}/g, "}")
+  .trim();
+writeFileSync(join(root, "assets/css/styles.min.css"), css);
+console.log("✓ styles.min.css", Math.round(css.length / 1024), "KB");
+
+// Datos estructurados (schema.org) de cada página: empresa, sitio, página, migas,
+// servicio (Labs) y preguntas frecuentes (extraídas del propio HTML).
+function schema(page, body) {
+  const org = {
+    "@type": "ProfessionalService", "@id": `${site.url}/#empresa`, name: site.name, url: `${site.url}/`,
+    logo: `${site.url}/assets/img/logo.png`, image: `${site.url}/assets/img/og-image.jpg`,
+    telephone: site.phoneHref, email: site.email, priceRange: "$$",
+    address: { "@type": "PostalAddress", addressLocality: site.city, addressRegion: site.region, addressCountry: "VE" },
+    areaServed: [{ "@type": "Country", name: "Venezuela" }, { "@type": "Place", name: "Latinoamérica" }, { "@type": "Country", name: "Estados Unidos" }],
+    availableLanguage: ["es", "en"],
+    contactPoint: { "@type": "ContactPoint", telephone: site.phoneHref, email: site.email, contactType: "sales", availableLanguage: ["es", "en"] },
+    knowsAbout: ["Diseño de páginas web", "Landing pages", "SEO técnico", "Catálogos digitales", "CRM a medida", "Software de gestión", "Automatización de procesos"],
+  };
+  const graph = [org,
+    { "@type": "WebSite", "@id": `${site.url}/#sitio`, url: `${site.url}/`, name: site.name, inLanguage: "es", publisher: { "@id": org["@id"] } },
+    { "@type": "WebPage", "@id": `${page.canonical}#pagina`, url: page.canonical, name: page.title, description: page.description, inLanguage: "es", isPartOf: { "@id": `${site.url}/#sitio` }, about: { "@id": org["@id"] }, primaryImageOfPage: `${site.url}/assets/img/og-image.jpg` },
+  ];
+  if (page.crumb) graph.push({ "@type": "BreadcrumbList", itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: `${site.url}/` },
+    { "@type": "ListItem", position: 2, name: page.crumb, item: page.canonical } ] });
+  if (page.service) graph.push({ "@type": "Service", name: page.service.name, serviceType: page.service.serviceType, provider: { "@id": org["@id"] }, areaServed: org.areaServed, url: page.canonical });
+  const faqs = [...body.matchAll(/<summary>([\s\S]*?)<span[^>]*><\/span><\/summary>\s*<p>([\s\S]*?)<\/p>/g)];
+  if (faqs.length) graph.push({ "@type": "FAQPage", mainEntity: faqs.map(([, q, a]) => ({ "@type": "Question", name: q.trim(), acceptedAnswer: { "@type": "Answer", text: a.replace(/<[^>]+>/g, "").trim() } })) });
+  return { "@context": "https://schema.org", "@graph": graph };
+}
+
 const pages = readdirSync(join(root, "src/pages")).filter((f) => f.endsWith(".html"));
 const urls = [];
 
@@ -48,17 +84,19 @@ for (const file of pages) {
   // Las vistas previas (variantes de diseño) no se indexan ni van al sitemap.
   if (page.preview) page.extraHead = `<meta name="robots" content="noindex" />`;
   page.canonical = `${site.url}/${page.path}`;
+  page.robots = page.noindex || page.preview ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1";
   const body = raw.slice(m[0].length);
+  page.schema = JSON.stringify(schema(page, body));
   const html = render(`<!-- @include head -->\n<!-- @include header -->\n<main id="contenido">\n${body}</main>\n<!-- @include footer -->\n`, page);
   writeFileSync(join(root, file), html);
-  if (!page.noindex && !page.preview) urls.push(page.canonical);
+  if (!page.noindex && !page.preview) urls.push([page.canonical, page.path === "" ? "1.0" : "0.8"]);
   console.log("✓", file);
 }
 
 writeFileSync(
   join(root, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
-    .map((u) => `  <url><loc>${u}</loc></url>`)
+    .map(([u, pr]) => `  <url><loc>${u}</loc><lastmod>${new Date().toISOString().slice(0, 10)}</lastmod><priority>${pr}</priority></url>`)
     .join("\n")}\n</urlset>\n`
 );
 console.log("✓ sitemap.xml");

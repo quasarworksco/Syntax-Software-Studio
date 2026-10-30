@@ -6,7 +6,7 @@ Sitio web del estudio: HTML/CSS/JS estático con GSAP + ScrollTrigger + Lenis (v
 - `src/pages/*.html`: contenido de cada página (se edita aquí)
 - `src/partials/*.html`: head, header, footer y CTA compartidos
 - `src/site.json`: datos de contacto, URL y endpoint del formulario
-- `assets/css/styles.css`, `assets/js/main.js`: diseño y animaciones
+- `assets/css/styles.css` (se edita) → `styles.min.css` (lo genera el build), `assets/js/main.js`: diseño y animaciones
 - `docs/contenido-y-ux.md`: copy y guía UX por sección
 
 ## Compilar
@@ -33,3 +33,8 @@ Para recibirla por correo con FormSubmit:
 `assets/img/portafolio/` contiene capturas de proyectos reales del portafolio de DGP Global Group (repositorio `dgpglobal`):
 Cleaning Group, Pina Water System, MQ Store, Tecmeca, Caibo Construction y The Sweet Zone (sitios web).
 Las pantallas `sistema-*.webp` son maquetas con datos ficticios (marca «Tu Empresa»), no datos de clientes.
+
+## Conectar el dominio propio
+1. En `src/site.json` cambia `"url"` por `https://tudominio.com` y `"basePath"` por `"/"`.
+2. Crea un archivo `CNAME` en la raíz con el dominio (sin https).
+3. Ejecuta `node build.mjs` y sube los cambios. Canónicas, sitemap, datos estructurados e imagen para redes se actualizan solos.

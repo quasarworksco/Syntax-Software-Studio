@@ -16,8 +16,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>{{page.title}}</title>
 <meta name="description" content="{{page.description}}" />
+<meta name="robots" content="{{page.robots}}" />
+<meta name="author" content="{{site.name}}" />
 <meta name="theme-color" content="#070b10" />
 <link rel="canonical" href="{{page.canonical}}" />
+<link rel="alternate" hreflang="es" href="{{page.canonical}}" />
+<link rel="alternate" hreflang="x-default" href="{{page.canonical}}" />
 {{page.extraHead}}
 
 <meta property="og:type" content="website" />
@@ -26,34 +30,27 @@
 <meta property="og:title" content="{{page.title}}" />
 <meta property="og:description" content="{{page.description}}" />
 <meta property="og:locale" content="es_VE" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="{{site.url}}/assets/img/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Syntax Software Studio: páginas web y software que venden" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{page.title}}" />
 <meta name="twitter:description" content="{{page.description}}" />
+<meta name="twitter:image" content="{{site.url}}/assets/img/og-image.jpg" />
 
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="icon" href="assets/img/favicon-64.png" sizes="64x64" type="image/png" />
 <link rel="icon" href="assets/img/favicon-192.png" sizes="192x192" type="image/png" />
 <link rel="apple-touch-icon" href="assets/img/icon-180.png" />
+<link rel="manifest" href="site.webmanifest" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
-<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" />
+<link rel="preload" href="assets/img/logo-256.webp" as="image" fetchpriority="high" />
+<link rel="stylesheet" href="assets/css/styles.min.css" />
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "{{site.name}}",
-  "url": "{{site.url}}/",
-  "logo": "{{site.url}}/assets/img/logo.png",
-  "telephone": "{{site.phoneHref}}",
-  "email": "{{site.email}}",
-  "address": { "@type": "PostalAddress", "addressLocality": "{{site.city}}", "addressRegion": "{{site.region}}", "addressCountry": "VE" },
-  "areaServed": ["VE", "Latinoamérica", "US"],
-  "availableLanguage": ["es", "en"],
-  "knowsAbout": ["Desarrollo web", "Landing pages", "SEO técnico", "Catálogos digitales", "CRM a medida", "Software de gestión interna", "Automatización de procesos", "Integración de APIs"]
-}
-</script>
+<script type="application/ld+json">{{page.schema}}</script>
 </head>
 <body class="{{page.bodyClass}}">
 <a class="skip" href="#contenido">Saltar al contenido</a>
