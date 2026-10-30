@@ -28,3 +28,7 @@ Para recibirla por correo con FormSubmit:
 - `cta-equipo.webp`: foto `1600880292203-757bb62b4baf`
 - `svc-landing.webp`: `1551650975-87deedd944c3` · `svc-corporativo.webp`: `1559028012-481c04fa702d` · `svc-catalogo.webp`: `1556742049-0cfed4f6a45d`
 - `svc-crm.webp`: `1522202176988-66273c2fd55f` · `svc-gestion.webp`: `1551288049-bebda4e38f71` · `svc-automatizacion.webp`: `1563986768609-322da13575f3`
+
+## Portafolio
+`assets/img/portafolio/` contiene capturas de proyectos reales del portafolio de DGP Global Group (repositorio `dgpglobal`):
+Cleaning Group, Pina Water System y MQ Store (sitios web) y los sistemas de MQ Store, AVA Multiservices y Moya Company.

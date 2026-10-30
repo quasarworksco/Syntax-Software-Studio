@@ -626,6 +626,21 @@
   /* ---------- Bloques de funcionalidades: mockup con parallax ---------- */
   $$(".fblock__visual .mock").forEach((m) => gsap.fromTo(m, { yPercent: 8, rotate: -1.5 }, { yPercent: -8, rotate: 1.5, ease: "none", scrollTrigger: { trigger: m, start: "top bottom", end: "bottom top", scrub: true } }));
 
+  /* ---------- Vitrina del portafolio: la página real se recorre sola; el sistema se acerca con el scroll ---------- */
+  $$(".scrollshot").forEach((shot) => {
+    const screen = shot.parentElement;
+    const tl = gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 1.4, paused: true, delay: 0.8 })
+      .to(shot, { y: () => -(shot.offsetHeight - screen.offsetHeight), duration: 9, ease: "sine.inOut" });
+    shot.addEventListener("load", () => { tl.invalidate(); ScrollTrigger.refresh(); });
+    ScrollTrigger.create({ trigger: screen, start: "top bottom", end: "bottom top", onToggle: (s) => (s.isActive ? tl.play() : tl.pause()) });
+    const box = screen.closest(".showcase");
+    box.addEventListener("mouseenter", () => gsap.to(tl, { timeScale: 2.4, duration: 0.6 }));
+    box.addEventListener("mouseleave", () => gsap.to(tl, { timeScale: 1, duration: 0.6 }));
+  });
+  $$(".device-phone").forEach((ph) => gsap.fromTo(ph, { y: 50, rotate: 4 }, { y: -30, rotate: -2, ease: "none", scrollTrigger: { trigger: ph.parentElement, start: "top bottom", end: "bottom top", scrub: true } }));
+  $$(".appshot").forEach((img) => gsap.fromTo(img, { scale: 1 }, { scale: 1.12, ease: "none", scrollTrigger: { trigger: img.parentElement, start: "top bottom", end: "bottom top", scrub: true } }));
+  $$(".showcase .device-browser").forEach((d) => gsap.fromTo(d, { clipPath: "inset(0% 0% 100% 0% round 14px)" }, { clipPath: "inset(0% 0% 0% 0% round 14px)", duration: 1.4, ease: "expo.inOut", scrollTrigger: { trigger: d, start: "top 85%" } }));
+
   /* ---------- Banda final: foto en cortina, tarjetas que aparecen y barras que crecen ---------- */
   if ($(".band__visual")) {
     const tl = gsap.timeline({ scrollTrigger: { trigger: ".band__panel", start: "top 72%" } });
