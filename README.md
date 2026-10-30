@@ -20,3 +20,8 @@ Con `formEndpoint` vacío en `src/site.json`, la solicitud se abre en WhatsApp y
 Para recibirla por correo con FormSubmit:
 1. Pon `"formEndpoint": "https://formsubmit.co/ajax/TU_CORREO"` y ejecuta `node build.mjs`.
 2. Envía el formulario una vez y confirma el correo de activación que manda FormSubmit.
+
+## Fotos
+`assets/img/photos/` usa fotos de [Unsplash](https://unsplash.com) (licencia libre para uso comercial):
+- `lab-web.webp`: foto `1547658719-da2b51169166`
+- `lab-software.webp`: foto `1460925895917-afdab827c52f`

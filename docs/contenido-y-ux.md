@@ -52,7 +52,7 @@ Todo respeta `prefers-reduced-motion` y funciona sin JS de animación (fallback 
 - H2: **Tecnología que _trabaja por ti._**
 - Lead: Una web bonita que no vende es un gasto. Un sistema bien construido es un activo que trabaja 24/7.
 - 4 principios: **Estrategia primero** · **Código limpio** (la «Syntax» de nuestro nombre) · **Arquitectura escalable** · **A la medida exacta**
-- Flujograma corto «Lo que hacemos → lo que gana tu negocio»: Analizamos, Optimizamos, Conectamos, Entregamos, Crecemos, Acompañamos (cada paso con su beneficio en una línea).
+- Flujograma corto «Lo que hacemos → lo que gana tu negocio»: Analizamos, Optimizamos, Conectamos, Lanzamos, Crecemos, Acompañamos (cada paso con su beneficio en una línea).
 
 **UX:** 4 tarjetas con iconos de línea que se dibujan solos y un brillo que sigue al mouse. La tabla muestra qué hacemos y, al lado con ✓, el beneficio para el negocio; las filas entran en cascada. Los contadores animados usan el degradado de marca.
 
@@ -67,7 +67,7 @@ Todo respeta `prefers-reduced-motion` y funciona sin JS de animación (fallback 
 
 ## 4. Autoridad y cierre
 **Copy**
-- FAQ («Lo que suelen preguntarnos»): costo, cobertura geográfica, propiedad del código, integraciones, soporte posterior.
+- FAQ («Lo que suelen preguntarnos»): costo, cobertura geográfica, integraciones, soporte posterior.
 - Banda final: **Deja atrás los sistemas lentos. _Escala de verdad._** + consultoría de 45 min con mapa técnico. CTAs: Agendar Consultoría Técnica · Escribir por WhatsApp. Microcopy: sin compromiso · respuesta en menos de 24 h hábiles · hablas directo con un ingeniero.
 
 **UX:** el FAQ es un acordeón nativo (`<details>`), accesible y bueno para SEO. La banda final tiene una retícula en perspectiva animada y dos orbes de luz, y se expande de tarjeta a pantalla completa con el scroll.

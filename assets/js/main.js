@@ -527,6 +527,13 @@
     if (card && finePointer) card.addEventListener("mouseenter", () => gsap.fromTo(parts, { strokeDashoffset: (i, p) => p.dataset.len }, { strokeDashoffset: 0, duration: 1.1, stagger: 0.04, ease: "power2.inOut", overwrite: true }));
   });
 
+  /* ---------- Labs: la foto se revela como una cortina y se mueve con el scroll ---------- */
+  $$(".lab__media").forEach((m) => {
+    const img = $("img", m);
+    gsap.fromTo(m, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.6, ease: "expo.inOut", scrollTrigger: { trigger: m, start: "top 88%" } });
+    gsap.fromTo(img, { yPercent: -6 }, { yPercent: 6, ease: "none", scrollTrigger: { trigger: m, start: "top bottom", end: "bottom top", scrub: true } });
+  });
+
   /* ---------- Inclinación 3D ---------- */
   if (finePointer) $$(".tilt").forEach((card) => {
     const rx = gsap.quickTo(card, "rotateX", { duration: 0.7, ease: "power3" });
@@ -582,22 +589,6 @@
     build();
     addEventListener("resize", build);
     ScrollTrigger.create({ trigger: pipe, start: "top 95%", end: "bottom top", onToggle: (s) => (s.isActive ? tl.play() : tl.pause()) });
-  }
-
-  /* ---------- Servicios: vista previa que sigue al cursor ---------- */
-  const list = $(".services__list");
-  if (list && finePointer && innerWidth > 1100) {
-    const prev = $(".services-preview");
-    const prevInner = $(".services-preview__inner");
-    const px = gsap.quickTo(prev, "x", { duration: 0.7, ease: "power3" });
-    const py = gsap.quickTo(prev, "y", { duration: 0.7, ease: "power3" });
-    const pr = gsap.quickTo(prev, "rotate", { duration: 0.8, ease: "power3" });
-    gsap.set(prev, { scale: 0, autoAlpha: 0 });
-    let lastX = 0;
-    list.addEventListener("mouseenter", (e) => { gsap.set(prev, { x: e.clientX, y: e.clientY }); gsap.to(prev, { scale: 1, autoAlpha: 1, duration: 0.6, ease: expo }); });
-    list.addEventListener("mouseleave", () => gsap.to(prev, { scale: 0, autoAlpha: 0, duration: 0.5, ease: "power3.in" }));
-    list.addEventListener("mousemove", (e) => { px(e.clientX + 200); py(e.clientY); pr(gsap.utils.clamp(-10, 10, (e.clientX - lastX) * 0.5)); lastX = e.clientX; });
-    $$(".srow", list).forEach((row) => row.addEventListener("mouseenter", () => { prevInner.style.transform = `translateY(${-row.dataset.index * 100}%)`; }));
   }
 
   /* ---------- Proceso: pista horizontal anclada (escritorio) ---------- */
