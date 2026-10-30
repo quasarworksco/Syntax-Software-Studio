@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<script>
+  // "js" habilita los estados iniciales de animación; "intro" muestra el preloader
+  // (la terminal que compila) solo la primera vez que alguien entra al sitio.
+  (function (d) {
+    d.classList.add("js");
+    try {
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches && !sessionStorage.getItem("syntax-intro")) {
+        d.classList.add("intro");
+        sessionStorage.setItem("syntax-intro", "1");
+      }
+      if (sessionStorage.getItem("syntax-curtain")) d.classList.add("from-curtain");
+    } catch (e) {}
+  })(document.documentElement);
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Agendar Consultoría Técnica | Syntax Software Studio</title>
+<meta name="description" content="Agenda una consultoría técnica gratuita con Syntax Software Studio. Cuéntanos tu proyecto de web, CRM o software a medida y recibe un mapa técnico claro. Maracaibo, Venezuela." />
+<meta name="theme-color" content="#07090c" />
+<link rel="canonical" href="https://quasarworksco.github.io/Syntax-Software-Studio/contacto.html" />
+
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Syntax Software Studio" />
+<meta property="og:url" content="https://quasarworksco.github.io/Syntax-Software-Studio/contacto.html" />
+<meta property="og:title" content="Agendar Consultoría Técnica | Syntax Software Studio" />
+<meta property="og:description" content="Agenda una consultoría técnica gratuita con Syntax Software Studio. Cuéntanos tu proyecto de web, CRM o software a medida y recibe un mapa técnico claro. Maracaibo, Venezuela." />
+<meta property="og:locale" content="es_VE" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Agendar Consultoría Técnica | Syntax Software Studio" />
+<meta name="twitter:description" content="Agenda una consultoría técnica gratuita con Syntax Software Studio. Cuéntanos tu proyecto de web, CRM o software a medida y recibe un mapa técnico claro. Maracaibo, Venezuela." />
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Syntax Software Studio",
+  "url": "https://quasarworksco.github.io/Syntax-Software-Studio/",
+  "logo": "https://quasarworksco.github.io/Syntax-Software-Studio/assets/img/favicon.svg",
+  "telephone": "+584121002090",
+  "email": "info@dgpglobalgroup.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Maracaibo", "addressRegion": "Zulia", "addressCountry": "VE" },
+  "areaServed": ["VE", "Latinoamérica", "US"],
+  "availableLanguage": ["es", "en"],
+  "knowsAbout": ["Desarrollo web", "Landing pages", "SEO técnico", "Catálogos digitales", "CRM a medida", "Software de gestión interna", "Automatización de procesos", "Integración de APIs"]
+}
+</script>
+</head>
+<body class="page-contact">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__half preloader__half--top"></div>
+  <div class="preloader__half preloader__half--bot"></div>
+  <div class="preloader__stage">
+    <div class="term">
+      <div class="term__bar"><i></i><i></i><i></i><span>syntax@studio: ~/build</span></div>
+      <pre class="term__body"><code class="term__code"></code><span class="caret"></span></pre>
+      <div class="term__progress"><i></i></div>
+    </div>
+  </div>
+</div>
+
+<div class="curtain" aria-hidden="true">
+  <span class="curtain__mark"><svg viewBox="0 0 64 64"><path d="M24 20 12 32l12 12M40 20l12 12-12 12" /><path d="M35 16 29 48" class="slash" /></svg></span>
+</div>
+<div class="cursor" aria-hidden="true"><span class="cursor__label">Ver</span></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="./" aria-label="Syntax Software Studio — inicio">
+    <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M24 20 12 32l12 12M40 20l12 12-12 12" /><path d="M35 16 29 48" class="slash" /></svg>
+    <span class="brand__name">Syntax<small>Software Studio</small></span>
+  </a>
+  <nav class="nav__links" aria-label="Principal">
+    <a href="./#diferencia">La diferencia</a>
+    <a href="lab-web.html">Lab Web</a>
+    <a href="lab-software.html">Lab Software</a>
+    <a href="./#proceso">Proceso</a>
+  </nav>
+  <div class="nav__cta">
+    <span class="nav__status"><i></i>Agenda abierta</span>
+    <a class="btn btn--primary btn--sm magnetic" href="contacto.html"><span class="btn__text">Agendar consultoría</span></a>
+    <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mmenu" id="mobile-menu" aria-hidden="true">
+  <nav class="mmenu__links" aria-label="Menú móvil">
+    <a href="./"><span>01</span>Inicio</a>
+    <a href="./#diferencia"><span>02</span>La diferencia</a>
+    <a href="lab-web.html"><span>03</span>Lab Web</a>
+    <a href="lab-software.html"><span>04</span>Lab Software</a>
+    <a href="./#proceso"><span>05</span>Proceso</a>
+    <a href="contacto.html"><span>06</span>Contacto</a>
+  </nav>
+  <div class="mmenu__foot">
+    <a href="mailto:info@dgpglobalgroup.com">info@dgpglobalgroup.com</a>
+    <a href="https://wa.me/584121002090" target="_blank" rel="noopener">+58 412 100 2090</a>
+    <span>Maracaibo, Venezuela</span>
+  </div>
+</div>
+
+<main id="contenido">
+<section class="contact" id="top" aria-labelledby="contact-title">
+  <div class="hero__gridbg" aria-hidden="true"></div>
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="container contact__grid">
+    <div class="contact__info">
+      <p class="eyebrow" data-hero><span class="dot"></span>Consultoría técnica · sin costo</p>
+      <h1 class="hero__title contact__title" id="contact-title">
+        <span class="line"><span class="line__in">Hablemos de</span></span>
+        <span class="line"><span class="line__in">lo que vas a</span></span>
+        <span class="line"><span class="line__in"><em class="grad">construir.</em></span></span>
+      </h1>
+      <p class="hero__lead" data-hero>Cuéntanos dónde está tu negocio y a dónde quieres llevarlo. Un ingeniero revisará tu caso y te contactará para agendar una sesión de 45 minutos.</p>
+
+      <ol class="next" data-hero>
+        <li><span class="mono">01</span><div><b>Envías el formulario</b><p>Te toma menos de dos minutos.</p></div></li>
+        <li><span class="mono">02</span><div><b>Agendamos la sesión</b><p>Te escribimos por WhatsApp o correo para fijar fecha.</p></div></li>
+        <li><span class="mono">03</span><div><b>Recibes tu mapa técnico</b><p>Qué construir, en qué orden y con qué inversión.</p></div></li>
+      </ol>
+
+      <div class="contact__cards" data-hero>
+        <a class="ccard spot" href="https://wa.me/584121002090" target="_blank" rel="noopener"><span class="mono">whatsapp</span><b>+58 412 100 2090</b></a>
+        <a class="ccard spot" href="mailto:info@dgpglobalgroup.com"><span class="mono">correo</span><b>info@dgpglobalgroup.com</b></a>
+        <div class="ccard spot"><span class="mono">sede</span><b>Maracaibo, Zulia · Venezuela</b></div>
+      </div>
+    </div>
+
+    <div class="contact__formwrap" data-hero>
+      <form class="form spot" id="lead-form" novalidate>
+        <div class="form__bar"><i></i><i></i><i></i><span class="mono">nuevo_proyecto.form</span></div>
+
+        <fieldset class="chips">
+          <legend>¿Qué necesitas?</legend>
+          <label class="chip-opt"><input type="checkbox" name="servicio" value="Landing page" data-group="web" /><span>Landing page</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicio" value="Sitio corporativo" data-group="web" /><span>Sitio corporativo</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicio" value="Catálogo digital" data-group="web" /><span>Catálogo digital</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicio" value="CRM a medida" data-group="software" /><span>CRM a medida</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicio" value="Gestión interna" data-group="software" /><span>Gestión interna</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicio" value="Automatizaciones / APIs" data-group="software" /><span>Automatizaciones / APIs</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicio" value="No estoy seguro" /><span>Aún no lo sé</span></label>
+        </fieldset>
+
+        <div class="form__row">
+          <div class="field"><label for="f-name">Nombre y apellido *</label><input id="f-name" name="nombre" type="text" autocomplete="name" required /><span class="field__err">Escribe tu nombre.</span></div>
+          <div class="field"><label for="f-company">Empresa</label><input id="f-company" name="empresa" type="text" autocomplete="organization" /></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="f-email">Correo *</label><input id="f-email" name="correo" type="email" autocomplete="email" required /><span class="field__err">Escribe un correo válido.</span></div>
+          <div class="field"><label for="f-phone">WhatsApp *</label><input id="f-phone" name="whatsapp" type="tel" autocomplete="tel" placeholder="+58 412 000 0000" required /><span class="field__err">Escribe un número válido.</span></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="f-budget">Inversión estimada</label>
+            <select id="f-budget" name="presupuesto">
+              <option value="">Selecciona un rango</option>
+              <option>Menos de $500</option>
+              <option>$500 – $1.500</option>
+              <option>$1.500 – $5.000</option>
+              <option>Más de $5.000</option>
+              <option>Prefiero conversarlo</option>
+            </select>
+          </div>
+          <div class="field"><label for="f-time">¿Para cuándo?</label>
+            <select id="f-time" name="plazo">
+              <option value="">Selecciona un plazo</option>
+              <option>Lo antes posible</option>
+              <option>En 1 – 3 meses</option>
+              <option>En más de 3 meses</option>
+              <option>Solo estoy explorando</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Cuéntanos sobre tu proyecto *</label><textarea id="f-msg" name="mensaje" rows="5" placeholder="¿Qué vende tu negocio, qué problema quieres resolver y qué usas hoy?" required></textarea><span class="field__err">Cuéntanos un poco más (mínimo 15 caracteres).</span></div>
+
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="form__foot">
+          <button class="btn btn--primary btn--lg magnetic" type="submit"><span class="btn__text">Enviar y agendar consultoría</span><span class="btn__icon" aria-hidden="true">→</span></button>
+          <p class="form__legal">Usamos tus datos solo para responder a tu solicitud.</p>
+        </div>
+        <p class="form__status mono" role="status" aria-live="polite"></p>
+
+        <div class="form__done" aria-hidden="true">
+          <pre class="mono"><span class="ok-t">✓</span> solicitud recibida
+<span class="ok-t">✓</span> ingeniero asignado
+<span class="ok-t">✓</span> te contactaremos en menos de 24 h hábiles</pre>
+          <h2>¡Gracias! Ya estamos en ello.</h2>
+          <p>Mientras tanto, si prefieres adelantar la conversación, escríbenos directo.</p>
+          <a class="btn btn--ghost magnetic" href="https://wa.me/584121002090" target="_blank" rel="noopener"><span class="btn__text">Abrir WhatsApp</span></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__intro">
+        <p class="footer__claim">Ingeniería digital a la medida exacta de tu negocio.</p>
+        <a class="footer__mail" href="mailto:info@dgpglobalgroup.com">info@dgpglobalgroup.com<span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h3>Estudio</h3>
+          <a href="./#diferencia">La diferencia</a>
+          <a href="./#proceso">Proceso</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+        <div>
+          <h3>Labs</h3>
+          <a href="lab-web.html">Lab Web</a>
+          <a href="lab-software.html">Lab Software</a>
+          <a href="lab-software.html#automatizaciones">Automatizaciones</a>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <a href="https://wa.me/584121002090" target="_blank" rel="noopener">+58 412 100 2090</a>
+          <a href="mailto:info@dgpglobalgroup.com">Correo</a>
+          <span>Maracaibo, Zulia<br />Venezuela</span>
+        </div>
+      </div>
+    </div>
+    <p class="footer__big" aria-hidden="true"><span>S</span><span>y</span><span>n</span><span>t</span><span>a</span><span>x</span><span class="footer__dot">.</span></p>
+    <div class="footer__bottom">
+      <span>© 2026 Syntax Software Studio. Todos los derechos reservados.</span>
+      <span class="mono">build: estable · Maracaibo, VE · <a href="#top" class="to-top">volver arriba ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/584121002090?text=Hola%20Syntax%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7Zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.1l-1 1.2c-.2.2-.4.3-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6 0-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.2 2.2.9 3 1 4.1.8.7-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5l-.6-.4Z"/></svg>
+</a>
+
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/vendor/lenis.min.js" defer></script>
+<script>window.SYNTAX = { wa: "584121002090", email: "info@dgpglobalgroup.com", endpoint: "" };</script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
+

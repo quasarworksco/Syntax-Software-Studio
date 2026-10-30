@@ -1,1 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<script>
+  // "js" habilita los estados iniciales de animación; "intro" muestra el preloader
+  // (la terminal que compila) solo la primera vez que alguien entra al sitio.
+  (function (d) {
+    d.classList.add("js");
+    try {
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches && !sessionStorage.getItem("syntax-intro")) {
+        d.classList.add("intro");
+        sessionStorage.setItem("syntax-intro", "1");
+      }
+      if (sessionStorage.getItem("syntax-curtain")) d.classList.add("from-curtain");
+    } catch (e) {}
+  })(document.documentElement);
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Syntax Software Studio — Desarrollo web y software a medida en Maracaibo</title>
+<meta name="description" content="Estudio boutique de ingeniería digital en Maracaibo, Venezuela. Sitios web de alto rendimiento, CRMs y software interno a medida que funcionan como el motor operativo y de ventas de tu negocio." />
+<meta name="theme-color" content="#07090c" />
+<link rel="canonical" href="https://quasarworksco.github.io/Syntax-Software-Studio/" />
+
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Syntax Software Studio" />
+<meta property="og:url" content="https://quasarworksco.github.io/Syntax-Software-Studio/" />
+<meta property="og:title" content="Syntax Software Studio — Desarrollo web y software a medida en Maracaibo" />
+<meta property="og:description" content="Estudio boutique de ingeniería digital en Maracaibo, Venezuela. Sitios web de alto rendimiento, CRMs y software interno a medida que funcionan como el motor operativo y de ventas de tu negocio." />
+<meta property="og:locale" content="es_VE" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Syntax Software Studio — Desarrollo web y software a medida en Maracaibo" />
+<meta name="twitter:description" content="Estudio boutique de ingeniería digital en Maracaibo, Venezuela. Sitios web de alto rendimiento, CRMs y software interno a medida que funcionan como el motor operativo y de ventas de tu negocio." />
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Syntax Software Studio",
+  "url": "https://quasarworksco.github.io/Syntax-Software-Studio/",
+  "logo": "https://quasarworksco.github.io/Syntax-Software-Studio/assets/img/favicon.svg",
+  "telephone": "+584121002090",
+  "email": "info@dgpglobalgroup.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Maracaibo", "addressRegion": "Zulia", "addressCountry": "VE" },
+  "areaServed": ["VE", "Latinoamérica", "US"],
+  "availableLanguage": ["es", "en"],
+  "knowsAbout": ["Desarrollo web", "Landing pages", "SEO técnico", "Catálogos digitales", "CRM a medida", "Software de gestión interna", "Automatización de procesos", "Integración de APIs"]
+}
+</script>
+</head>
+<body class="page-home">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__half preloader__half--top"></div>
+  <div class="preloader__half preloader__half--bot"></div>
+  <div class="preloader__stage">
+    <div class="term">
+      <div class="term__bar"><i></i><i></i><i></i><span>syntax@studio: ~/build</span></div>
+      <pre class="term__body"><code class="term__code"></code><span class="caret"></span></pre>
+      <div class="term__progress"><i></i></div>
+    </div>
+  </div>
+</div>
+
+<div class="curtain" aria-hidden="true">
+  <span class="curtain__mark"><svg viewBox="0 0 64 64"><path d="M24 20 12 32l12 12M40 20l12 12-12 12" /><path d="M35 16 29 48" class="slash" /></svg></span>
+</div>
+<div class="cursor" aria-hidden="true"><span class="cursor__label">Ver</span></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="./" aria-label="Syntax Software Studio — inicio">
+    <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M24 20 12 32l12 12M40 20l12 12-12 12" /><path d="M35 16 29 48" class="slash" /></svg>
+    <span class="brand__name">Syntax<small>Software Studio</small></span>
+  </a>
+  <nav class="nav__links" aria-label="Principal">
+    <a href="./#diferencia">La diferencia</a>
+    <a href="lab-web.html">Lab Web</a>
+    <a href="lab-software.html">Lab Software</a>
+    <a href="./#proceso">Proceso</a>
+  </nav>
+  <div class="nav__cta">
+    <span class="nav__status"><i></i>Agenda abierta</span>
+    <a class="btn btn--primary btn--sm magnetic" href="contacto.html"><span class="btn__text">Agendar consultoría</span></a>
+    <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mmenu" id="mobile-menu" aria-hidden="true">
+  <nav class="mmenu__links" aria-label="Menú móvil">
+    <a href="./"><span>01</span>Inicio</a>
+    <a href="./#diferencia"><span>02</span>La diferencia</a>
+    <a href="lab-web.html"><span>03</span>Lab Web</a>
+    <a href="lab-software.html"><span>04</span>Lab Software</a>
+    <a href="./#proceso"><span>05</span>Proceso</a>
+    <a href="contacto.html"><span>06</span>Contacto</a>
+  </nav>
+  <div class="mmenu__foot">
+    <a href="mailto:info@dgpglobalgroup.com">info@dgpglobalgroup.com</a>
+    <a href="https://wa.me/584121002090" target="_blank" rel="noopener">+58 412 100 2090</a>
+    <span>Maracaibo, Venezuela</span>
+  </div>
+</div>
+
+<main id="contenido">
+<!-- ===================== 1. HERO ===================== -->
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <canvas class="hero__net" aria-hidden="true"></canvas>
+  <div class="hero__gridbg" aria-hidden="true"></div>
+  <div class="hero__glow" aria-hidden="true"></div>
+
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="eyebrow" data-hero><span class="dot"></span>Estudio de ingeniería digital · Maracaibo, VE</p>
+      <h1 class="hero__title" id="hero-title">
+        <span class="line"><span class="line__in">Tu negocio no necesita</span></span>
+        <span class="line"><span class="line__in">otra página web.</span></span>
+        <span class="line"><span class="line__in">Necesita un <em class="grad">motor.</em></span></span>
+      </h1>
+      <p class="hero__compile mono" data-hero aria-hidden="true">
+        <span class="prompt">&gt;</span> compilando:
+        <span class="rotator">
+          <span class="rotator__item is-active">ventas_predecibles</span>
+          <span class="rotator__item">operación_sin_fricción</span>
+          <span class="rotator__item">clientes_que_regresan</span>
+          <span class="rotator__item">crecimiento_escalable</span>
+        </span>
+      </p>
+      <p class="hero__lead" data-hero>Diseñamos la infraestructura digital de empresas que ya superaron las plantillas: <strong>sitios web de alto rendimiento, CRMs y software interno a medida</strong> que trabajan tan duro como tu equipo comercial.</p>
+      <div class="hero__actions" data-hero>
+        <a class="btn btn--primary btn--lg magnetic" href="contacto.html"><span class="btn__text">Agendar Consultoría Técnica</span><span class="btn__icon" aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost btn--lg magnetic" href="#pilares"><span class="btn__text">Ver Soluciones</span></a>
+      </div>
+    </div>
+
+    <div class="hero__visual" data-hero aria-hidden="true">
+      <div class="editor tilt">
+        <div class="editor__bar">
+          <i></i><i></i><i></i>
+          <span class="editor__tab is-active">negocio.ts</span>
+          <span class="editor__tab">crm.config</span>
+        </div>
+        <pre class="editor__body"><code class="editor__code" data-type></code><span class="caret"></span></pre>
+        <div class="editor__status mono"><span><i class="ok"></i>build passing</span><span>TypeScript</span><span>UTF-8</span></div>
+      </div>
+      <div class="chip chip--a"><i class="ok"></i><span>deploy → producción</span></div>
+      <div class="chip chip--b"><span class="chip__k">API</span><span>200 OK · 84ms</span></div>
+      <div class="chip chip--c"><span class="chip__k">Nuevo lead</span><span>→ CRM · etapa 1</span></div>
+    </div>
+  </div>
+
+  <a class="hero__scroll" href="#manifiesto" aria-label="Bajar al contenido"><span class="mono">scroll</span><i></i></a>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span><span>PostgreSQL</span><span>Firebase</span><span>Supabase</span><span>APIs REST</span><span>WhatsApp API</span><span>SEO técnico</span><span>Automatizaciones</span>
+    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span><span>PostgreSQL</span><span>Firebase</span><span>Supabase</span><span>APIs REST</span><span>WhatsApp API</span><span>SEO técnico</span><span>Automatizaciones</span>
+  </div>
+</div>
+
+<!-- ===================== MANIFIESTO ===================== -->
+<section class="intro" id="manifiesto">
+  <div class="container">
+    <p class="eyebrow" data-scramble>// manifiesto</p>
+    <p class="intro__text" data-words>Las plantillas prometen rapidez y entregan deuda técnica. Nosotros escribimos cada línea con un propósito: que tu sitio cargue en un parpadeo, que tu equipo venda con datos y que tu operación crezca sin romperse.</p>
+  </div>
+</section>
+
+<!-- ===================== 2. LA DIFERENCIA ===================== -->
+<section class="diff" id="diferencia" aria-labelledby="diff-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow" data-scramble>01 — La diferencia</p>
+      <h2 class="h2" id="diff-title" data-split>Ingeniería, <em>no decoración.</em></h2>
+      <p class="section-head__lead" data-reveal>Una web bonita que no vende es un gasto. Un sistema bien construido es un activo que trabaja 24/7. Esto es lo que nos separa de una agencia tradicional.</p>
+    </div>
+
+    <div class="pillars4">
+      <article class="pcard spot" data-reveal>
+        <span class="pcard__num mono">01</span>
+        <div class="pcard__art"><svg viewBox="0 0 80 80" class="draw"><rect x="10" y="14" width="60" height="52" rx="6" /><path d="M10 28h60" /><path d="M22 40l36 18M58 40 22 58" /></svg></div>
+        <h3>Cero plantillas</h3>
+        <p>Nada de temas comprados ni constructores inflados. Cada proyecto nace en blanco, diseñado alrededor de tu modelo de negocio.</p>
+      </article>
+      <article class="pcard spot" data-reveal>
+        <span class="pcard__num mono">02</span>
+        <div class="pcard__art"><svg viewBox="0 0 80 80" class="draw"><path d="M28 22 12 40l16 18M52 22l16 18-16 18" /><path d="M45 16 35 64" /></svg></div>
+        <h3>Código limpio</h3>
+        <p>La «Syntax» de nuestro nombre: código legible, documentado y sin dependencias innecesarias. Rápido hoy y fácil de mantener mañana.</p>
+      </article>
+      <article class="pcard spot" data-reveal>
+        <span class="pcard__num mono">03</span>
+        <div class="pcard__art"><svg viewBox="0 0 80 80" class="draw"><rect x="12" y="52" width="56" height="14" rx="3" /><rect x="20" y="34" width="40" height="14" rx="3" /><rect x="28" y="16" width="24" height="14" rx="3" /></svg></div>
+        <h3>Arquitectura escalable</h3>
+        <p>Construimos por módulos sobre bases sólidas. Cuando tu negocio crece, el sistema se extiende; no hay que tirarlo y empezar de cero.</p>
+      </article>
+      <article class="pcard spot" data-reveal>
+        <span class="pcard__num mono">04</span>
+        <div class="pcard__art"><svg viewBox="0 0 80 80" class="draw"><circle cx="40" cy="40" r="26" /><circle cx="40" cy="40" r="15" /><circle cx="40" cy="40" r="4" /><path d="M40 6v12M40 62v12M6 40h12M62 40h12" /></svg></div>
+        <h3>A la medida exacta</h3>
+        <p>Primero entendemos cómo vendes y operas; después escribimos código. La tecnología se adapta a tu proceso, no al revés.</p>
+      </article>
+    </div>
+
+    <div class="compare" data-reveal>
+      <div class="compare__head">
+        <span></span>
+        <span class="compare__them">Agencia de plantillas</span>
+        <span class="compare__us"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M24 20 12 32l12 12M40 20l12 12-12 12" /><path d="M35 16 29 48" class="slash" /></svg>Syntax</span>
+      </div>
+      <div class="compare__row"><span class="compare__k">Base del proyecto</span><span class="compare__them">Tema comprado y adaptado</span><span class="compare__us">Arquitectura diseñada desde cero</span></div>
+      <div class="compare__row"><span class="compare__k">Velocidad</span><span class="compare__them">Plugins y scripts que sobran</span><span class="compare__us">Solo el código necesario</span></div>
+      <div class="compare__row"><span class="compare__k">Propiedad</span><span class="compare__them">Atado a una plataforma</span><span class="compare__us">El código y los datos son tuyos</span></div>
+      <div class="compare__row"><span class="compare__k">Crecimiento</span><span class="compare__them">Se rehace cada dos años</span><span class="compare__us">Se extiende por módulos</span></div>
+      <div class="compare__row"><span class="compare__k">Objetivo</span><span class="compare__them">Que se vea bien</span><span class="compare__us">Que venda y opere mejor</span></div>
+      <div class="compare__row"><span class="compare__k">Soporte</span><span class="compare__them">Ticket y espera</span><span class="compare__us">Un ingeniero que conoce tu sistema</span></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat" data-reveal><span class="stat__n"><b data-count="0">0</b></span><span class="stat__l">plantillas en nuestros proyectos</span></div>
+      <div class="stat" data-reveal><span class="stat__n"><b data-count="100">100</b>%</span><span class="stat__l">código propio, entregado a tu nombre</span></div>
+      <div class="stat" data-reveal><span class="stat__n">&lt;<b data-count="2">2</b>s</span><span class="stat__l">meta de carga en cada sitio que lanzamos</span></div>
+      <div class="stat" data-reveal><span class="stat__n"><b data-count="24">24</b>/7</span><span class="stat__l">tu sistema vendiendo y operando</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 3. LOS DOS PILARES ===================== -->
+<section class="labs" id="pilares" aria-labelledby="labs-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow" data-scramble>02 — Nuestros dos pilares</p>
+      <h2 class="h2" id="labs-title" data-split>Dos laboratorios. <em>Un mismo motor.</em></h2>
+      <p class="section-head__lead" data-reveal>El frente que atrae y convierte, y el sistema que organiza y escala. Puedes empezar por uno; están diseñados para conectarse.</p>
+    </div>
+
+    <div class="labs__grid">
+      <a class="lab spot tilt" href="lab-web.html" data-reveal>
+        <div class="lab__top">
+          <span class="lab__tag mono">LAB_01 · Frontend &amp; Conversión</span>
+          <span class="lab__arrow" aria-hidden="true">↗</span>
+        </div>
+        <div class="lab__art" aria-hidden="true">
+          <svg viewBox="0 0 320 170" class="draw">
+            <rect x="10" y="10" width="300" height="150" rx="10" />
+            <path d="M10 34h300" /><circle cx="26" cy="22" r="3" /><circle cx="38" cy="22" r="3" /><circle cx="50" cy="22" r="3" />
+            <path d="M34 60h120M34 76h90" /><rect x="34" y="94" width="70" height="20" rx="10" />
+            <rect x="186" y="54" width="100" height="78" rx="6" />
+            <path d="M196 116l22-26 18 16 14-12 26 22" />
+            <path d="M34 140h252" />
+          </svg>
+          <div class="lab__meter"><span class="mono">Rendimiento</span><b class="mono" data-count="98">98</b></div>
+        </div>
+        <h3 class="lab__title">Lab Web</h3>
+        <p class="lab__desc">Tu vitrina digital, construida para cargar al instante, posicionar en Google y convertir visitas en conversaciones de venta.</p>
+        <ul class="lab__list">
+          <li>Landing pages de alta velocidad</li>
+          <li>Sitios corporativos con SEO técnico</li>
+          <li>Catálogos digitales interactivos</li>
+        </ul>
+        <span class="lab__more">Explorar Lab Web <span aria-hidden="true">→</span></span>
+      </a>
+
+      <a class="lab lab--alt spot tilt" href="lab-software.html" data-reveal>
+        <div class="lab__top">
+          <span class="lab__tag mono">LAB_02 · Backend &amp; Sistemas</span>
+          <span class="lab__arrow" aria-hidden="true">↗</span>
+        </div>
+        <div class="lab__art" aria-hidden="true">
+          <svg viewBox="0 0 320 170" class="draw">
+            <rect x="14" y="66" width="64" height="38" rx="8" /><rect x="128" y="20" width="64" height="38" rx="8" /><rect x="128" y="112" width="64" height="38" rx="8" /><rect x="242" y="66" width="64" height="38" rx="8" />
+            <path d="M78 85h20c12 0 12-46 30-46M78 85h20c12 0 12 46 30 46M192 39h12c18 0 18 46 38 46M192 131h12c18 0 18-46 38-46" />
+            <circle r="4" class="fd"><animateMotion dur="2.8s" repeatCount="indefinite" path="M78 85h20c12 0 12-46 30-46h64h12c18 0 18 46 38 46" /></circle>
+            <circle r="4" class="fd fd--b"><animateMotion dur="2.8s" begin="-1.4s" repeatCount="indefinite" path="M78 85h20c12 0 12 46 30 46h64h12c18 0 18-46 38-46" /></circle>
+          </svg>
+        </div>
+        <h3 class="lab__title">Lab Software</h3>
+        <p class="lab__desc">Los sistemas que hacen funcionar tu empresa por dentro: menos hojas de cálculo, menos tareas manuales y decisiones con datos reales.</p>
+        <ul class="lab__list">
+          <li>CRMs personalizados a tu flujo de venta</li>
+          <li>Plataformas de gestión interna</li>
+          <li>Automatizaciones, conectores y APIs</li>
+        </ul>
+        <span class="lab__more">Explorar Lab Software <span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+
+    <div class="services">
+      <p class="services__label mono" data-reveal>// catálogo de soluciones</p>
+      <ul class="services__list">
+        <li><a class="srow" href="lab-web.html#landing" data-index="0"><span class="srow__n mono">W.01</span><span class="srow__t">Landing pages de alta velocidad</span><span class="srow__d">Una sola misión: convertir. Carga inmediata, mensaje claro y medición de cada clic.</span><span class="srow__go" aria-hidden="true">→</span></a></li>
+        <li><a class="srow" href="lab-web.html#corporativo" data-index="1"><span class="srow__n mono">W.02</span><span class="srow__t">Sitios corporativos con SEO técnico</span><span class="srow__d">Arquitectura, velocidad y datos estructurados para que Google te entienda y te muestre.</span><span class="srow__go" aria-hidden="true">→</span></a></li>
+        <li><a class="srow" href="lab-web.html#catalogo" data-index="2"><span class="srow__n mono">W.03</span><span class="srow__t">Catálogos digitales interactivos</span><span class="srow__d">Tus productos con filtros, fichas y pedido directo a WhatsApp o a tu CRM.</span><span class="srow__go" aria-hidden="true">→</span></a></li>
+        <li><a class="srow" href="lab-software.html#crm" data-index="3"><span class="srow__n mono">S.01</span><span class="srow__t">CRMs a la medida</span><span class="srow__d">Embudo, seguimiento y reportes diseñados sobre cómo vende tu equipo de verdad.</span><span class="srow__go" aria-hidden="true">→</span></a></li>
+        <li><a class="srow" href="lab-software.html#gestion" data-index="4"><span class="srow__n mono">S.02</span><span class="srow__t">Plataformas de gestión interna</span><span class="srow__d">Inventario, órdenes, citas o cobranzas en un solo panel con roles y permisos.</span><span class="srow__go" aria-hidden="true">→</span></a></li>
+        <li><a class="srow" href="lab-software.html#automatizaciones" data-index="5"><span class="srow__n mono">S.03</span><span class="srow__t">Automatizaciones, conectores y APIs</span><span class="srow__d">Tus herramientas hablando entre sí: formularios, WhatsApp, correo, pagos y hojas de cálculo.</span><span class="srow__go" aria-hidden="true">→</span></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="services-preview" aria-hidden="true">
+    <div class="services-preview__inner">
+      <div class="mock mock--landing"><div class="mock__bar"></div><div class="mock__hero"><i></i><i></i><b></b></div><div class="mock__row"><i></i><i></i><i></i></div></div>
+      <div class="mock mock--corp"><div class="mock__bar"></div><div class="mock__serp"><i></i><b></b><i></i><i></i><b></b><i></i></div></div>
+      <div class="mock mock--cat"><div class="mock__bar"></div><div class="mock__grid"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="mock mock--crm"><div class="mock__bar"></div><div class="mock__kanban"><div><i></i><i></i><i></i></div><div><i></i><i></i></div><div><i></i></div></div></div>
+      <div class="mock mock--panel"><div class="mock__bar"></div><div class="mock__dash"><div class="mock__side"></div><div class="mock__bars"><i style="--h:40%"></i><i style="--h:70%"></i><i style="--h:55%"></i><i style="--h:90%"></i><i style="--h:65%"></i></div></div></div>
+      <div class="mock mock--api"><div class="mock__bar"></div><div class="mock__nodes"><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 4. PROCESO ===================== -->
+<section class="process" id="proceso" aria-labelledby="process-title">
+  <div class="process__pin">
+    <div class="container process__head">
+      <div class="section-head">
+        <p class="eyebrow" data-scramble>03 — Metodología transparente</p>
+        <h2 class="h2" id="process-title" data-split>Sabes qué pasa <em>en cada commit.</em></h2>
+      </div>
+      <div class="process__progress" aria-hidden="true"><i></i></div>
+    </div>
+    <div class="process__track">
+      <article class="step">
+        <div class="step__top"><span class="step__n">01</span><span class="step__tag mono">análisis()</span></div>
+        <h3>Análisis y Arquitectura</h3>
+        <p>Nos sentamos con tu equipo, mapeamos cómo vendes y operas, y detectamos dónde se pierde tiempo y dinero. Con eso diseñamos la arquitectura y el alcance exacto antes de escribir una línea.</p>
+        <ul class="step__out mono"><li>Mapa de procesos</li><li>Arquitectura técnica</li><li>Propuesta con alcance y tiempos</li></ul>
+      </article>
+      <article class="step">
+        <div class="step__top"><span class="step__n">02</span><span class="step__tag mono">desarrollo()</span></div>
+        <h3>Desarrollo a Medida</h3>
+        <p>Construimos por sprints cortos con avances que puedes ver y probar. Nada de cajas negras: revisas el progreso real y das feedback mientras el producto toma forma.</p>
+        <ul class="step__out mono"><li>Entregas por sprint</li><li>Entorno de pruebas propio</li><li>Reportes de avance</li></ul>
+      </article>
+      <article class="step">
+        <div class="step__top"><span class="step__n">03</span><span class="step__tag mono">deploy()</span></div>
+        <h3>Pruebas y Despliegue</h3>
+        <p>Probamos velocidad, seguridad, formularios y flujos completos en móviles y escritorio. Luego lanzamos a producción de forma controlada y capacitamos a tu equipo.</p>
+        <ul class="step__out mono"><li>QA funcional y de rendimiento</li><li>Lanzamiento controlado</li><li>Capacitación y manuales</li></ul>
+      </article>
+      <article class="step">
+        <div class="step__top"><span class="step__n">04</span><span class="step__tag mono">escalar()</span></div>
+        <h3>Soporte y Escalamiento</h3>
+        <p>Tu sistema no queda huérfano. Monitoreamos, mantenemos y agregamos nuevos módulos a medida que tu negocio crece, con un ingeniero que ya conoce tu código.</p>
+        <ul class="step__out mono"><li>Monitoreo y mantenimiento</li><li>Mejoras continuas</li><li>Nuevos módulos sobre la misma base</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 5. AUTORIDAD ===================== -->
+<section class="who" aria-labelledby="who-title">
+  <div class="container who__grid">
+    <div class="who__left">
+      <p class="eyebrow" data-scramble>04 — Para quién construimos</p>
+      <h2 class="h2" id="who-title" data-split>Para líderes que ya <em>saben</em> que su tecnología los frena.</h2>
+    </div>
+    <ul class="who__list">
+      <li data-reveal><span class="mono">dueños_de_negocio</span><p>Que dependen de hojas de cálculo, chats sueltos y memoria para sostener la operación, y saben que así no se puede crecer.</p></li>
+      <li data-reveal><span class="mono">directores_comerciales</span><p>Que necesitan ver el embudo completo, medir a su equipo y dejar de perder clientes por falta de seguimiento.</p></li>
+      <li data-reveal><span class="mono">gerentes_de_operaciones</span><p>Que quieren automatizar lo repetitivo y tener un solo lugar donde vive toda la información del negocio.</p></li>
+    </ul>
+  </div>
+
+  <div class="container faq" id="faq">
+    <p class="eyebrow" data-scramble>// preguntas_frecuentes</p>
+    <div class="faq__list">
+      <details class="faq__item" data-reveal>
+        <summary>¿Cuánto cuesta un proyecto con Syntax?<span aria-hidden="true"></span></summary>
+        <p>Depende del alcance: una landing page no se cotiza igual que un CRM. Por eso empezamos con una consultoría técnica gratuita; al terminar recibes una propuesta cerrada con alcance, tiempos y precio, sin sorpresas.</p>
+      </details>
+      <details class="faq__item" data-reveal>
+        <summary>¿Trabajan solo con empresas de Maracaibo?<span aria-hidden="true"></span></summary>
+        <p>Nuestra sede está en Maracaibo, pero trabajamos de forma remota con empresas de toda Venezuela, Latinoamérica y Estados Unidos. Las reuniones, entregas y revisiones se hacen en línea.</p>
+      </details>
+      <details class="faq__item" data-reveal>
+        <summary>¿El código y los datos son míos?<span aria-hidden="true"></span></summary>
+        <p>Sí. Al finalizar el proyecto te entregamos el código, los accesos y la documentación. No quedas atado a una plataforma ni a nosotros; si te quedas, es porque el servicio vale la pena.</p>
+      </details>
+      <details class="faq__item" data-reveal>
+        <summary>¿Pueden conectar el sistema con las herramientas que ya uso?<span aria-hidden="true"></span></summary>
+        <p>En la mayoría de los casos, sí. Integramos WhatsApp, correo, formularios, pasarelas de pago, hojas de cálculo y otras plataformas mediante APIs y automatizaciones.</p>
+      </details>
+      <details class="faq__item" data-reveal>
+        <summary>¿Qué pasa después del lanzamiento?<span aria-hidden="true"></span></summary>
+        <p>Ofrecemos planes de soporte y escalamiento: monitoreo, mantenimiento, mejoras y nuevos módulos. Tu sistema evoluciona al ritmo de tu negocio.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="band-title">
+  <div class="band__media" aria-hidden="true">
+    <div class="band__grid"></div>
+    <div class="band__orb band__orb--a"></div>
+    <div class="band__orb band__orb--b"></div>
+  </div>
+  <div class="container band__inner">
+    <p class="eyebrow" data-scramble>// siguiente_paso()</p>
+    <h2 class="band__title" id="band-title" data-split>Deja atrás los sistemas lentos. <em>Escala de verdad.</em></h2>
+    <p class="band__lead" data-reveal>Si eres dueño de negocio o diriges un equipo comercial y sientes que tu tecnología frena las ventas en lugar de impulsarlas, hablemos. En 45 minutos auditamos tu operación digital y te entregamos un mapa técnico claro: qué construir, en qué orden y con qué retorno esperado.</p>
+    <div class="band__actions" data-reveal>
+      <a class="btn btn--primary btn--lg magnetic" href="contacto.html"><span class="btn__text">Agendar Consultoría Técnica</span><span class="btn__icon" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost btn--lg magnetic" href="https://wa.me/584121002090?text=Hola%20Syntax%2C%20quiero%20hablar%20sobre%20un%20proyecto." target="_blank" rel="noopener"><span class="btn__text">Escribir por WhatsApp</span></a>
+    </div>
+    <ul class="band__proof" data-reveal>
+      <li>Sin compromiso</li>
+      <li>Respuesta en menos de 24 h hábiles</li>
+      <li>Hablas directo con un ingeniero</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__intro">
+        <p class="footer__claim">Ingeniería digital a la medida exacta de tu negocio.</p>
+        <a class="footer__mail" href="mailto:info@dgpglobalgroup.com">info@dgpglobalgroup.com<span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h3>Estudio</h3>
+          <a href="./#diferencia">La diferencia</a>
+          <a href="./#proceso">Proceso</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+        <div>
+          <h3>Labs</h3>
+          <a href="lab-web.html">Lab Web</a>
+          <a href="lab-software.html">Lab Software</a>
+          <a href="lab-software.html#automatizaciones">Automatizaciones</a>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <a href="https://wa.me/584121002090" target="_blank" rel="noopener">+58 412 100 2090</a>
+          <a href="mailto:info@dgpglobalgroup.com">Correo</a>
+          <span>Maracaibo, Zulia<br />Venezuela</span>
+        </div>
+      </div>
+    </div>
+    <p class="footer__big" aria-hidden="true"><span>S</span><span>y</span><span>n</span><span>t</span><span>a</span><span>x</span><span class="footer__dot">.</span></p>
+    <div class="footer__bottom">
+      <span>© 2026 Syntax Software Studio. Todos los derechos reservados.</span>
+      <span class="mono">build: estable · Maracaibo, VE · <a href="#top" class="to-top">volver arriba ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/584121002090?text=Hola%20Syntax%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7Zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.1l-1 1.2c-.2.2-.4.3-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6 0-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.2 2.2.9 3 1 4.1.8.7-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5l-.6-.4Z"/></svg>
+</a>
+
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/vendor/lenis.min.js" defer></script>
+<script>window.SYNTAX = { wa: "584121002090", email: "info@dgpglobalgroup.com", endpoint: "" };</script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
 

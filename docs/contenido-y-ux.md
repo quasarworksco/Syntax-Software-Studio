@@ -1,0 +1,91 @@
+# Syntax Software Studio — Copy y guía UX por sección
+
+Documento de referencia del sitio. El texto exacto vive en `src/pages/*.html`; aquí está el porqué de cada decisión.
+
+## Identidad
+- **Paleta:** fondo `#07090C` (negro técnico), paneles `#0F141B` / `#141B24`, texto `#E6EDF3`, secundario `#8B98A9`. Acentos: cian eléctrico `#22D3EE` (acción, Lab Web) y verde terminal `#3DDC97` (estado OK, Lab Software). Degradado cian→verde solo en palabras clave.
+- **Tipografía:** Space Grotesk (titulares, tracking negativo), Inter (texto), JetBrains Mono (etiquetas tipo código: `// manifiesto`, `análisis()`).
+- **Logo:** `</>` en cian con la barra en blanco; gira 90° al pasar el mouse.
+- **Voz:** directa, técnica sin jerga vacía, enfocada en negocio (ventas, operación, escala).
+
+## Sistema de animación (heredado de JP Real Estate, Solar Engineering y All in One + efectos propios)
+| Efecto | Origen | Dónde |
+|---|---|---|
+| Lenis smooth scroll + GSAP ScrollTrigger | los 3 repos | todo el sitio |
+| Preloader de pantalla partida | Solar | primera visita (ahora como terminal que compila) |
+| Titulares en líneas enmascaradas y palabras que suben | los 3 | hero y todos los H2 |
+| Rotador de palabras 3D | los 3 | `> compilando: ventas_predecibles…` |
+| Texto que se ilumina con el scroll | los 3 | manifiestos |
+| Marquesina que reacciona a la velocidad del scroll | los 3 | stack tecnológico |
+| Vista previa que sigue al cursor | los 3 | catálogo de soluciones (mockups CSS) |
+| Galería horizontal anclada con barra de progreso | Solar / JP | proceso de 4 pasos |
+| Banda CTA que se expande a pantalla completa | los 3 | cierre de cada página |
+| Wordmark gigante del footer, botones magnéticos, texto de botón que rueda, cursor propio | los 3 | global |
+| Ilustraciones SVG que se dibujan + inclinación 3D | Solar | tarjetas de diferencia y labs |
+| **Nuevo:** editor de código que se escribe solo | Syntax | hero |
+| **Nuevo:** red de nodos en canvas que reacciona al puntero | Syntax | hero |
+| **Nuevo:** etiquetas que se «descifran» (scramble) | Syntax | eyebrows de sección |
+| **Nuevo:** spotlight de borde que sigue al mouse | Syntax | tarjetas |
+| **Nuevo:** cortina con el logo entre páginas | Syntax | navegación interna |
+| **Nuevo:** medidores Lighthouse y pipeline con pulso | Syntax | Lab Web / Lab Software |
+
+Todo respeta `prefers-reduced-motion` y funciona sin JS de animación (fallback estático).
+
+---
+
+## 1. Hero
+**Copy**
+- Eyebrow: `● Estudio de ingeniería digital · Maracaibo, VE`
+- H1: **Tu negocio no necesita otra página web. Necesita un _motor_.**
+- Línea mono: `> compilando: ventas_predecibles | operación_sin_fricción | clientes_que_regresan | crecimiento_escalable`
+- Subtítulo: Diseñamos la infraestructura digital de empresas que ya superaron las plantillas: **sitios web de alto rendimiento, CRMs y software interno a medida** que trabajan tan duro como tu equipo comercial.
+- CTAs: **Agendar Consultoría Técnica →** (primario, cian) · **Ver Soluciones** (fantasma)
+
+**UX:** dos columnas: mensaje a la izquierda y, a la derecha, un editor que escribe `negocio.ts`, rodeado de chips flotantes (`deploy → producción`, `API 200 OK`, `Nuevo lead → CRM`). El fondo lleva una retícula con máscara radial, una red de nodos que reacciona al puntero y un halo cian que sigue al mouse. El titular entra por líneas enmascaradas. En móvil todo queda en una columna y el editor baja debajo de los CTAs.
+
+## Manifiesto
+**Copy:** Las plantillas prometen rapidez y entregan deuda técnica. Nosotros escribimos cada línea con un propósito: que tu sitio cargue en un parpadeo, que tu equipo venda con datos y que tu operación crezca sin romperse.
+**UX:** texto grande que se ilumina palabra por palabra al hacer scroll.
+
+## 2. La diferencia
+**Copy**
+- H2: **Ingeniería, _no decoración._**
+- Lead: Una web bonita que no vende es un gasto. Un sistema bien construido es un activo que trabaja 24/7.
+- 4 principios: **Cero plantillas** · **Código limpio** (la «Syntax» de nuestro nombre) · **Arquitectura escalable** · **A la medida exacta**
+- Tabla «Agencia de plantillas vs Syntax»: base del proyecto, velocidad, propiedad, crecimiento, objetivo, soporte.
+- Cifras-compromiso: 0 plantillas · 100% código propio · <2s meta de carga · 24/7.
+
+**UX:** 4 tarjetas con iconos de línea que se dibujan solos y un brillo que sigue al mouse. En la tabla, la columna de la competencia va tachada en rojo tenue y la de Syntax lleva ✓ verde; las filas entran en cascada. Los contadores animados usan el degradado de marca.
+
+## 3. Los dos pilares
+**Copy**
+- H2: **Dos laboratorios. _Un mismo motor._**
+- **Lab Web (Frontend & Conversión):** tu vitrina digital, construida para cargar al instante, posicionar en Google y convertir visitas en conversaciones de venta. Landing pages de alta velocidad · Sitios corporativos con SEO técnico · Catálogos digitales interactivos.
+- **Lab Software (Backend & Sistemas):** los sistemas que hacen funcionar tu empresa por dentro. CRMs personalizados a tu flujo de venta · Plataformas de gestión interna · Automatizaciones, conectores y APIs.
+- Catálogo de 6 soluciones (W.01–W.03, S.01–S.03), cada una enlazada a su sección.
+
+**UX:** dos tarjetas grandes con inclinación 3D (cian para Web, verde para Software) y una ilustración SVG que se dibuja (un navegador en una, un diagrama de nodos con datos en movimiento en la otra). Debajo va la lista de servicios: al pasar el mouse aparece un mockup flotante distinto para cada fila.
+
+## 4. Proceso
+**Copy:** H2 **Sabes qué pasa _en cada commit._**
+1. `análisis()` **Análisis y Arquitectura**: mapa de procesos, arquitectura técnica, propuesta con alcance y tiempos.
+2. `desarrollo()` **Desarrollo a Medida**: entregas por sprint, entorno de pruebas propio, reportes de avance.
+3. `deploy()` **Pruebas y Despliegue**: QA funcional y de rendimiento, lanzamiento controlado, capacitación.
+4. `escalar()` **Soporte y Escalamiento**: monitoreo, mejoras continuas, nuevos módulos sobre la misma base.
+
+**UX:** en escritorio, la sección queda fija y las 4 tarjetas avanzan en horizontal con el scroll. Una barra de progreso acompaña el avance y el número de cada paso se ilumina en cian al activarse. En móvil las tarjetas van apiladas en vertical.
+
+## 5. Autoridad y cierre
+**Copy**
+- H2: **Para líderes que ya _saben_ que su tecnología los frena.** Tres perfiles: `dueños_de_negocio`, `directores_comerciales`, `gerentes_de_operaciones`.
+- FAQ: costo, cobertura geográfica, propiedad del código, integraciones, soporte posterior.
+- Banda final: **Deja atrás los sistemas lentos. _Escala de verdad._** + consultoría de 45 min con mapa técnico. CTAs: Agendar Consultoría Técnica · Escribir por WhatsApp. Microcopy: sin compromiso · respuesta en menos de 24 h hábiles · hablas directo con un ingeniero.
+
+**UX:** la columna izquierda queda fija mientras pasan los perfiles. El FAQ es un acordeón nativo (`<details>`), accesible y bueno para SEO. La banda final tiene una retícula en perspectiva animada y dos orbes de luz, y se expande de tarjeta a pantalla completa con el scroll.
+
+## Páginas
+- `index.html`: home (secciones 1–5)
+- `lab-web.html`: medidores Lighthouse, 3 soluciones con mockups y lo incluido en cada proyecto
+- `lab-software.html`: pipeline animado (lead → CRM → seguimiento → venta → reporte), 3 módulos y estándares de construcción
+- `contacto.html`: formulario de consultoría (chips de servicio, presupuesto, plazo) con confirmación tipo terminal
+- `404.html`: `ROUTE_NOT_FOUND`

@@ -1,0 +1,93 @@
+<!--meta {"title":"Agendar Consultoría Técnica | Syntax Software Studio","description":"Agenda una consultoría técnica gratuita con Syntax Software Studio. Cuéntanos tu proyecto de web, CRM o software a medida y recibe un mapa técnico claro. Maracaibo, Venezuela.","nav":"contacto","bodyClass":"page-contact"} -->
+<section class="contact" id="top" aria-labelledby="contact-title">
+  <div class="hero__gridbg" aria-hidden="true"></div>
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="container contact__grid">
+    <div class="contact__info">
+      <p class="eyebrow" data-hero><span class="dot"></span>Consultoría técnica · sin costo</p>
+      <h1 class="hero__title contact__title" id="contact-title">
+        <span class="line"><span class="line__in">Hablemos de</span></span>
+        <span class="line"><span class="line__in">lo que vas a</span></span>
+        <span class="line"><span class="line__in"><em class="grad">construir.</em></span></span>
+      </h1>
+      <p class="hero__lead" data-hero>Cuéntanos dónde está tu negocio y a dónde quieres llevarlo. Un ingeniero revisará tu caso y te contactará para agendar una sesión de 45 minutos.</p>
+
+      <ol class="next" data-hero>
+        <li><span class="mono">01</span><div><b>Envías el formulario</b><p>Te toma menos de dos minutos.</p></div></li>
+        <li><span class="mono">02</span><div><b>Agendamos la sesión</b><p>Te escribimos por WhatsApp o correo para fijar fecha.</p></div></li>
+        <li><span class="mono">03</span><div><b>Recibes tu mapa técnico</b><p>Qué construir, en qué orden y con qué inversión.</p></div></li>
+      </ol>
+
+      <div class="contact__cards" data-hero>
+        <a class="ccard spot" href="https://wa.me/{{site.wa}}" target="_blank" rel="noopener"><span class="mono">whatsapp</span><b>{{site.phone}}</b></a>
+        <a class="ccard spot" href="mailto:{{site.email}}"><span class="mono">correo</span><b>{{site.email}}</b></a>
+        <div class="ccard spot"><span class="mono">sede</span><b>{{site.city}}, {{site.region}} · {{site.country}}</b></div>
+      </div>
+    </div>
+
+    <div class="contact__formwrap" data-hero>
+      <form class="form spot" id="lead-form" novalidate>
+        <div class="form__bar"><i></i><i></i><i></i><span class="mono">nuevo_proyecto.form</span></div>
+
+        <fieldset class="chips">
+          <legend>¿Qué necesitas?</legend>
+          <label class="chip-opt"><input type="checkbox" name="servicio" value="Landing page" data-group="web" /><span>Landing page</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicio" value="Sitio corporativo" data-group="web" /><span>Sitio corporativo</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicio" value="Catálogo digital" data-group="web" /><span>Catálogo digital</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicio" value="CRM a medida" data-group="software" /><span>CRM a medida</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicio" value="Gestión interna" data-group="software" /><span>Gestión interna</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicio" value="Automatizaciones / APIs" data-group="software" /><span>Automatizaciones / APIs</span></label>
+          <label class="chip-opt"><input type="checkbox" name="servicio" value="No estoy seguro" /><span>Aún no lo sé</span></label>
+        </fieldset>
+
+        <div class="form__row">
+          <div class="field"><label for="f-name">Nombre y apellido *</label><input id="f-name" name="nombre" type="text" autocomplete="name" required /><span class="field__err">Escribe tu nombre.</span></div>
+          <div class="field"><label for="f-company">Empresa</label><input id="f-company" name="empresa" type="text" autocomplete="organization" /></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="f-email">Correo *</label><input id="f-email" name="correo" type="email" autocomplete="email" required /><span class="field__err">Escribe un correo válido.</span></div>
+          <div class="field"><label for="f-phone">WhatsApp *</label><input id="f-phone" name="whatsapp" type="tel" autocomplete="tel" placeholder="+58 412 000 0000" required /><span class="field__err">Escribe un número válido.</span></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="f-budget">Inversión estimada</label>
+            <select id="f-budget" name="presupuesto">
+              <option value="">Selecciona un rango</option>
+              <option>Menos de $500</option>
+              <option>$500 – $1.500</option>
+              <option>$1.500 – $5.000</option>
+              <option>Más de $5.000</option>
+              <option>Prefiero conversarlo</option>
+            </select>
+          </div>
+          <div class="field"><label for="f-time">¿Para cuándo?</label>
+            <select id="f-time" name="plazo">
+              <option value="">Selecciona un plazo</option>
+              <option>Lo antes posible</option>
+              <option>En 1 – 3 meses</option>
+              <option>En más de 3 meses</option>
+              <option>Solo estoy explorando</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Cuéntanos sobre tu proyecto *</label><textarea id="f-msg" name="mensaje" rows="5" placeholder="¿Qué vende tu negocio, qué problema quieres resolver y qué usas hoy?" required></textarea><span class="field__err">Cuéntanos un poco más (mínimo 15 caracteres).</span></div>
+
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="form__foot">
+          <button class="btn btn--primary btn--lg magnetic" type="submit"><span class="btn__text">Enviar y agendar consultoría</span><span class="btn__icon" aria-hidden="true">→</span></button>
+          <p class="form__legal">Usamos tus datos solo para responder a tu solicitud.</p>
+        </div>
+        <p class="form__status mono" role="status" aria-live="polite"></p>
+
+        <div class="form__done" aria-hidden="true">
+          <pre class="mono"><span class="ok-t">✓</span> solicitud recibida
+<span class="ok-t">✓</span> ingeniero asignado
+<span class="ok-t">✓</span> te contactaremos en menos de 24 h hábiles</pre>
+          <h2>¡Gracias! Ya estamos en ello.</h2>
+          <p>Mientras tanto, si prefieres adelantar la conversación, escríbenos directo.</p>
+          <a class="btn btn--ghost magnetic" href="https://wa.me/{{site.wa}}" target="_blank" rel="noopener"><span class="btn__text">Abrir WhatsApp</span></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

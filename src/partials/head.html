@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<script>
+  // "js" habilita los estados iniciales de animación; "intro" muestra el preloader
+  // (la terminal que compila) solo la primera vez que alguien entra al sitio.
+  (function (d) {
+    d.classList.add("js");
+    try {
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches && !sessionStorage.getItem("syntax-intro")) {
+        d.classList.add("intro");
+        sessionStorage.setItem("syntax-intro", "1");
+      }
+      if (sessionStorage.getItem("syntax-curtain")) d.classList.add("from-curtain");
+    } catch (e) {}
+  })(document.documentElement);
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>{{page.title}}</title>
+<meta name="description" content="{{page.description}}" />
+<meta name="theme-color" content="#07090c" />
+<link rel="canonical" href="{{page.canonical}}" />
+{{page.extraHead}}
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="{{site.name}}" />
+<meta property="og:url" content="{{page.canonical}}" />
+<meta property="og:title" content="{{page.title}}" />
+<meta property="og:description" content="{{page.description}}" />
+<meta property="og:locale" content="es_VE" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{page.title}}" />
+<meta name="twitter:description" content="{{page.description}}" />
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "{{site.name}}",
+  "url": "{{site.url}}/",
+  "logo": "{{site.url}}/assets/img/favicon.svg",
+  "telephone": "{{site.phoneHref}}",
+  "email": "{{site.email}}",
+  "address": { "@type": "PostalAddress", "addressLocality": "{{site.city}}", "addressRegion": "{{site.region}}", "addressCountry": "VE" },
+  "areaServed": ["VE", "Latinoamérica", "US"],
+  "availableLanguage": ["es", "en"],
+  "knowsAbout": ["Desarrollo web", "Landing pages", "SEO técnico", "Catálogos digitales", "CRM a medida", "Software de gestión interna", "Automatización de procesos", "Integración de APIs"]
+}
+</script>
+</head>
+<body class="{{page.bodyClass}}">
+<a class="skip" href="#contenido">Saltar al contenido</a>

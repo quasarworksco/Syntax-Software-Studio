@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://quasarworksco.github.io/Syntax-Software-Studio/sitemap.xml

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<script>
+  // "js" habilita los estados iniciales de animación; "intro" muestra el preloader
+  // (la terminal que compila) solo la primera vez que alguien entra al sitio.
+  (function (d) {
+    d.classList.add("js");
+    try {
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches && !sessionStorage.getItem("syntax-intro")) {
+        d.classList.add("intro");
+        sessionStorage.setItem("syntax-intro", "1");
+      }
+      if (sessionStorage.getItem("syntax-curtain")) d.classList.add("from-curtain");
+    } catch (e) {}
+  })(document.documentElement);
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Lab Web — Landing pages, sitios corporativos y catálogos | Syntax Software Studio</title>
+<meta name="description" content="Landing pages de alta velocidad, sitios corporativos con SEO técnico y catálogos digitales interactivos, construidos a mano y sin plantillas en Maracaibo, Venezuela." />
+<meta name="theme-color" content="#07090c" />
+<link rel="canonical" href="https://quasarworksco.github.io/Syntax-Software-Studio/lab-web.html" />
+
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Syntax Software Studio" />
+<meta property="og:url" content="https://quasarworksco.github.io/Syntax-Software-Studio/lab-web.html" />
+<meta property="og:title" content="Lab Web — Landing pages, sitios corporativos y catálogos | Syntax Software Studio" />
+<meta property="og:description" content="Landing pages de alta velocidad, sitios corporativos con SEO técnico y catálogos digitales interactivos, construidos a mano y sin plantillas en Maracaibo, Venezuela." />
+<meta property="og:locale" content="es_VE" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Lab Web — Landing pages, sitios corporativos y catálogos | Syntax Software Studio" />
+<meta name="twitter:description" content="Landing pages de alta velocidad, sitios corporativos con SEO técnico y catálogos digitales interactivos, construidos a mano y sin plantillas en Maracaibo, Venezuela." />
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Syntax Software Studio",
+  "url": "https://quasarworksco.github.io/Syntax-Software-Studio/",
+  "logo": "https://quasarworksco.github.io/Syntax-Software-Studio/assets/img/favicon.svg",
+  "telephone": "+584121002090",
+  "email": "info@dgpglobalgroup.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Maracaibo", "addressRegion": "Zulia", "addressCountry": "VE" },
+  "areaServed": ["VE", "Latinoamérica", "US"],
+  "availableLanguage": ["es", "en"],
+  "knowsAbout": ["Desarrollo web", "Landing pages", "SEO técnico", "Catálogos digitales", "CRM a medida", "Software de gestión interna", "Automatización de procesos", "Integración de APIs"]
+}
+</script>
+</head>
+<body class="page-lab">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__half preloader__half--top"></div>
+  <div class="preloader__half preloader__half--bot"></div>
+  <div class="preloader__stage">
+    <div class="term">
+      <div class="term__bar"><i></i><i></i><i></i><span>syntax@studio: ~/build</span></div>
+      <pre class="term__body"><code class="term__code"></code><span class="caret"></span></pre>
+      <div class="term__progress"><i></i></div>
+    </div>
+  </div>
+</div>
+
+<div class="curtain" aria-hidden="true">
+  <span class="curtain__mark"><svg viewBox="0 0 64 64"><path d="M24 20 12 32l12 12M40 20l12 12-12 12" /><path d="M35 16 29 48" class="slash" /></svg></span>
+</div>
+<div class="cursor" aria-hidden="true"><span class="cursor__label">Ver</span></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="./" aria-label="Syntax Software Studio — inicio">
+    <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M24 20 12 32l12 12M40 20l12 12-12 12" /><path d="M35 16 29 48" class="slash" /></svg>
+    <span class="brand__name">Syntax<small>Software Studio</small></span>
+  </a>
+  <nav class="nav__links" aria-label="Principal">
+    <a href="./#diferencia">La diferencia</a>
+    <a href="lab-web.html" aria-current="page">Lab Web</a>
+    <a href="lab-software.html">Lab Software</a>
+    <a href="./#proceso">Proceso</a>
+  </nav>
+  <div class="nav__cta">
+    <span class="nav__status"><i></i>Agenda abierta</span>
+    <a class="btn btn--primary btn--sm magnetic" href="contacto.html"><span class="btn__text">Agendar consultoría</span></a>
+    <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mmenu" id="mobile-menu" aria-hidden="true">
+  <nav class="mmenu__links" aria-label="Menú móvil">
+    <a href="./"><span>01</span>Inicio</a>
+    <a href="./#diferencia"><span>02</span>La diferencia</a>
+    <a href="lab-web.html"><span>03</span>Lab Web</a>
+    <a href="lab-software.html"><span>04</span>Lab Software</a>
+    <a href="./#proceso"><span>05</span>Proceso</a>
+    <a href="contacto.html"><span>06</span>Contacto</a>
+  </nav>
+  <div class="mmenu__foot">
+    <a href="mailto:info@dgpglobalgroup.com">info@dgpglobalgroup.com</a>
+    <a href="https://wa.me/584121002090" target="_blank" rel="noopener">+58 412 100 2090</a>
+    <span>Maracaibo, Venezuela</span>
+  </div>
+</div>
+
+<main id="contenido">
+<section class="phero" id="top" aria-labelledby="phero-title">
+  <div class="hero__gridbg" aria-hidden="true"></div>
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="container phero__inner">
+    <p class="eyebrow" data-hero><span class="dot"></span>LAB_01 · Frontend &amp; Conversión</p>
+    <h1 class="hero__title phero__title" id="phero-title">
+      <span class="line"><span class="line__in">Sitios que cargan</span></span>
+      <span class="line"><span class="line__in">en un parpadeo y</span></span>
+      <span class="line"><span class="line__in"><em class="grad">venden</em> sin descanso.</span></span>
+    </h1>
+    <p class="hero__lead" data-hero>Tu web es el primer vendedor que conoce un cliente. En el Lab Web la construimos a mano, optimizada para velocidad, posicionamiento y conversión. Ni un kilobyte de más.</p>
+    <div class="hero__actions" data-hero>
+      <a class="btn btn--primary btn--lg magnetic" href="contacto.html?servicio=web"><span class="btn__text">Cotizar mi proyecto web</span><span class="btn__icon" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost btn--lg magnetic" href="#soluciones-web"><span class="btn__text">Ver soluciones</span></a>
+    </div>
+
+    <div class="gauges" data-hero aria-hidden="true">
+      <div class="gauge"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="gauge__bg" /><circle cx="60" cy="60" r="50" pathLength="100" class="gauge__fg" data-gauge="98" /></svg><b class="mono" data-count="98">98</b><span>Rendimiento</span></div>
+      <div class="gauge"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="gauge__bg" /><circle cx="60" cy="60" r="50" pathLength="100" class="gauge__fg" data-gauge="100" /></svg><b class="mono" data-count="100">100</b><span>SEO</span></div>
+      <div class="gauge"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="gauge__bg" /><circle cx="60" cy="60" r="50" pathLength="100" class="gauge__fg" data-gauge="100" /></svg><b class="mono" data-count="100">100</b><span>Buenas prácticas</span></div>
+      <div class="gauge"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="gauge__bg" /><circle cx="60" cy="60" r="50" pathLength="100" class="gauge__fg" data-gauge="96" /></svg><b class="mono" data-count="96">96</b><span>Accesibilidad</span></div>
+    </div>
+    <p class="gauges__note mono" data-hero>* Puntuaciones objetivo en Google Lighthouse para cada sitio que entregamos.</p>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="container">
+    <p class="eyebrow" data-scramble>// por_qué_importa</p>
+    <p class="intro__text" data-words>Cada segundo extra de carga es un cliente que se va con la competencia. Por eso no usamos constructores pesados: escribimos solo el código que tu página necesita y lo medimos antes de lanzarlo.</p>
+  </div>
+</section>
+
+<section class="feature-blocks" id="soluciones-web" aria-label="Soluciones del Lab Web">
+  <div class="container">
+    <article class="fblock" id="landing">
+      <div class="fblock__text">
+        <span class="fblock__n mono">W.01</span>
+        <h2 class="h3" data-split>Landing pages de alta velocidad</h2>
+        <p data-reveal>Páginas con una sola misión: convertir. Para lanzamientos, campañas de pauta o captación de clientes potenciales. Estructura persuasiva, carga inmediata y cada clic medido.</p>
+        <ul class="checks" data-reveal>
+          <li>Copy y estructura orientados a conversión</li>
+          <li>Integración con WhatsApp, formularios y píxeles de anuncios</li>
+          <li>Pruebas A/B y analítica desde el día uno</li>
+        </ul>
+      </div>
+      <div class="fblock__visual spot" data-reveal aria-hidden="true">
+        <div class="mock mock--landing mock--lg"><div class="mock__bar"></div><div class="mock__hero"><i></i><i></i><b></b></div><div class="mock__row"><i></i><i></i><i></i></div></div>
+        <div class="float-tag mono">LCP 0.8s</div>
+      </div>
+    </article>
+
+    <article class="fblock fblock--rev" id="corporativo">
+      <div class="fblock__text">
+        <span class="fblock__n mono">W.02</span>
+        <h2 class="h3" data-split>Sitios corporativos con SEO técnico</h2>
+        <p data-reveal>Tu empresa, presentada con la autoridad que merece y lista para que Google la encuentre. Trabajamos la base técnica del posicionamiento: velocidad, arquitectura, datos estructurados y contenido indexable.</p>
+        <ul class="checks" data-reveal>
+          <li>Arquitectura de información y URLs limpias</li>
+          <li>Schema, sitemap, metadatos y Core Web Vitals</li>
+          <li>Multi-idioma y panel para editar contenido</li>
+        </ul>
+      </div>
+      <div class="fblock__visual spot" data-reveal aria-hidden="true">
+        <div class="mock mock--corp mock--lg"><div class="mock__bar"></div><div class="mock__serp"><i></i><b></b><i></i><i></i><b></b><i></i></div></div>
+        <div class="float-tag mono">indexado ✓ · schema</div>
+      </div>
+    </article>
+
+    <article class="fblock" id="catalogo">
+      <div class="fblock__text">
+        <span class="fblock__n mono">W.03</span>
+        <h2 class="h3" data-split>Catálogos digitales interactivos</h2>
+        <p data-reveal>Muestra tu inventario como una tienda premium. Filtros, buscador, fichas detalladas y pedido directo por WhatsApp o hacia tu CRM, sin depender de marketplaces ni comisiones.</p>
+        <ul class="checks" data-reveal>
+          <li>Filtros, búsqueda y fichas de producto</li>
+          <li>Carrito de pedido a WhatsApp o checkout</li>
+          <li>Panel para actualizar precios y existencias</li>
+        </ul>
+      </div>
+      <div class="fblock__visual spot" data-reveal aria-hidden="true">
+        <div class="mock mock--cat mock--lg"><div class="mock__bar"></div><div class="mock__grid"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="float-tag mono">+ pedido → WhatsApp</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="included" aria-labelledby="inc-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow" data-scramble>// incluido_en_cada_proyecto</p>
+      <h2 class="h2" id="inc-title" data-split>Lo que otros cobran aparte, <em>aquí es estándar.</em></h2>
+    </div>
+    <div class="inc__grid">
+      <div class="inc spot" data-reveal><span class="mono">01</span><h3>Diseño 100% original</h3><p>Identidad visual alineada a tu marca, sin temas reciclados.</p></div>
+      <div class="inc spot" data-reveal><span class="mono">02</span><h3>Responsive real</h3><p>Diseñado para el móvil primero, donde están tus clientes.</p></div>
+      <div class="inc spot" data-reveal><span class="mono">03</span><h3>SEO técnico base</h3><p>Metadatos, schema, sitemap y velocidad desde el inicio.</p></div>
+      <div class="inc spot" data-reveal><span class="mono">04</span><h3>Analítica</h3><p>Sabes de dónde vienen tus visitas y qué hacen.</p></div>
+      <div class="inc spot" data-reveal><span class="mono">05</span><h3>Seguridad</h3><p>HTTPS, formularios protegidos y buenas prácticas.</p></div>
+      <div class="inc spot" data-reveal><span class="mono">06</span><h3>Entrega completa</h3><p>Código, dominio y accesos a tu nombre.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="band-title">
+  <div class="band__media" aria-hidden="true">
+    <div class="band__grid"></div>
+    <div class="band__orb band__orb--a"></div>
+    <div class="band__orb band__orb--b"></div>
+  </div>
+  <div class="container band__inner">
+    <p class="eyebrow" data-scramble>// siguiente_paso()</p>
+    <h2 class="band__title" id="band-title" data-split>Deja atrás los sistemas lentos. <em>Escala de verdad.</em></h2>
+    <p class="band__lead" data-reveal>Si eres dueño de negocio o diriges un equipo comercial y sientes que tu tecnología frena las ventas en lugar de impulsarlas, hablemos. En 45 minutos auditamos tu operación digital y te entregamos un mapa técnico claro: qué construir, en qué orden y con qué retorno esperado.</p>
+    <div class="band__actions" data-reveal>
+      <a class="btn btn--primary btn--lg magnetic" href="contacto.html"><span class="btn__text">Agendar Consultoría Técnica</span><span class="btn__icon" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost btn--lg magnetic" href="https://wa.me/584121002090?text=Hola%20Syntax%2C%20quiero%20hablar%20sobre%20un%20proyecto." target="_blank" rel="noopener"><span class="btn__text">Escribir por WhatsApp</span></a>
+    </div>
+    <ul class="band__proof" data-reveal>
+      <li>Sin compromiso</li>
+      <li>Respuesta en menos de 24 h hábiles</li>
+      <li>Hablas directo con un ingeniero</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__intro">
+        <p class="footer__claim">Ingeniería digital a la medida exacta de tu negocio.</p>
+        <a class="footer__mail" href="mailto:info@dgpglobalgroup.com">info@dgpglobalgroup.com<span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h3>Estudio</h3>
+          <a href="./#diferencia">La diferencia</a>
+          <a href="./#proceso">Proceso</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+        <div>
+          <h3>Labs</h3>
+          <a href="lab-web.html">Lab Web</a>
+          <a href="lab-software.html">Lab Software</a>
+          <a href="lab-software.html#automatizaciones">Automatizaciones</a>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <a href="https://wa.me/584121002090" target="_blank" rel="noopener">+58 412 100 2090</a>
+          <a href="mailto:info@dgpglobalgroup.com">Correo</a>
+          <span>Maracaibo, Zulia<br />Venezuela</span>
+        </div>
+      </div>
+    </div>
+    <p class="footer__big" aria-hidden="true"><span>S</span><span>y</span><span>n</span><span>t</span><span>a</span><span>x</span><span class="footer__dot">.</span></p>
+    <div class="footer__bottom">
+      <span>© 2026 Syntax Software Studio. Todos los derechos reservados.</span>
+      <span class="mono">build: estable · Maracaibo, VE · <a href="#top" class="to-top">volver arriba ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/584121002090?text=Hola%20Syntax%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7Zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.1l-1 1.2c-.2.2-.4.3-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6 0-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.2 2.2.9 3 1 4.1.8.7-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5l-.6-.4Z"/></svg>
+</a>
+
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/vendor/lenis.min.js" defer></script>
+<script>window.SYNTAX = { wa: "584121002090", email: "info@dgpglobalgroup.com", endpoint: "" };</script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
+
