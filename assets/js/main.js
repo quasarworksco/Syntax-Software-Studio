@@ -417,29 +417,29 @@
   const intro = gsap.timeline({ paused: true });
   let t = 0;
   if (withIntro && preloader) {
+    // Secuencia de ~1,2 s: entra el logo, el anillo llega a 100 %, se sostiene la composición completa y se abre.
     const pct = $(".pl__pct b");
     const counter = { v: 0 };
-    gsap.set(".pl__mark", { scale: 0.3, rotate: -120, autoAlpha: 0, filter: "blur(14px)" });
+    gsap.set(".pl__mark", { scale: 0.4, rotate: -90, autoAlpha: 0, filter: "blur(10px)" });
     gsap.set(".pl__word span", { yPercent: 110 });
-    gsap.set([".pl__sub", ".pl__pct", ".pl__rings", ".pl__orbit"], { autoAlpha: 0 });
+    gsap.set([".pl__sub", ".pl__pct", ".pl__orbit"], { autoAlpha: 0 });
     intro
-      .fromTo(".pl__rings", { scale: 0.7, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 1, ease: expo }, 0)
-      .to(".pl__mark", { scale: 1, rotate: 0, autoAlpha: 1, filter: "blur(0px)", duration: 1.2, ease: "expo.out" }, 0.15)
-      .to(".pl__orbit", { autoAlpha: 1, duration: 0.6 }, 0.5)
-      .to(".pl__prog", { strokeDashoffset: 0, duration: 1.9, ease: "power2.inOut" }, 0.3)
-      .to(counter, { v: 100, duration: 1.9, ease: "power2.inOut", onUpdate: () => (pct.textContent = Math.round(counter.v)) }, 0.3)
-      .to(".pl__word span", { yPercent: 0, duration: 0.9, stagger: 0.05, ease: expo }, 0.55)
-      .fromTo(".pl__sub", { letterSpacing: "0.8em", autoAlpha: 0 }, { letterSpacing: "0.32em", autoAlpha: 1, duration: 1.1, ease: expo }, 0.75)
-      .to(".pl__pct", { autoAlpha: 1, duration: 0.5 }, 0.4)
-      // al llegar a 100%: el logo late y el resto se recoge
-      .to(".pl__mark", { scale: 1.12, duration: 0.25, ease: "power2.out" }, 2.2)
-      .to(".pl__mark", { scale: 1, duration: 0.35, ease: "back.out(3)" }, 2.45)
-      .to(".pl__rings", { scale: 1.25, autoAlpha: 0, duration: 0.6, ease: "power2.in" }, 2.5)
-      .to(".pl__orbit", { scale: 0.4, autoAlpha: 0, duration: 0.5, ease: "power2.in" }, 2.5)
-      .to(".preloader__stage", { autoAlpha: 0, y: -20, duration: 0.45, ease: "power2.in" }, 2.7)
-      .to(".preloader__half--top", { yPercent: -100, duration: 1.1, ease: "expo.inOut" }, 2.85)
-      .to(".preloader__half--bot", { yPercent: 100, duration: 1.1, ease: "expo.inOut" }, 2.85);
-    t = 3.1;
+      .fromTo(".pl__rings", { scale: 0.75, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 0.45, ease: expo }, 0)
+      .to(".pl__mark", { scale: 1, rotate: 0, autoAlpha: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0.03)
+      .to([".pl__orbit", ".pl__pct"], { autoAlpha: 1, duration: 0.25 }, 0.1)
+      .to(".pl__prog", { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut" }, 0.08)
+      .to(counter, { v: 100, duration: 0.7, ease: "power2.inOut", onUpdate: () => (pct.textContent = Math.round(counter.v)) }, 0.08)
+      .to(".pl__word span", { yPercent: 0, duration: 0.45, stagger: 0.03, ease: expo }, 0.18)
+      .fromTo(".pl__sub", { letterSpacing: "0.7em", autoAlpha: 0 }, { letterSpacing: "0.32em", autoAlpha: 1, duration: 0.5, ease: expo }, 0.28)
+      // composición completa visible un instante; el logo late
+      .to(".pl__mark", { scale: 1.1, duration: 0.12, ease: "power2.out" }, 0.78)
+      .to(".pl__mark", { scale: 1, duration: 0.2, ease: "back.out(3)" }, 0.9)
+      .to(".pl__rings", { scale: 1.2, autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 0.92)
+      .to(".pl__orbit", { scale: 0.5, autoAlpha: 0, duration: 0.22, ease: "power2.in" }, 0.92)
+      .to(".preloader__stage", { autoAlpha: 0, y: -14, duration: 0.2, ease: "power2.in" }, 0.98)
+      .to(".preloader__half--top", { yPercent: -100, duration: 0.55, ease: "expo.inOut" }, 1.0)
+      .to(".preloader__half--bot", { yPercent: 100, duration: 0.55, ease: "expo.inOut" }, 1.0);
+    t = 1.15;
   } else if (withCurtain) {
     gsap.set(curtain, { scaleY: 1, transformOrigin: "top", "--o": 1 });
     intro.to(curtain, { "--o": 0, duration: 0.2 }, 0).to(curtain, { scaleY: 0, duration: 0.8, ease: "expo.inOut" }, 0.1);
@@ -462,8 +462,12 @@
 
   let started = false;
   const play = () => { if (!started) { started = true; intro.play(); } };
-  (document.fonts ? document.fonts.ready : Promise.resolve()).then(play);
-  setTimeout(play, 900);
+  // Con pantalla de carga se arranca de inmediato (la propia pantalla cubre la carga de fuentes).
+  if (withIntro && preloader) play();
+  else {
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(play);
+    setTimeout(play, 900);
+  }
 
   /* ---------- Hero: parallax y brillo que sigue al puntero ---------- */
   if ($(".hero__content")) {

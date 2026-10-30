@@ -3,16 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <script>
-  // "js" habilita los estados iniciales de animación; "intro" muestra el preloader
-  // (la terminal que compila) solo la primera vez que alguien entra al sitio.
+  // "js" habilita los estados iniciales de animación; "intro" muestra la pantalla de carga
+  // en cada carga o recarga (F5). Al navegar entre páginas se usa la cortina en su lugar.
   (function (d) {
     d.classList.add("js");
     try {
-      if (!matchMedia("(prefers-reduced-motion: reduce)").matches && !sessionStorage.getItem("syntax-intro")) {
-        d.classList.add("intro");
-        sessionStorage.setItem("syntax-intro", "1");
-      }
       if (sessionStorage.getItem("syntax-curtain")) d.classList.add("from-curtain");
+      else if (!matchMedia("(prefers-reduced-motion: reduce)").matches) d.classList.add("intro");
     } catch (e) {}
   })(document.documentElement);
 </script>
