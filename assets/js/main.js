@@ -504,7 +504,7 @@
   gsap.set("[data-reveal]", { y: 60, autoAlpha: 0 });
   ScrollTrigger.batch("[data-reveal]", {
     start: "top 92%",
-    onEnter: (batch) => gsap.to(batch, { y: 0, autoAlpha: 1, duration: 1.3, stagger: 0.08, ease: expo, overwrite: true }),
+    onEnter: (batch) => gsap.to(batch, { y: 0, autoAlpha: 1, duration: 1.3, stagger: 0.08, ease: expo, overwrite: true, clearProps: "transform" }),
   });
 
   /* ---------- Tabla comparativa: filas en cascada ---------- */
@@ -532,6 +532,13 @@
     const img = $("img", m);
     gsap.fromTo(m, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.6, ease: "expo.inOut", scrollTrigger: { trigger: m, start: "top 88%" } });
     gsap.fromTo(img, { yPercent: -6 }, { yPercent: 6, ease: "none", scrollTrigger: { trigger: m, start: "top bottom", end: "bottom top", scrub: true } });
+  });
+
+  /* ---------- Bento de servicios: tarjetas que se revelan y foto con parallax ---------- */
+  $$(".svc").forEach((card, n) => {
+    const img = $(".svc__img", card);
+    gsap.fromTo(card, { clipPath: "inset(18% 6% 18% 6% round 24px)", autoAlpha: 0 }, { clipPath: "inset(0% 0% 0% 0% round 24px)", autoAlpha: 1, duration: 1.4, clearProps: "clipPath", ease: "expo.out", delay: (n % 2) * 0.12, scrollTrigger: { trigger: card, start: "top 90%" } });
+    gsap.fromTo(img, { yPercent: -5 }, { yPercent: 5, ease: "none", scrollTrigger: { trigger: card, start: "top bottom", end: "bottom top", scrub: true } });
   });
 
   /* ---------- Inclinación 3D ---------- */

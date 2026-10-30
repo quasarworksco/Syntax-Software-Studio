@@ -26,3 +26,5 @@ Para recibirla por correo con FormSubmit:
 - `lab-web.webp`: foto `1547658719-da2b51169166`
 - `lab-software.webp`: foto `1460925895917-afdab827c52f`
 - `cta-equipo.webp`: foto `1600880292203-757bb62b4baf`
+- `svc-landing.webp`: `1551650975-87deedd944c3` · `svc-corporativo.webp`: `1559028012-481c04fa702d` · `svc-catalogo.webp`: `1556742049-0cfed4f6a45d`
+- `svc-crm.webp`: `1522202176988-66273c2fd55f` · `svc-gestion.webp`: `1551288049-bebda4e38f71` · `svc-automatizacion.webp`: `1563986768609-322da13575f3`
