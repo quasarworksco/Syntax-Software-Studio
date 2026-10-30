@@ -18,6 +18,8 @@
   if (hasGsap) { gsap.registerPlugin(ScrollTrigger); gsap.config({ nullTargetWarn: false }); }
   const nav = $(".nav");
   const wa = $(".wa-float");
+  const lightHero = $(".hero--light");
+  nav.classList.toggle("on-light", !!lightHero);
 
   /* ---------- Botones: el texto rueda al pasar el mouse ---------- */
   $$(".btn__text").forEach((t) => {
@@ -389,6 +391,7 @@
       wa.classList.toggle("is-visible", y > innerHeight * 0.5);
       nav.classList.toggle("is-hidden", y > lastY && y > innerHeight && !body.classList.contains("menu-open"));
       nav.classList.toggle("is-solid", y > 40);
+      nav.classList.toggle("on-light", !!lightHero && y <= 40);
       lastY = y;
     };
     addEventListener("scroll", onScroll, { passive: true });
@@ -474,6 +477,14 @@
     gsap.to(".hero__content", { y: -100, autoAlpha: 0.1, ease: "none", scrollTrigger: { trigger: ".hero", start: "30% top", end: "bottom top", scrub: true } });
     gsap.to(".hero__visual", { y: -40, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
   }
+  if ($(".hero__photo")) {
+    gsap.to(".hero__photo", { yPercent: 14, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+    gsap.from(".glass", { y: 40, scale: 0.9, autoAlpha: 0, duration: 1.1, stagger: 0.15, ease: "back.out(1.5)", delay: 1.5 });
+    if (finePointer) $(".hero").addEventListener("mousemove", (e) => {
+      const dx = e.clientX / innerWidth - 0.5, dy = e.clientY / innerHeight - 0.5;
+      $$(".glass").forEach((g, n) => gsap.to(g, { x: dx * (18 + n * 10), y: dy * (14 + n * 6), duration: 1.2, ease: "power3", overwrite: "auto" }));
+    });
+  }
   const glow = $(".hero__glow");
   if (glow && finePointer) {
     const gx = gsap.quickTo(glow, "x", { duration: 1.6, ease: "power3" });
@@ -488,6 +499,7 @@
       const y = s.scroll();
       nav.classList.toggle("is-hidden", s.direction === 1 && y > innerHeight && !body.classList.contains("menu-open"));
       nav.classList.toggle("is-solid", y > 40);
+      nav.classList.toggle("on-light", !!lightHero && y <= 40);
       wa.classList.toggle("is-visible", y > innerHeight * 0.5);
     },
   });
@@ -693,7 +705,7 @@
     tl.fromTo(".band__photo", { clipPath: "inset(100% 0% 0% 0% round 26px)" }, { clipPath: "inset(0% 0% 0% 0% round 26px)", duration: 1.5, ease: "expo.inOut" })
       .fromTo(".band__photo img", { scale: 1.35 }, { scale: 1.06, duration: 2, ease: expo }, 0.2)
       .from(".band__card", { y: 40, scale: 0.85, autoAlpha: 0, duration: 1, stagger: 0.18, ease: "back.out(1.6)" }, 0.9)
-      .from(".band__chart i", { scaleY: 0, duration: 0.8, stagger: 0.07, ease: "power3.out" }, 1.3)
+      .from(".band__panel .band__chart i", { scaleY: 0, duration: 0.8, stagger: 0.07, ease: "power3.out" }, 1.3)
       .from(".band__ring", { scale: 0.4, autoAlpha: 0, duration: 1.2, ease: expo }, 0.6);
     gsap.fromTo(".band__visual", { y: 40 }, { y: -40, ease: "none", scrollTrigger: { trigger: ".band", start: "top bottom", end: "bottom top", scrub: true } });
     if (finePointer) {

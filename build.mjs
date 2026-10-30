@@ -45,11 +45,13 @@ for (const file of pages) {
   const page = { path: file === "index.html" ? "" : file, bodyClass: "", ...JSON.parse(m[1]) };
   // La 404 se sirve desde cualquier ruta: necesita <base> para que los enlaces relativos funcionen.
   page.extraHead = page.noindex ? `<meta name="robots" content="noindex" />\n<base href="${site.basePath || "/"}" />` : "";
+  // Las vistas previas (variantes de diseño) no se indexan ni van al sitemap.
+  if (page.preview) page.extraHead = `<meta name="robots" content="noindex" />`;
   page.canonical = `${site.url}/${page.path}`;
   const body = raw.slice(m[0].length);
   const html = render(`<!-- @include head -->\n<!-- @include header -->\n<main id="contenido">\n${body}</main>\n<!-- @include footer -->\n`, page);
   writeFileSync(join(root, file), html);
-  if (!page.noindex) urls.push(page.canonical);
+  if (!page.noindex && !page.preview) urls.push(page.canonical);
   console.log("✓", file);
 }
 

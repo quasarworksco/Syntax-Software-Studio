@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<script>
+  // "js" habilita los estados iniciales de animación; "intro" muestra la pantalla de carga
+  // en cada carga o recarga (F5). Al navegar entre páginas se usa la cortina en su lugar.
+  (function (d) {
+    d.classList.add("js");
+    try {
+      if (sessionStorage.getItem("syntax-curtain")) d.classList.add("from-curtain");
+      else if (!matchMedia("(prefers-reduced-motion: reduce)").matches) d.classList.add("intro");
+    } catch (e) {}
+  })(document.documentElement);
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Vista previa · Hero con foto | Syntax Software Studio</title>
+<meta name="description" content="Variante de diseño del inicio con foto real de fondo." />
+<meta name="theme-color" content="#070b10" />
+<link rel="canonical" href="https://quasarworksco.github.io/Syntax-Software-Studio/inicio-foto.html" />
+<meta name="robots" content="noindex" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Syntax Software Studio" />
+<meta property="og:url" content="https://quasarworksco.github.io/Syntax-Software-Studio/inicio-foto.html" />
+<meta property="og:title" content="Vista previa · Hero con foto | Syntax Software Studio" />
+<meta property="og:description" content="Variante de diseño del inicio con foto real de fondo." />
+<meta property="og:locale" content="es_VE" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Vista previa · Hero con foto | Syntax Software Studio" />
+<meta name="twitter:description" content="Variante de diseño del inicio con foto real de fondo." />
+
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="icon" href="assets/img/favicon-64.png" sizes="64x64" type="image/png" />
+<link rel="icon" href="assets/img/favicon-192.png" sizes="192x192" type="image/png" />
+<link rel="apple-touch-icon" href="assets/img/icon-180.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Syntax Software Studio",
+  "url": "https://quasarworksco.github.io/Syntax-Software-Studio/",
+  "logo": "https://quasarworksco.github.io/Syntax-Software-Studio/assets/img/logo.png",
+  "telephone": "+584121002090",
+  "email": "info@dgpglobalgroup.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Maracaibo", "addressRegion": "Zulia", "addressCountry": "VE" },
+  "areaServed": ["VE", "Latinoamérica", "US"],
+  "availableLanguage": ["es", "en"],
+  "knowsAbout": ["Desarrollo web", "Landing pages", "SEO técnico", "Catálogos digitales", "CRM a medida", "Software de gestión interna", "Automatización de procesos", "Integración de APIs"]
+}
+</script>
+</head>
+<body class="page-home">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__half preloader__half--top"></div>
+  <div class="preloader__half preloader__half--bot"></div>
+  <div class="preloader__stage">
+    <div class="pl">
+      <svg class="pl__rings" viewBox="0 0 220 220">
+        <defs><linearGradient id="plg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#17507b" /><stop offset=".55" stop-color="#1d939f" /><stop offset="1" stop-color="#3cc3ca" /></linearGradient></defs>
+        <circle class="pl__track" cx="110" cy="110" r="96" />
+        <circle class="pl__dash" cx="110" cy="110" r="106" />
+        <circle class="pl__prog" cx="110" cy="110" r="96" pathLength="100" />
+      </svg>
+      <div class="pl__orbit"><i></i><i></i><i></i></div>
+      <div class="pl__mark"><img src="assets/img/logo.png" width="512" height="512" alt="" /></div>
+    </div>
+    <p class="pl__word"><span>S</span><span>y</span><span>n</span><span>t</span><span>a</span><span>x</span></p>
+    <p class="pl__sub">Software Studio</p>
+    <p class="pl__pct"><b>0</b>%</p>
+  </div>
+</div>
+
+<div class="curtain" aria-hidden="true">
+  <img class="curtain__mark" src="assets/img/logo-160.png" width="80" height="80" alt="" />
+</div>
+<div class="cursor" aria-hidden="true"><span class="cursor__label">Ver</span></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="./" aria-label="Syntax Software Studio — inicio">
+    <img class="brand__logo" src="assets/img/logo-dark-160.png" width="42" height="42" alt="" />
+    <img class="brand__logo brand__logo--light" src="assets/img/logo-160.png" width="42" height="42" alt="" />
+    <span class="brand__name">Syntax<small>Software Studio</small></span>
+  </a>
+  <nav class="nav__links" aria-label="Principal">
+    <a href="./#por-que">Por qué Syntax</a>
+    <a href="lab-web.html">Lab Web</a>
+    <a href="lab-software.html">Lab Software</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+  <div class="nav__cta">
+    <a class="btn btn--primary btn--sm magnetic" href="contacto.html"><span class="btn__text">Agendar consultoría</span></a>
+    <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mmenu" id="mobile-menu" aria-hidden="true">
+  <nav class="mmenu__links" aria-label="Menú móvil">
+    <a href="./"><span>01</span>Inicio</a>
+    <a href="./#por-que"><span>02</span>Por qué Syntax</a>
+    <a href="lab-web.html"><span>03</span>Lab Web</a>
+    <a href="lab-software.html"><span>04</span>Lab Software</a>
+    <a href="./#faq"><span>05</span>Preguntas frecuentes</a>
+    <a href="contacto.html"><span>06</span>Contacto</a>
+  </nav>
+  <div class="mmenu__foot">
+    <a href="mailto:info@dgpglobalgroup.com">info@dgpglobalgroup.com</a>
+    <a href="https://wa.me/584121002090" target="_blank" rel="noopener">+58 412 100 2090</a>
+  </div>
+</div>
+
+<main id="contenido">
+<!-- ===================== 1. HERO ===================== -->
+<section class="hero hero--photo" id="top" aria-labelledby="hero-title">
+  <div class="hero__photo" aria-hidden="true">
+    <img src="assets/img/photos/hero-equipo.webp" srcset="assets/img/photos/hero-equipo-900.webp 900w, assets/img/photos/hero-equipo.webp 1920w" sizes="100vw" alt="" width="1920" height="1280" fetchpriority="high" decoding="async" />
+  </div>
+  <div class="hero__shade" aria-hidden="true"></div>
+  <div class="hero__glow" aria-hidden="true"></div>
+
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="eyebrow" data-hero><span class="dot"></span>Estudio de ingeniería digital<span class="hide-sm"> · Software a medida</span></p>
+      <h1 class="hero__title" id="hero-title">
+        <span class="line"><span class="line__in">Tu negocio no necesita</span></span>
+        <span class="line"><span class="line__in">otra página web.</span></span>
+        <span class="line"><span class="line__in">Necesita un <em class="grad">motor.</em></span></span>
+      </h1>
+      <p class="hero__compile mono" data-hero aria-hidden="true">
+        <span class="prompt">&gt;</span> construyendo:
+        <span class="rotator">
+          <span class="rotator__item is-active">ventas predecibles</span>
+          <span class="rotator__item">operación sin fricción</span>
+          <span class="rotator__item">clientes que regresan</span>
+          <span class="rotator__item">crecimiento sostenido</span>
+        </span>
+      </p>
+      <p class="hero__lead" data-hero>Diseñamos la infraestructura digital de tu empresa: <strong>páginas web que venden, sistemas para gestionar tus clientes y herramientas a la medida de tu empresa</strong> que trabajan tan duro como tu equipo comercial.</p>
+      <div class="hero__actions" data-hero>
+        <a class="btn btn--primary btn--lg magnetic" href="contacto.html"><span class="btn__text">Agendar Consultoría Técnica</span><span class="btn__icon" aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost btn--lg magnetic" href="#pilares"><span class="btn__text">Ver Soluciones</span></a>
+      </div>
+    </div>
+
+    <div class="hero__float" data-hero aria-hidden="true">
+      <div class="glass glass--a"><span class="band__ico"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z" /></svg></span><div><b>Sitio publicado</b><small>carga en 0.8 s</small></div></div>
+      <div class="glass glass--b"><div class="band__chart"><i style="--h:38%"></i><i style="--h:55%"></i><i style="--h:47%"></i><i style="--h:72%"></i><i style="--h:100%"></i></div><div><b>Ventas del mes</b><small>▲ 24% vs mes anterior</small></div></div>
+      <div class="glass glass--c"><span class="band__check">✓</span><div><b>Nuevo cliente</b><small>registrado en tu CRM</small></div></div>
+    </div>
+  </div>
+
+  <a class="hero__scroll" href="#manifiesto" aria-label="Bajar al contenido"><span class="mono">scroll</span><i></i></a>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Páginas web</span><span>Tiendas y catálogos</span><span>Gestión de clientes (CRM)</span><span>Ventas en línea</span><span>Aparecer en Google</span><span>Automatización</span><span>Reportes en tiempo real</span><span>Paneles de gestión</span><span>Formularios inteligentes</span><span>Soporte continuo</span>
+    <span>Páginas web</span><span>Tiendas y catálogos</span><span>Gestión de clientes (CRM)</span><span>Ventas en línea</span><span>Aparecer en Google</span><span>Automatización</span><span>Reportes en tiempo real</span><span>Paneles de gestión</span><span>Formularios inteligentes</span><span>Soporte continuo</span>
+  </div>
+</div>
+
+<!-- ===================== MANIFIESTO ===================== -->
+<section class="intro theme-light" id="manifiesto">
+  <div class="container">
+    <p class="eyebrow" data-scramble>Nuestra visión</p>
+    <p class="intro__text" data-words>Construimos tecnología con un solo propósito: que tu negocio venda más y opere mejor. Sitios que cargan en un parpadeo, sistemas que ordenan tu operación y datos que guían cada decisión.</p>
+  </div>
+</section>
+
+<!-- ===================== 2. LA DIFERENCIA ===================== -->
+<section class="diff theme-light" id="por-que" aria-labelledby="diff-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow" data-scramble>01 — Por qué Syntax</p>
+      <h2 class="h2" id="diff-title" data-split>Tecnología que <em>trabaja por ti.</em></h2>
+      <p class="section-head__lead" data-reveal>Una web que no vende es un gasto. Un sistema bien construido es un activo que trabaja 24/7. Así es como construimos cada proyecto.</p>
+    </div>
+
+    <div class="pillars4">
+      <article class="pcard spot" data-reveal>
+        <span class="pcard__num mono">01</span>
+        <div class="pcard__art"><svg viewBox="0 0 80 80" class="draw"><path d="M12 64h56" /><path d="M14 54l16-18 12 10 24-26" /><path d="M52 20h14v14" /></svg></div>
+        <h3>Estrategia primero</h3>
+        <p>Antes de diseñar entendemos tu modelo de negocio, tus clientes y tus metas comerciales. Cada decisión técnica responde a un objetivo.</p>
+      </article>
+      <article class="pcard spot" data-reveal>
+        <span class="pcard__num mono">02</span>
+        <div class="pcard__art"><svg viewBox="0 0 80 80" class="draw"><path d="M28 22 12 40l16 18M52 22l16 18-16 18" /><path d="M45 16 35 64" /></svg></div>
+        <h3>Código limpio</h3>
+        <p>La «Syntax» de nuestro nombre: trabajo ordenado y bien hecho. Tu sitio carga rápido hoy y es fácil de mejorar mañana.</p>
+      </article>
+      <article class="pcard spot" data-reveal>
+        <span class="pcard__num mono">03</span>
+        <div class="pcard__art"><svg viewBox="0 0 80 80" class="draw"><rect x="12" y="52" width="56" height="14" rx="3" /><rect x="20" y="34" width="40" height="14" rx="3" /><rect x="28" y="16" width="24" height="14" rx="3" /></svg></div>
+        <h3>Crece contigo</h3>
+        <p>Construimos sobre bases sólidas. Cuando tu negocio crece, agregamos nuevas funciones sin tener que empezar de cero.</p>
+      </article>
+      <article class="pcard spot" data-reveal>
+        <span class="pcard__num mono">04</span>
+        <div class="pcard__art"><svg viewBox="0 0 80 80" class="draw"><circle cx="40" cy="40" r="26" /><circle cx="40" cy="40" r="15" /><circle cx="40" cy="40" r="4" /><path d="M40 6v12M40 62v12M6 40h12M62 40h12" /></svg></div>
+        <h3>A la medida exacta</h3>
+        <p>Primero entendemos cómo vendes y operas; después escribimos código. La tecnología se adapta a tu proceso, no al revés.</p>
+      </article>
+    </div>
+
+    <div class="flow" data-reveal>
+      <p class="flow__head"><img src="assets/img/logo-160.png" width="24" height="24" alt="" />Lo que hacemos <span class="nowrap"><span aria-hidden="true">→</span> <b>lo que gana tu negocio</b></span></p>
+      <ol class="flow__steps">
+        <li class="flow__step"><span class="flow__dot">01</span><b>Analizamos</b><p>Tecnología alineada a tus metas</p></li>
+        <li class="flow__step"><span class="flow__dot">02</span><b>Optimizamos</b><p>Más visitas que se quedan y compran</p></li>
+        <li class="flow__step"><span class="flow__dot">03</span><b>Conectamos</b><p>Un solo flujo de ventas, sin tareas manuales</p></li>
+        <li class="flow__step"><span class="flow__dot">04</span><b>Lanzamos</b><p>Tu sitio o sistema listo y funcionando</p></li>
+        <li class="flow__step"><span class="flow__dot">05</span><b>Crecemos</b><p>Nuevas funciones sin empezar de cero</p></li>
+        <li class="flow__step"><span class="flow__dot">06</span><b>Acompañamos</b><p>Mejoras y respuestas rápidas</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 3. LOS DOS PILARES ===================== -->
+<section class="labs" id="pilares" aria-labelledby="labs-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow" data-scramble>02 — Nuestros dos pilares</p>
+      <h2 class="h2" id="labs-title" data-split>Dos laboratorios. <em>Un mismo motor.</em></h2>
+      <p class="section-head__lead" data-reveal>El frente que atrae y convierte, y el sistema que organiza y escala. Puedes empezar por uno; están diseñados para conectarse.</p>
+    </div>
+
+    <div class="labs__grid">
+      <a class="lab spot" href="lab-web.html" data-reveal>
+        <div class="lab__media">
+          <img src="assets/img/photos/lab-web.webp" alt="Sitio web que se adapta a computadora, tablet y celular" width="1000" height="625" loading="lazy" decoding="async" />
+          <span class="lab__tag mono">Lab 01 · Diseño web y ventas</span>
+          <span class="lab__badge mono"><i class="ok"></i>Carga en 0.8 s</span>
+        </div>
+        <div class="lab__body">
+          <div class="lab__row"><h3 class="lab__title">Lab Web</h3><span class="lab__arrow" aria-hidden="true">↗</span></div>
+          <p class="lab__desc">Tu vitrina digital: carga al instante, aparece en Google y convierte visitas en clientes.</p>
+          <ul class="lab__chips"><li>Landing pages</li><li>Sitios corporativos</li><li>Catálogos digitales</li></ul>
+        </div>
+      </a>
+
+      <a class="lab lab--alt spot" href="lab-software.html" data-reveal>
+        <div class="lab__media">
+          <img src="assets/img/photos/lab-software.webp" alt="Panel con reportes de ventas en una laptop" width="1000" height="625" loading="lazy" decoding="async" />
+          <span class="lab__tag mono">Lab 02 · Sistemas para tu empresa</span>
+          <span class="lab__badge mono"><i class="ok"></i>Reportes en vivo</span>
+        </div>
+        <div class="lab__body">
+          <div class="lab__row"><h3 class="lab__title">Lab Software</h3><span class="lab__arrow" aria-hidden="true">↗</span></div>
+          <p class="lab__desc">Los sistemas que ordenan tu empresa por dentro: menos hojas de cálculo y tareas manuales.</p>
+          <ul class="lab__chips"><li>CRM de clientes</li><li>Gestión interna</li><li>Automatizaciones</li></ul>
+        </div>
+      </a>
+    </div>
+
+    <div class="services">
+      <div class="services__top" data-reveal>
+        <p class="services__label mono">Catálogo de soluciones</p>
+        <p class="services__hint mono" aria-hidden="true">Desliza →</p>
+      </div>
+      <div class="services__grid">
+        <a class="svc svc--web svc--lg spot" href="lab-web.html#landing">
+          <img class="svc__img" src="assets/img/photos/svc-landing.webp" alt="" width="1000" height="667" loading="lazy" decoding="async" />
+          <span class="svc__shade" aria-hidden="true"></span>
+          <div class="svc__top"><span class="svc__num mono">01</span><span class="svc__tag mono">Web</span></div>
+          <span class="svc__arrow" aria-hidden="true">↗</span>
+          <div class="svc__bottom">
+            <span class="svc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+            <h3 class="svc__title">Landing pages de alta velocidad</h3>
+            <p class="svc__desc">Una sola misión: convertir. Carga inmediata, mensaje claro y cada clic medido.</p>
+            <ul class="svc__feat"><li>Mensaje claro</li><li>Formularios que convierten</li></ul>
+          </div>
+        </a>
+        <a class="svc svc--web  spot" href="lab-web.html#corporativo">
+          <img class="svc__img" src="assets/img/photos/svc-corporativo.webp" alt="" width="1000" height="667" loading="lazy" decoding="async" />
+          <span class="svc__shade" aria-hidden="true"></span>
+          <div class="svc__top"><span class="svc__num mono">02</span><span class="svc__tag mono">Web</span></div>
+          <span class="svc__arrow" aria-hidden="true">↗</span>
+          <div class="svc__bottom">
+            <span class="svc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M8 11h6M11 8v6"/></svg></span>
+            <h3 class="svc__title">Sitios corporativos listos para Google</h3>
+            <p class="svc__desc">Rápidos, bien organizados y preparados para aparecer en las búsquedas.</p>
+            <ul class="svc__feat"><li>Contenido organizado</li><li>Visible en Google</li></ul>
+          </div>
+        </a>
+        <a class="svc svc--web  spot" href="lab-web.html#catalogo">
+          <img class="svc__img" src="assets/img/photos/svc-catalogo.webp" alt="" width="1000" height="667" loading="lazy" decoding="async" />
+          <span class="svc__shade" aria-hidden="true"></span>
+          <div class="svc__top"><span class="svc__num mono">03</span><span class="svc__tag mono">Web</span></div>
+          <span class="svc__arrow" aria-hidden="true">↗</span>
+          <div class="svc__bottom">
+            <span class="svc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>
+            <h3 class="svc__title">Catálogos digitales interactivos</h3>
+            <p class="svc__desc">Tus productos con filtros, fichas detalladas y pedidos en línea.</p>
+            <ul class="svc__feat"><li>Filtros y buscador</li><li>Pedidos en línea</li></ul>
+          </div>
+        </a>
+        <a class="svc svc--sw svc--lg spot" href="lab-software.html#crm">
+          <img class="svc__img" src="assets/img/photos/svc-crm.webp" alt="" width="1000" height="667" loading="lazy" decoding="async" />
+          <span class="svc__shade" aria-hidden="true"></span>
+          <div class="svc__top"><span class="svc__num mono">04</span><span class="svc__tag mono">Software</span></div>
+          <span class="svc__arrow" aria-hidden="true">↗</span>
+          <div class="svc__bottom">
+            <span class="svc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 4.5a3 3 0 0 1 0 6M21 20a6 6 0 0 0-3.5-5.4"/></svg></span>
+            <h3 class="svc__title">CRM a la medida</h3>
+            <p class="svc__desc">Tus clientes, el seguimiento de cada venta y tus reportes en un solo lugar.</p>
+            <ul class="svc__feat"><li>Seguimiento de clientes</li><li>Reportes por vendedor</li></ul>
+          </div>
+        </a>
+        <a class="svc svc--sw  spot" href="lab-software.html#gestion">
+          <img class="svc__img" src="assets/img/photos/svc-gestion.webp" alt="" width="1000" height="667" loading="lazy" decoding="async" />
+          <span class="svc__shade" aria-hidden="true"></span>
+          <div class="svc__top"><span class="svc__num mono">05</span><span class="svc__tag mono">Software</span></div>
+          <span class="svc__arrow" aria-hidden="true">↗</span>
+          <div class="svc__bottom">
+            <span class="svc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></span>
+            <h3 class="svc__title">Plataformas de gestión interna</h3>
+            <p class="svc__desc">Inventario, órdenes, citas o cobranzas en un solo panel con permisos por persona.</p>
+            <ul class="svc__feat"><li>Inventario y órdenes</li><li>Permisos por persona</li></ul>
+          </div>
+        </a>
+        <a class="svc svc--sw  spot" href="lab-software.html#automatizaciones">
+          <img class="svc__img" src="assets/img/photos/svc-automatizacion.webp" alt="" width="1000" height="667" loading="lazy" decoding="async" />
+          <span class="svc__shade" aria-hidden="true"></span>
+          <div class="svc__top"><span class="svc__num mono">06</span><span class="svc__tag mono">Software</span></div>
+          <span class="svc__arrow" aria-hidden="true">↗</span>
+          <div class="svc__bottom">
+            <span class="svc__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 9"/><path d="M20 4v5h-5"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 15"/><path d="M4 20v-5h5"/></svg></span>
+            <h3 class="svc__title">Automatizaciones e integraciones</h3>
+            <p class="svc__desc">Tus formularios, correo, pagos y hojas de cálculo trabajando juntos.</p>
+            <ul class="svc__feat"><li>Avisos automáticos</li><li>Herramientas conectadas</li></ul>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 5. AUTORIDAD ===================== -->
+<section class="who" aria-labelledby="faq-title">
+  <div class="container faq" id="faq">
+    <p class="eyebrow" data-scramble>03 — Preguntas frecuentes</p>
+    <h2 class="h2 faq__title" id="faq-title" data-split>Lo que suelen <em>preguntarnos.</em></h2>
+    <div class="faq__list">
+      <details class="faq__item" data-reveal>
+        <summary>¿Cuánto cuesta un proyecto con Syntax?<span aria-hidden="true"></span></summary>
+        <p>Depende del alcance: una landing page no se cotiza igual que un CRM. Por eso empezamos con una consultoría técnica gratuita; al terminar recibes una propuesta cerrada con alcance, tiempos y precio, sin sorpresas.</p>
+      </details>
+      <details class="faq__item" data-reveal>
+        <summary>¿Trabajan con empresas de cualquier ciudad?<span aria-hidden="true"></span></summary>
+        <p>Sí. Trabajamos de forma remota con empresas de toda Venezuela, Latinoamérica y Estados Unidos. Las reuniones, entregas y revisiones se hacen en línea, sin importar dónde esté tu equipo.</p>
+      </details>
+      <details class="faq__item" data-reveal>
+        <summary>¿Pueden conectar el sistema con las herramientas que ya uso?<span aria-hidden="true"></span></summary>
+        <p>En la mayoría de los casos, sí. Conectamos correo, formularios, pasarelas de pago, hojas de cálculo y otras plataformas entre sí para que la información fluya sola, sin copiar y pegar.</p>
+      </details>
+      <details class="faq__item" data-reveal>
+        <summary>¿Qué pasa después del lanzamiento?<span aria-hidden="true"></span></summary>
+        <p>Ofrecemos planes de soporte y escalamiento: monitoreo, mantenimiento, mejoras y nuevas funciones. Tu sistema evoluciona al ritmo de tu negocio.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="band theme-light" aria-labelledby="band-title">
+  <div class="container">
+    <div class="band__panel">
+      <div class="band__text">
+        <p class="eyebrow" data-scramble>Siguiente paso</p>
+        <h2 class="band__title" id="band-title" data-split>Deja atrás los sistemas lentos. <em>Escala de verdad.</em></h2>
+        <p class="band__lead" data-reveal>En 45 minutos revisamos cómo funciona hoy tu negocio en internet y te entregamos un plan claro: qué hacer, en qué orden y qué resultados esperar.</p>
+        <div class="band__actions" data-reveal>
+          <a class="btn btn--primary btn--lg btn--shine magnetic" href="contacto.html"><span class="btn__text">Agendar Consultoría Técnica</span><span class="btn__icon" aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost btn--lg magnetic" href="https://wa.me/584121002090?text=Hola%20Syntax%2C%20quiero%20hablar%20sobre%20un%20proyecto." target="_blank" rel="noopener"><span class="btn__text">Escribir por WhatsApp</span></a>
+        </div>
+        <ul class="band__proof">
+          <li data-reveal>Sin compromiso</li>
+          <li data-reveal>Respuesta en menos de 24 h hábiles</li>
+        </ul>
+      </div>
+
+      <div class="band__visual" aria-hidden="true">
+        <div class="band__photo">
+          <img src="assets/img/photos/cta-equipo.webp" alt="" width="720" height="900" loading="lazy" decoding="async" />
+        </div>
+        <div class="band__card band__card--a">
+          <span class="band__ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3" /><path d="M3 10h18M8 3v4M16 3v4" /></svg></span>
+          <div><b>Consultoría agendada</b><small>45 min · en línea</small></div>
+        </div>
+        <div class="band__card band__card--b">
+          <div class="band__chart"><i style="--h:38%"></i><i style="--h:52%"></i><i style="--h:46%"></i><i style="--h:70%"></i><i style="--h:84%"></i><i style="--h:100%"></i></div>
+          <div><b>Tu negocio, creciendo</b><small>ventas y clientes al día</small></div>
+        </div>
+        <div class="band__card band__card--c">
+          <span class="band__check">✓</span><b>Plan de acción listo</b>
+        </div>
+        <span class="band__ring" ></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__intro">
+        <img class="footer__logo" src="assets/img/logo-dark-160.png" width="64" height="64" alt="Syntax Software Studio" loading="lazy" />
+        <p class="footer__claim">Ingeniería digital a la medida exacta de tu negocio.</p>
+        <a class="footer__mail" href="mailto:info@dgpglobalgroup.com">info@dgpglobalgroup.com<span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h3>Estudio</h3>
+          <a href="./#por-que">Por qué Syntax</a>
+          <a href="./#faq">Preguntas frecuentes</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+        <div>
+          <h3>Labs</h3>
+          <a href="lab-web.html">Lab Web</a>
+          <a href="lab-software.html">Lab Software</a>
+          <a href="lab-software.html#automatizaciones">Automatizaciones</a>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <a href="https://wa.me/584121002090" target="_blank" rel="noopener">+58 412 100 2090</a>
+          <a href="mailto:info@dgpglobalgroup.com">Correo</a>
+          <span>Maracaibo, Zulia<br />Venezuela</span>
+        </div>
+      </div>
+    </div>
+    <p class="footer__big" aria-hidden="true"><span>S</span><span>y</span><span>n</span><span>t</span><span>a</span><span>x</span><span class="footer__dot">.</span></p>
+    <div class="footer__bottom">
+      <span>© 2026 Syntax Software Studio. Todos los derechos reservados.</span>
+      <a class="dgp-badge" href="https://dgpglobalgroup.com" target="_blank" rel="noopener" title="DGP Global Group"><img src="assets/img/dgp/logo-mark-48.webp" srcset="assets/img/dgp/logo-mark-48.webp 1x, assets/img/dgp/logo-mark-96.webp 2x" alt="" width="20" height="20" loading="lazy" decoding="async" /><span>Powered by <b>DGP Global Group</b></span></a>
+      <span class="mono">Maracaibo, Venezuela · <a href="#top" class="to-top">volver arriba ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/584121002090?text=Hola%20Syntax%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7Zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.1l-1 1.2c-.2.2-.4.3-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6 0-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.2 2.2.9 3 1 4.1.8.7-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5l-.6-.4Z"/></svg>
+</a>
+
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/vendor/lenis.min.js" defer></script>
+<script>window.SYNTAX = { wa: "584121002090", email: "info@dgpglobalgroup.com", endpoint: "" };</script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
+

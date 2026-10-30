@@ -33,3 +33,4 @@ Para recibirla por correo con FormSubmit:
 `assets/img/portafolio/` contiene capturas de proyectos reales del portafolio de DGP Global Group (repositorio `dgpglobal`):
 Cleaning Group, Pina Water System, MQ Store, Tecmeca, Caibo Construction y The Sweet Zone (sitios web).
 Las pantallas `sistema-*.webp` son maquetas con datos ficticios (marca «Tu Empresa»), no datos de clientes.
+- `hero-equipo.webp`: foto `1551434678-e076c223a692` (variante de hero con foto)
