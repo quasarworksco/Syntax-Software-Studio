@@ -470,7 +470,14 @@ i.ok { display: inline-block; width: 7px; height: 7px; border-radius: 50%; backg
 .footer__big span:hover { color: var(--teal); -webkit-text-stroke-color: var(--teal); }
 .footer__dot { color: var(--teal); -webkit-text-stroke: 0; }
 .footer__bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 13px; color: var(--dim); }
+.footer__bottom { align-items: center; }
 .footer__bottom a:hover { color: var(--teal); }
+/* Sello "Powered by DGP Global Group" */
+.dgp-badge { display: inline-flex; align-items: center; gap: 9px; height: 36px; padding: 0 14px 0 6px; border: 1px solid var(--line-2); border-radius: 999px; font-size: 12px; letter-spacing: .02em; color: var(--muted); transition: border-color .4s, color .4s, background .4s; }
+.dgp-badge img { width: 24px; height: 24px; padding: 3px; border-radius: 50%; background: #fff; object-fit: contain; transition: transform .6s var(--ease); }
+.dgp-badge b { font-weight: 600; color: var(--text); letter-spacing: .02em; }
+.footer__bottom .dgp-badge:hover { border-color: var(--teal); background: rgba(60, 195, 202, .06); color: var(--text); }
+.dgp-badge:hover img { transform: rotate(-12deg) scale(1.08); }
 
 .wa-float { position: fixed; right: 22px; bottom: 22px; z-index: 150; display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; background: #25d366; box-shadow: 0 14px 40px -10px rgba(37, 211, 102, .7); transform: scale(0); transition: transform .6s var(--ease); }
 .wa-float.is-visible { transform: scale(1); }

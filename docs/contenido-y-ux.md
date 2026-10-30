@@ -4,10 +4,10 @@ Documento de referencia del sitio. El texto exacto vive en `src/pages/*.html`; a
 
 ## Identidad
 - **Paleta (tomada del logo):** azul marino `#17507B` / `#0E426A` y turquesa `#32B3B9` / `#1D939F`. Sobre fondo oscuro (`#070B10`, paneles `#0E1621`) se usan aclarados: turquesa `#3CC3CA` y azul `#5B9FDB`. Degradado azul→turquesa en palabras clave.
-- **Ritmo de secciones:** alternan oscuras y claras (`#F3F7FA` con retícula de puntos y halo turquesa). Home: hero oscuro → manifiesto + Por qué Syntax claros → Labs oscuro → Proceso claro → Para quién/FAQ oscuro → CTA. Labs: hero oscuro → intro clara → soluciones oscuras → incluido claro → CTA.
+- **Ritmo de secciones:** alternan oscuras y claras (`#F3F7FA` con retícula de puntos y halo turquesa). Home: hero oscuro → visión + Por qué Syntax claros → Labs oscuro → Para quién/FAQ oscuro → CTA. Labs: hero oscuro → intro clara → soluciones oscuras → incluido claro → CTA.
 - **Tipografía:** Space Grotesk (titulares, tracking negativo), Inter (texto), JetBrains Mono (etiquetas tipo código: `// manifiesto`, `análisis()`).
 - **Logo:** `assets/img/logo.png` (fondo claro) y `logo-dark.png` (variante con el azul aclarado para fondo oscuro). Original en `assets/img/logo-original.png`.
-- **Voz:** directa, técnica sin jerga vacía, enfocada en negocio (ventas, operación, escala).
+- **Voz:** directa y en lenguaje de negocio. Sin términos técnicos que el cliente no use (nada de commit, deploy, API, sprint, frontend/backend, LCP…). Si un término es necesario (CRM, Google), se acompaña de una explicación sencilla. Hablamos de nuestros servicios y de lo que gana el cliente, no de lo que hacen otros.
 
 ## Sistema de animación (heredado de JP Real Estate, Solar Engineering y All in One + efectos propios)
 | Efecto | Origen | Dónde |
@@ -19,7 +19,6 @@ Documento de referencia del sitio. El texto exacto vive en `src/pages/*.html`; a
 | Texto que se ilumina con el scroll | los 3 | manifiestos |
 | Marquesina que reacciona a la velocidad del scroll | los 3 | stack tecnológico |
 | Vista previa que sigue al cursor | los 3 | catálogo de soluciones (mockups CSS) |
-| Galería horizontal anclada con barra de progreso | Solar / JP | proceso de 4 pasos |
 | Banda CTA que se expande a pantalla completa | los 3 | cierre de cada página |
 | Wordmark gigante del footer, botones magnéticos, texto de botón que rueda, cursor propio | los 3 | global |
 | Ilustraciones SVG que se dibujan + inclinación 3D | Solar | tarjetas de «Por qué Syntax» y labs |
@@ -67,16 +66,7 @@ Todo respeta `prefers-reduced-motion` y funciona sin JS de animación (fallback 
 
 **UX:** dos tarjetas grandes con inclinación 3D (cian para Web, verde para Software) y una ilustración SVG que se dibuja (un navegador en una, un diagrama de nodos con datos en movimiento en la otra). Debajo va la lista de servicios: al pasar el mouse aparece un mockup flotante distinto para cada fila.
 
-## 4. Proceso
-**Copy:** H2 **Sabes qué pasa _en cada commit._**
-1. `análisis()` **Análisis y Arquitectura**: mapa de procesos, arquitectura técnica, propuesta con alcance y tiempos.
-2. `desarrollo()` **Desarrollo a Medida**: entregas por sprint, entorno de pruebas propio, reportes de avance.
-3. `deploy()` **Pruebas y Despliegue**: QA funcional y de rendimiento, lanzamiento controlado, capacitación.
-4. `escalar()` **Soporte y Escalamiento**: monitoreo, mejoras continuas, nuevos módulos sobre la misma base.
-
-**UX:** en escritorio, la sección queda fija y las 4 tarjetas avanzan en horizontal con el scroll. Una barra de progreso acompaña el avance y el número de cada paso se ilumina en cian al activarse. En móvil las tarjetas van apiladas en vertical.
-
-## 5. Autoridad y cierre
+## 4. Autoridad y cierre
 **Copy**
 - H2: **Para líderes que ya _saben_ que su tecnología los frena.** Tres perfiles: `dueños_de_negocio`, `directores_comerciales`, `gerentes_de_operaciones`.
 - FAQ: costo, cobertura geográfica, propiedad del código, integraciones, soporte posterior.
@@ -85,7 +75,7 @@ Todo respeta `prefers-reduced-motion` y funciona sin JS de animación (fallback 
 **UX:** la columna izquierda queda fija mientras pasan los perfiles. El FAQ es un acordeón nativo (`<details>`), accesible y bueno para SEO. La banda final tiene una retícula en perspectiva animada y dos orbes de luz, y se expande de tarjeta a pantalla completa con el scroll.
 
 ## Páginas
-- `index.html`: home (secciones 1–5)
+- `index.html`: home (hero, visión, Por qué Syntax, Labs, para quién + FAQ, CTA)
 - `lab-web.html`: medidores Lighthouse, 3 soluciones con mockups y lo incluido en cada proyecto
 - `lab-software.html`: pipeline animado (lead → CRM → seguimiento → venta → reporte), 3 módulos y estándares de construcción
 - `contacto.html`: formulario de consultoría (chips de servicio, presupuesto, plazo) con confirmación tipo terminal

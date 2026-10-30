@@ -114,7 +114,7 @@
         ["a", "  reportes: "], ["s", '"tiempo-real"'], ["p", ",\n});\n\n"],
         ["k", "await"], ["p", " negocio."], ["f", "deploy"], ["p", "();"],
       ],
-      out: ['<span class="t-c">$</span> syntax build', '<span class="t-ok">✓</span> 12 módulos compilados <span class="t-d">· 1.2s</span>'],
+      out: ['<span class="t-c">$</span> syntax preparar', '<span class="t-ok">✓</span> motor del negocio listo <span class="t-d">· 1.2 s</span>'],
     },
     {
       lang: "TypeScript",
@@ -127,7 +127,7 @@
         ["a", "  seguimiento: "], ["p", "{ cada: "], ["s", '"24h"'], ["p", " },\n"],
         ["a", "  reportes: "], ["p", "["], ["s", '"vendedor"'], ["p", ", "], ["s", '"canal"'], ["p", "],\n});"],
       ],
-      out: ['<span class="t-c">$</span> syntax crm sync', '<span class="t-ok">✓</span> pipeline activo <span class="t-d">· 4 etapas · auto-asignación</span>'],
+      out: ['<span class="t-c">$</span> syntax crm activar', '<span class="t-ok">✓</span> CRM activo <span class="t-d">· 4 etapas de venta</span>'],
     },
     {
       lang: "TSX",
@@ -140,7 +140,7 @@
         ["p", "      <"], ["t", "Formulario"], ["a", " destino"], ["p", "="], ["s", '"crm"'], ["p", " />\n"],
         ["p", "    </"], ["t", "Pagina"], ["p", ">\n  );\n}"],
       ],
-      out: ['<span class="t-c">$</span> syntax deploy --prod', '<span class="t-ok">✓</span> en producción <span class="t-d">· LCP 0.8s · SEO 100</span>'],
+      out: ['<span class="t-c">$</span> syntax publicar', '<span class="t-ok">✓</span> sitio publicado <span class="t-d">· carga en 0.8 s</span>'],
     },
   ];
   const ide = $(".ide");
@@ -419,12 +419,12 @@
   if (withIntro && preloader) {
     const code = $(".term__code");
     const lines = [
-      '<span class="c-cy">$</span> <span class="c-wh">syntax build --production</span>',
-      '  <span class="c-ok">✓</span> analizando arquitectura',
-      '  <span class="c-ok">✓</span> compilando módulos <span class="c-cy">[web · crm · api]</span>',
-      '  <span class="c-ok">✓</span> optimizando rendimiento',
-      '  <span class="c-ok">✓</span> conectando CRM y analítica',
-      '<span class="c-cy">→</span> <span class="c-wh">desplegando Syntax Software Studio…</span>',
+      '<span class="c-cy">$</span> <span class="c-wh">syntax iniciar</span>',
+      '  <span class="c-ok">✓</span> preparando tu experiencia',
+      '  <span class="c-ok">✓</span> cargando soluciones <span class="c-cy">[web · crm · automatización]</span>',
+      '  <span class="c-ok">✓</span> optimizando velocidad',
+      '  <span class="c-ok">✓</span> conectando tus herramientas',
+      '<span class="c-cy">→</span> <span class="c-wh">bienvenido a Syntax Software Studio</span>',
     ];
     gsap.set(".term", { y: 30, autoAlpha: 0, scale: 0.96 });
     intro.to(".term", { y: 0, autoAlpha: 1, scale: 1, duration: 0.6, ease: expo }, 0);
