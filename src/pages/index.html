@@ -1,4 +1,4 @@
-<!--meta {"title":"Syntax Software Studio — Desarrollo web y software a medida en Maracaibo","description":"Estudio boutique de ingeniería digital en Maracaibo, Venezuela. Sitios web de alto rendimiento, CRMs y software interno a medida que funcionan como el motor operativo y de ventas de tu negocio.","nav":"inicio","bodyClass":"page-home"} -->
+<!--meta {"title":"Syntax Software Studio — Desarrollo web y software a medida en Venezuela","description":"Estudio boutique de ingeniería digital en Venezuela. Sitios web de alto rendimiento, CRMs y software interno a medida que funcionan como el motor operativo y de ventas de tu negocio.","nav":"inicio","bodyClass":"page-home"} -->
 <!-- ===================== 1. HERO ===================== -->
 <section class="hero" id="top" aria-labelledby="hero-title">
   <canvas class="hero__net" aria-hidden="true"></canvas>
@@ -7,7 +7,7 @@
 
   <div class="container hero__inner">
     <div class="hero__content">
-      <p class="eyebrow" data-hero><span class="dot"></span>Estudio de ingeniería digital · {{site.city}}, VE</p>
+      <p class="eyebrow" data-hero><span class="dot"></span>Estudio de ingeniería digital<span class="hide-sm"> · Software a medida</span></p>
       <h1 class="hero__title" id="hero-title">
         <span class="line"><span class="line__in">Tu negocio no necesita</span></span>
         <span class="line"><span class="line__in">otra página web.</span></span>
@@ -30,14 +30,34 @@
     </div>
 
     <div class="hero__visual" data-hero aria-hidden="true">
-      <div class="editor tilt">
-        <div class="editor__bar">
+      <div class="ide tilt">
+        <div class="ide__bar">
           <i></i><i></i><i></i>
-          <span class="editor__tab is-active">negocio.ts</span>
-          <span class="editor__tab">crm.config</span>
+          <div class="ide__tabs">
+            <span class="ide__tab is-active">negocio.ts</span>
+            <span class="ide__tab">crm.ts</span>
+            <span class="ide__tab">landing.tsx</span>
+          </div>
+          <span class="ide__live mono"><i class="ok"></i>live</span>
         </div>
-        <pre class="editor__body"><code class="editor__code" data-type></code><span class="caret"></span></pre>
-        <div class="editor__status mono"><span><i class="ok"></i>build passing</span><span>TypeScript</span><span>UTF-8</span></div>
+        <div class="ide__main">
+          <div class="ide__rail">
+            <svg viewBox="0 0 24 24" class="is-active"><path d="M6 3h8l4 4v14H6z M14 3v4h4" /></svg>
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6" /><path d="m20 20-4.5-4.5" /></svg>
+            <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5" /><circle cx="6" cy="18" r="2.5" /><circle cx="18" cy="8" r="2.5" /><path d="M6 8.5v7M18 10.5c0 4-12 2-12 5" /></svg>
+            <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" /></svg>
+          </div>
+          <div class="ide__editor">
+            <div class="ide__gutter mono"></div>
+            <span class="ide__line"></span>
+            <pre class="ide__code"><code data-type></code><span class="caret"></span></pre>
+          </div>
+        </div>
+        <div class="ide__term mono">
+          <div class="ide__termhead"><span class="is-active">TERMINAL</span><span>SALIDA</span><span class="ide__spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+          <div class="ide__out"></div>
+        </div>
+        <div class="ide__status mono"><span>⎇ main</span><span class="ide__ok"><i class="ok"></i>0 errores</span><span class="ide__lang">TypeScript</span><span>UTF-8</span></div>
       </div>
       <div class="chip chip--a"><i class="ok"></i><span>deploy → producción</span></div>
       <div class="chip chip--b"><span class="chip__k">API</span><span>200 OK · 84ms</span></div>
@@ -50,13 +70,13 @@
 
 <div class="marquee" aria-hidden="true">
   <div class="marquee__track">
-    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span><span>PostgreSQL</span><span>Firebase</span><span>Supabase</span><span>APIs REST</span><span>WhatsApp API</span><span>SEO técnico</span><span>Automatizaciones</span>
-    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span><span>PostgreSQL</span><span>Firebase</span><span>Supabase</span><span>APIs REST</span><span>WhatsApp API</span><span>SEO técnico</span><span>Automatizaciones</span>
+    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span><span>PostgreSQL</span><span>Firebase</span><span>Supabase</span><span>APIs REST</span><span>SEO técnico</span><span>Automatizaciones</span>
+    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span><span>PostgreSQL</span><span>Firebase</span><span>Supabase</span><span>APIs REST</span><span>SEO técnico</span><span>Automatizaciones</span>
   </div>
 </div>
 
 <!-- ===================== MANIFIESTO ===================== -->
-<section class="intro" id="manifiesto">
+<section class="intro theme-light" id="manifiesto">
   <div class="container">
     <p class="eyebrow" data-scramble>// manifiesto</p>
     <p class="intro__text" data-words>Las plantillas prometen rapidez y entregan deuda técnica. Nosotros escribimos cada línea con un propósito: que tu sitio cargue en un parpadeo, que tu equipo venda con datos y que tu operación crezca sin romperse.</p>
@@ -64,10 +84,10 @@
 </section>
 
 <!-- ===================== 2. LA DIFERENCIA ===================== -->
-<section class="diff" id="diferencia" aria-labelledby="diff-title">
+<section class="diff theme-light" id="por-que" aria-labelledby="diff-title">
   <div class="container">
     <div class="section-head">
-      <p class="eyebrow" data-scramble>01 — La diferencia</p>
+      <p class="eyebrow" data-scramble>01 — Por qué Syntax</p>
       <h2 class="h2" id="diff-title" data-split>Ingeniería, <em>no decoración.</em></h2>
       <p class="section-head__lead" data-reveal>Una web bonita que no vende es un gasto. Un sistema bien construido es un activo que trabaja 24/7. Esto es lo que nos separa de una agencia tradicional.</p>
     </div>
@@ -103,7 +123,7 @@
       <div class="compare__head">
         <span></span>
         <span class="compare__them">Agencia de plantillas</span>
-        <span class="compare__us"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M24 20 12 32l12 12M40 20l12 12-12 12" /><path d="M35 16 29 48" class="slash" /></svg>Syntax</span>
+        <span class="compare__us"><img src="assets/img/logo-160.png" width="26" height="26" alt="" />Syntax</span>
       </div>
       <div class="compare__row"><span class="compare__k">Base del proyecto</span><span class="compare__them">Tema comprado y adaptado</span><span class="compare__us">Arquitectura diseñada desde cero</span></div>
       <div class="compare__row"><span class="compare__k">Velocidad</span><span class="compare__them">Plugins y scripts que sobran</span><span class="compare__us">Solo el código necesario</span></div>
@@ -208,7 +228,7 @@
 </section>
 
 <!-- ===================== 4. PROCESO ===================== -->
-<section class="process" id="proceso" aria-labelledby="process-title">
+<section class="process theme-light" id="proceso" aria-labelledby="process-title">
   <div class="process__pin">
     <div class="container process__head">
       <div class="section-head">
@@ -268,8 +288,8 @@
         <p>Depende del alcance: una landing page no se cotiza igual que un CRM. Por eso empezamos con una consultoría técnica gratuita; al terminar recibes una propuesta cerrada con alcance, tiempos y precio, sin sorpresas.</p>
       </details>
       <details class="faq__item" data-reveal>
-        <summary>¿Trabajan solo con empresas de Maracaibo?<span aria-hidden="true"></span></summary>
-        <p>Nuestra sede está en Maracaibo, pero trabajamos de forma remota con empresas de toda Venezuela, Latinoamérica y Estados Unidos. Las reuniones, entregas y revisiones se hacen en línea.</p>
+        <summary>¿Trabajan con empresas de cualquier ciudad?<span aria-hidden="true"></span></summary>
+        <p>Sí. Trabajamos de forma remota con empresas de toda Venezuela, Latinoamérica y Estados Unidos. Las reuniones, entregas y revisiones se hacen en línea, sin importar dónde esté tu equipo.</p>
       </details>
       <details class="faq__item" data-reveal>
         <summary>¿El código y los datos son míos?<span aria-hidden="true"></span></summary>

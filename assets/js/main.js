@@ -100,32 +100,106 @@
     }, 2600);
   };
 
-  /* ---------- Editor de código que se escribe solo ---------- */
-  const CODE = [
-    ["c", "// Syntax Software Studio\n"],
-    ["k", "import"], ["p", " { "], ["f", "Motor"], ["p", " } "], ["k", "from"], ["s", ' "@syntax/core"'], ["p", ";\n\n"],
-    ["k", "const"], ["p", " negocio = "], ["k", "new"], ["f", " Motor"], ["p", "({\n"],
-    ["p", "  web:        "], ["s", '"alto-rendimiento"'], ["p", ",\n"],
-    ["p", "  crm:        "], ["s", '"a-la-medida"'], ["p", ",\n"],
-    ["p", "  procesos:   "], ["f", "automatizar"], ["p", "(["], ["s", '"ventas"'], ["p", ", "], ["s", '"stock"'], ["p", "]),\n"],
-    ["p", "  plantillas: "], ["n", "null"], ["p", ",\n});\n\n"],
-    ["k", "await"], ["p", " negocio."], ["f", "deploy"], ["p", "(); "], ["c", "// ✓ listo para escalar"],
+  /* ---------- IDE del hero: tres archivos que se escriben solos ---------- */
+  const FILES = [
+    {
+      lang: "TypeScript",
+      code: [
+        ["c", "// Syntax Software Studio\n"],
+        ["k", "import"], ["p", " { "], ["f", "Motor"], ["p", " } "], ["k", "from"], ["s", ' "@syntax/core"'], ["p", ";\n\n"],
+        ["k", "const"], ["p", " negocio = "], ["k", "new"], ["f", " Motor"], ["p", "({\n"],
+        ["a", "  web:      "], ["s", '"alto-rendimiento"'], ["p", ",\n"],
+        ["a", "  crm:      "], ["s", '"a-la-medida"'], ["p", ",\n"],
+        ["a", "  procesos: "], ["f", "automatizar"], ["p", "(["], ["s", '"ventas"'], ["p", "]),\n"],
+        ["a", "  plantillas: "], ["n", "null"], ["p", ",\n});\n\n"],
+        ["k", "await"], ["p", " negocio."], ["f", "deploy"], ["p", "();"],
+      ],
+      out: ['<span class="t-c">$</span> syntax build', '<span class="t-ok">✓</span> 12 módulos compilados <span class="t-d">· 1.2s</span>'],
+    },
+    {
+      lang: "TypeScript",
+      code: [
+        ["k", "import"], ["p", " { "], ["f", "defineCRM"], ["p", " } "], ["k", "from"], ["s", ' "@syntax/crm"'], ["p", ";\n\n"],
+        ["k", "export const"], ["p", " pipeline = "], ["f", "defineCRM"], ["p", "({\n"],
+        ["a", "  etapas: "], ["p", "["], ["s", '"nuevo"'], ["p", ", "], ["s", '"propuesta"'], ["p", ",\n"],
+        ["p", "           "], ["s", '"negociación"'], ["p", ", "], ["s", '"cierre"'], ["p", "],\n"],
+        ["a", "  asignar: "], ["p", "(lead) "], ["k", "=>"], ["f", " libre"], ["p", "(lead.zona),\n"],
+        ["a", "  seguimiento: "], ["p", "{ cada: "], ["s", '"24h"'], ["p", " },\n"],
+        ["a", "  reportes: "], ["p", "["], ["s", '"vendedor"'], ["p", ", "], ["s", '"canal"'], ["p", "],\n});"],
+      ],
+      out: ['<span class="t-c">$</span> syntax crm sync', '<span class="t-ok">✓</span> pipeline activo <span class="t-d">· 4 etapas · auto-asignación</span>'],
+    },
+    {
+      lang: "TSX",
+      code: [
+        ["k", "export default function"], ["f", " Landing"], ["p", "() {\n"],
+        ["k", "  return"], ["p", " (\n"],
+        ["p", "    <"], ["t", "Pagina"], ["a", " velocidad"], ["p", "="], ["s", '"<1s"'], ["a", " seo"], ["p", ">\n"],
+        ["p", "      <"], ["t", "Hero"], ["a", " titulo"], ["p", "="], ["s", '"Vende más"'], ["p", " />\n"],
+        ["p", "      <"], ["t", "Catalogo"], ["a", " filtros lazy"], ["p", " />\n"],
+        ["p", "      <"], ["t", "Formulario"], ["a", " destino"], ["p", "="], ["s", '"crm"'], ["p", " />\n"],
+        ["p", "    </"], ["t", "Pagina"], ["p", ">\n  );\n}"],
+      ],
+      out: ['<span class="t-c">$</span> syntax deploy --prod', '<span class="t-ok">✓</span> en producción <span class="t-d">· LCP 0.8s · SEO 100</span>'],
+    },
   ];
-  const typeCode = (el, instant) => {
-    if (!el) return;
-    if (instant) { el.innerHTML = CODE.map(([c, t]) => `<span class="${c}">${t.replace(/</g, "&lt;")}</span>`).join(""); return; }
-    el.textContent = "";
-    let seg = 0, ch = 0, span = null;
-    const tick = () => {
-      if (seg >= CODE.length) return;
-      const [cls, text] = CODE[seg];
-      if (!span) { span = document.createElement("span"); span.className = cls; el.appendChild(span); }
-      span.textContent += text[ch++];
-      if (ch >= text.length) { seg++; ch = 0; span = null; }
-      const c = text[ch - 1];
-      setTimeout(tick, c === "\n" ? 90 : 18 + Math.random() * 30);
-    };
-    tick();
+  const ide = $(".ide");
+  const esc = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  const ideParts = ide && {
+    code: $("[data-type]", ide),
+    pre: $(".ide__code", ide),
+    tabs: $$(".ide__tab", ide),
+    out: $(".ide__out", ide),
+    lang: $(".ide__lang", ide),
+    gutter: $(".ide__gutter", ide),
+    editor: $(".ide__editor", ide),
+  };
+  if (ide) ideParts.gutter.textContent = Array.from({ length: 11 }, (_, i) => i + 1).join("\n");
+  const showFile = (i) => {
+    ideParts.tabs.forEach((t, k) => t.classList.toggle("is-active", k === i));
+    ideParts.lang.textContent = FILES[i].lang;
+  };
+  const printOut = (lines) => lines.forEach((l) => { const d = document.createElement("div"); d.innerHTML = l; ideParts.out.appendChild(d); while (ideParts.out.children.length > 3) ideParts.out.firstChild.remove(); });
+  const ideStatic = () => {
+    if (!ide) return;
+    showFile(0);
+    ideParts.code.innerHTML = FILES[0].code.map(([c, t]) => `<span class="${c}">${esc(t)}</span>`).join("");
+    ideParts.editor.style.setProperty("--ln", 11);
+    printOut(FILES[0].out);
+  };
+  const startIde = () => {
+    if (!ide) return;
+    let visible = true;
+    new IntersectionObserver(([en]) => (visible = en.isIntersecting)).observe(ide);
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    const untilVisible = async () => { while (!visible || document.hidden) await wait(300); };
+    (async () => {
+      for (let f = 0; ; f = (f + 1) % FILES.length) {
+        await untilVisible();
+        showFile(f);
+        ideParts.code.textContent = "";
+        ideParts.pre.classList.remove("is-fading");
+        let line = 1;
+        ideParts.editor.style.setProperty("--ln", line);
+        for (const [cls, text] of FILES[f].code) {
+          const span = document.createElement("span");
+          span.className = cls;
+          ideParts.code.appendChild(span);
+          for (const ch of text) {
+            span.textContent += ch;
+            if (ch === "\n") { line++; ideParts.editor.style.setProperty("--ln", line); await wait(70); }
+            else await wait(14 + Math.random() * 26);
+          }
+        }
+        await wait(350);
+        printOut([FILES[f].out[0]]);
+        await wait(650);
+        printOut([FILES[f].out[1]]);
+        await wait(2600);
+        ideParts.pre.classList.add("is-fading");
+        await wait(450);
+      }
+    })();
   };
 
   /* ---------- Dividir texto en palabras enmascaradas (conserva <em> y <br>) ---------- */
@@ -169,7 +243,7 @@
 
   /* ---------- Spotlight: el brillo sigue al mouse ---------- */
   if (finePointer) {
-    $$(".spot, .editor").forEach((el) => el.addEventListener("pointermove", (e) => {
+    $$(".spot, .ide").forEach((el) => el.addEventListener("pointermove", (e) => {
       const r = el.getBoundingClientRect();
       el.style.setProperty("--mx", `${e.clientX - r.left}px`);
       el.style.setProperty("--my", `${e.clientY - r.top}px`);
@@ -203,11 +277,11 @@
         for (let j = i + 1; j < pts.length; j++) {
           const b = pts[j];
           const d = Math.hypot(a.x - b.x, a.y - b.y);
-          if (d < 130) { ctx.strokeStyle = `rgba(34,211,238,${(1 - d / 130) * 0.22})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+          if (d < 130) { ctx.strokeStyle = `rgba(60,195,202,${(1 - d / 130) * 0.22})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
         }
         const dm = Math.hypot(a.x - mouse.x, a.y - mouse.y);
-        if (dm < 200) { ctx.strokeStyle = `rgba(61,220,151,${(1 - dm / 200) * 0.5})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
-        ctx.fillStyle = dm < 200 ? "rgba(61,220,151,.9)" : "rgba(148,163,184,.45)";
+        if (dm < 200) { ctx.strokeStyle = `rgba(91,159,219,${(1 - dm / 200) * 0.55})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
+        ctx.fillStyle = dm < 200 ? "rgba(91,159,219,.95)" : "rgba(148,163,184,.45)";
         ctx.beginPath(); ctx.arc(a.x, a.y, dm < 200 ? 2 : 1.4, 0, Math.PI * 2); ctx.fill();
       }
       if (running) raf = requestAnimationFrame(draw);
@@ -305,7 +379,7 @@
     $(".preloader")?.remove();
     root.classList.remove("intro", "from-curtain");
     startRotator();
-    typeCode($("[data-type]"), true);
+    ideStatic();
     $$(".step").forEach((s) => s.classList.add("is-in"));
     $$(".pnode").forEach((s) => s.classList.add("is-on"));
     $$("[data-gauge]").forEach((c) => c.style.setProperty("--g", c.dataset.gauge / 100));
@@ -377,7 +451,7 @@
       body.classList.remove("is-loading");
       lenis?.start();
       startRotator();
-      typeCode($("[data-type]"));
+      startIde();
       ScrollTrigger.refresh();
     }, t + 0.5);
 
@@ -452,7 +526,7 @@
     const rx = gsap.quickTo(card, "rotateX", { duration: 0.7, ease: "power3" });
     const ry = gsap.quickTo(card, "rotateY", { duration: 0.7, ease: "power3" });
     gsap.set(card, { transformPerspective: 1100 });
-    const amt = card.classList.contains("editor") ? 10 : 5;
+    const amt = card.classList.contains("ide") ? 8 : 5;
     card.addEventListener("mousemove", (e) => { const r = card.getBoundingClientRect(); ry(((e.clientX - r.left) / r.width - 0.5) * amt); rx(-((e.clientY - r.top) / r.height - 0.5) * amt); });
     card.addEventListener("mouseleave", () => { rx(0); ry(0); });
   });

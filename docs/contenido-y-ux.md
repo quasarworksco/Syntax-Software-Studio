@@ -3,9 +3,10 @@
 Documento de referencia del sitio. El texto exacto vive en `src/pages/*.html`; aquí está el porqué de cada decisión.
 
 ## Identidad
-- **Paleta:** fondo `#07090C` (negro técnico), paneles `#0F141B` / `#141B24`, texto `#E6EDF3`, secundario `#8B98A9`. Acentos: cian eléctrico `#22D3EE` (acción, Lab Web) y verde terminal `#3DDC97` (estado OK, Lab Software). Degradado cian→verde solo en palabras clave.
+- **Paleta (tomada del logo):** azul marino `#17507B` / `#0E426A` y turquesa `#32B3B9` / `#1D939F`. Sobre fondo oscuro (`#070B10`, paneles `#0E1621`) se usan aclarados: turquesa `#3CC3CA` y azul `#5B9FDB`. Degradado azul→turquesa en palabras clave.
+- **Ritmo de secciones:** alternan oscuras y claras (`#F3F7FA` con retícula de puntos y halo turquesa). Home: hero oscuro → manifiesto + Por qué Syntax claros → Labs oscuro → Proceso claro → Para quién/FAQ oscuro → CTA. Labs: hero oscuro → intro clara → soluciones oscuras → incluido claro → CTA.
 - **Tipografía:** Space Grotesk (titulares, tracking negativo), Inter (texto), JetBrains Mono (etiquetas tipo código: `// manifiesto`, `análisis()`).
-- **Logo:** `</>` en cian con la barra en blanco; gira 90° al pasar el mouse.
+- **Logo:** `assets/img/logo.png` (fondo claro) y `logo-dark.png` (variante con el azul aclarado para fondo oscuro). Original en `assets/img/logo-original.png`.
 - **Voz:** directa, técnica sin jerga vacía, enfocada en negocio (ventas, operación, escala).
 
 ## Sistema de animación (heredado de JP Real Estate, Solar Engineering y All in One + efectos propios)
@@ -21,8 +22,8 @@ Documento de referencia del sitio. El texto exacto vive en `src/pages/*.html`; a
 | Galería horizontal anclada con barra de progreso | Solar / JP | proceso de 4 pasos |
 | Banda CTA que se expande a pantalla completa | los 3 | cierre de cada página |
 | Wordmark gigante del footer, botones magnéticos, texto de botón que rueda, cursor propio | los 3 | global |
-| Ilustraciones SVG que se dibujan + inclinación 3D | Solar | tarjetas de diferencia y labs |
-| **Nuevo:** editor de código que se escribe solo | Syntax | hero |
+| Ilustraciones SVG que se dibujan + inclinación 3D | Solar | tarjetas de «Por qué Syntax» y labs |
+| **Nuevo:** IDE con borde de luz giratorio que escribe 3 archivos (negocio.ts, crm.ts, landing.tsx), resalta la línea activa y ejecuta comandos en su terminal | Syntax | hero |
 | **Nuevo:** red de nodos en canvas que reacciona al puntero | Syntax | hero |
 | **Nuevo:** etiquetas que se «descifran» (scramble) | Syntax | eyebrows de sección |
 | **Nuevo:** spotlight de borde que sigue al mouse | Syntax | tarjetas |
@@ -35,19 +36,19 @@ Todo respeta `prefers-reduced-motion` y funciona sin JS de animación (fallback 
 
 ## 1. Hero
 **Copy**
-- Eyebrow: `● Estudio de ingeniería digital · Maracaibo, VE`
+- Eyebrow: `● Estudio de ingeniería digital · Software a medida` (sin ciudad: el sitio habla a todo el país; la ubicación solo aparece en el footer)
 - H1: **Tu negocio no necesita otra página web. Necesita un _motor_.**
 - Línea mono: `> compilando: ventas_predecibles | operación_sin_fricción | clientes_que_regresan | crecimiento_escalable`
 - Subtítulo: Diseñamos la infraestructura digital de empresas que ya superaron las plantillas: **sitios web de alto rendimiento, CRMs y software interno a medida** que trabajan tan duro como tu equipo comercial.
 - CTAs: **Agendar Consultoría Técnica →** (primario, cian) · **Ver Soluciones** (fantasma)
 
-**UX:** dos columnas: mensaje a la izquierda y, a la derecha, un editor que escribe `negocio.ts`, rodeado de chips flotantes (`deploy → producción`, `API 200 OK`, `Nuevo lead → CRM`). El fondo lleva una retícula con máscara radial, una red de nodos que reacciona al puntero y un halo cian que sigue al mouse. El titular entra por líneas enmascaradas. En móvil todo queda en una columna y el editor baja debajo de los CTAs.
+**UX:** dos columnas: mensaje a la izquierda y, a la derecha, un IDE que escribe en ciclo `negocio.ts`, `crm.ts` y `landing.tsx`, rodeado de chips flotantes (`deploy → producción`, `API 200 OK`, `Nuevo lead → CRM`). El fondo lleva una retícula con máscara radial, una red de nodos que reacciona al puntero y un halo cian que sigue al mouse. El titular entra por líneas enmascaradas. En móvil todo queda en una columna y el editor baja debajo de los CTAs.
 
 ## Manifiesto
 **Copy:** Las plantillas prometen rapidez y entregan deuda técnica. Nosotros escribimos cada línea con un propósito: que tu sitio cargue en un parpadeo, que tu equipo venda con datos y que tu operación crezca sin romperse.
 **UX:** texto grande que se ilumina palabra por palabra al hacer scroll.
 
-## 2. La diferencia
+## 2. Por qué Syntax
 **Copy**
 - H2: **Ingeniería, _no decoración._**
 - Lead: Una web bonita que no vende es un gasto. Un sistema bien construido es un activo que trabaja 24/7.
