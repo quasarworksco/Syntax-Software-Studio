@@ -39,24 +39,24 @@ Todo respeta `prefers-reduced-motion` y funciona sin JS de animación (fallback 
 - Eyebrow: `● Estudio de ingeniería digital · Software a medida` (sin ciudad: el sitio habla a todo el país; la ubicación solo aparece en el footer)
 - H1: **Tu negocio no necesita otra página web. Necesita un _motor_.**
 - Línea mono: `> compilando: ventas_predecibles | operación_sin_fricción | clientes_que_regresan | crecimiento_escalable`
-- Subtítulo: Diseñamos la infraestructura digital de empresas que ya superaron las plantillas: **sitios web de alto rendimiento, CRMs y software interno a medida** que trabajan tan duro como tu equipo comercial.
+- Subtítulo: Diseñamos la infraestructura digital de tu empresa: **sitios web de alto rendimiento, CRMs y software interno a medida** que trabajan tan duro como tu equipo comercial.
 - CTAs: **Agendar Consultoría Técnica →** (primario, cian) · **Ver Soluciones** (fantasma)
 
 **UX:** dos columnas: mensaje a la izquierda y, a la derecha, un IDE que escribe en ciclo `negocio.ts`, `crm.ts` y `landing.tsx`, rodeado de chips flotantes (`deploy → producción`, `API 200 OK`, `Nuevo lead → CRM`). El fondo lleva una retícula con máscara radial, una red de nodos que reacciona al puntero y un halo cian que sigue al mouse. El titular entra por líneas enmascaradas. En móvil todo queda en una columna y el editor baja debajo de los CTAs.
 
 ## Manifiesto
-**Copy:** Las plantillas prometen rapidez y entregan deuda técnica. Nosotros escribimos cada línea con un propósito: que tu sitio cargue en un parpadeo, que tu equipo venda con datos y que tu operación crezca sin romperse.
+**Copy:** Construimos tecnología con un solo propósito: que tu negocio venda más y opere mejor. Sitios que cargan en un parpadeo, sistemas que ordenan tu operación y datos que guían cada decisión.
 **UX:** texto grande que se ilumina palabra por palabra al hacer scroll.
 
 ## 2. Por qué Syntax
 **Copy**
-- H2: **Ingeniería, _no decoración._**
+- H2: **Tecnología que _trabaja por ti._**
 - Lead: Una web bonita que no vende es un gasto. Un sistema bien construido es un activo que trabaja 24/7.
-- 4 principios: **Cero plantillas** · **Código limpio** (la «Syntax» de nuestro nombre) · **Arquitectura escalable** · **A la medida exacta**
-- Tabla «Agencia de plantillas vs Syntax»: base del proyecto, velocidad, propiedad, crecimiento, objetivo, soporte.
-- Cifras-compromiso: 0 plantillas · 100% código propio · <2s meta de carga · 24/7.
+- 4 principios: **Estrategia primero** · **Código limpio** (la «Syntax» de nuestro nombre) · **Arquitectura escalable** · **A la medida exacta**
+- Tabla «Lo que hacemos → Lo que gana tu negocio»: estrategia, velocidad, integración, propiedad, crecimiento, soporte.
+- Cifras: 6 soluciones · 100% código propio · <2s meta de carga · 24/7.
 
-**UX:** 4 tarjetas con iconos de línea que se dibujan solos y un brillo que sigue al mouse. En la tabla, la columna de la competencia va tachada en rojo tenue y la de Syntax lleva ✓ verde; las filas entran en cascada. Los contadores animados usan el degradado de marca.
+**UX:** 4 tarjetas con iconos de línea que se dibujan solos y un brillo que sigue al mouse. La tabla muestra qué hacemos y, al lado con ✓, el beneficio para el negocio; las filas entran en cascada. Los contadores animados usan el degradado de marca.
 
 ## 3. Los dos pilares
 **Copy**

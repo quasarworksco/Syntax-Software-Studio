@@ -111,7 +111,7 @@
         ["a", "  web:      "], ["s", '"alto-rendimiento"'], ["p", ",\n"],
         ["a", "  crm:      "], ["s", '"a-la-medida"'], ["p", ",\n"],
         ["a", "  procesos: "], ["f", "automatizar"], ["p", "(["], ["s", '"ventas"'], ["p", "]),\n"],
-        ["a", "  plantillas: "], ["n", "null"], ["p", ",\n});\n\n"],
+        ["a", "  reportes: "], ["s", '"tiempo-real"'], ["p", ",\n});\n\n"],
         ["k", "await"], ["p", " negocio."], ["f", "deploy"], ["p", "();"],
       ],
       out: ['<span class="t-c">$</span> syntax build', '<span class="t-ok">✓</span> 12 módulos compilados <span class="t-d">· 1.2s</span>'],
@@ -423,7 +423,7 @@
       '  <span class="c-ok">✓</span> analizando arquitectura',
       '  <span class="c-ok">✓</span> compilando módulos <span class="c-cy">[web · crm · api]</span>',
       '  <span class="c-ok">✓</span> optimizando rendimiento',
-      '  <span class="c-ok">✓</span> cero plantillas detectadas',
+      '  <span class="c-ok">✓</span> conectando CRM y analítica',
       '<span class="c-cy">→</span> <span class="c-wh">desplegando Syntax Software Studio…</span>',
     ];
     gsap.set(".term", { y: 30, autoAlpha: 0, scale: 0.96 });
