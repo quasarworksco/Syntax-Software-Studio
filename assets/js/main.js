@@ -434,6 +434,12 @@
       .to(counter, { v: 100, duration: 0.7, ease: "power2.inOut", onUpdate: () => (pct.textContent = Math.round(counter.v)) }, 0.08)
       .to(".pl__word span", { yPercent: 0, duration: 0.45, stagger: 0.03, ease: expo }, 0.18)
       .fromTo(".pl__sub", { letterSpacing: "0.7em", autoAlpha: 0 }, { letterSpacing: "0.32em", autoAlpha: 1, duration: 0.5, ease: expo }, 0.28)
+      // al llegar a 100 % se espera a que estén las fuentes (máx. 2,5 s) para que el texto no salte al abrir
+      .addPause(0.76, () => {
+        const go = () => intro.paused() && intro.resume();
+        (document.fonts ? document.fonts.ready : Promise.resolve()).then(go);
+        setTimeout(go, Math.max(0, 2500 - performance.now()));
+      })
       // composición completa visible un instante; el logo late
       .to(".pl__mark", { scale: 1.1, duration: 0.12, ease: "power2.out" }, 0.78)
       .to(".pl__mark", { scale: 1, duration: 0.2, ease: "back.out(3)" }, 0.9)
