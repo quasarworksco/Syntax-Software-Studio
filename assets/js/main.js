@@ -512,6 +512,15 @@
     gsap.from(".compare__row", { x: -30, autoAlpha: 0, duration: 1, stagger: 0.07, ease: expo, scrollTrigger: { trigger: ".compare", start: "top 75%" } });
   }
 
+  /* ---------- Flujograma: pasos en cascada y pulso que recorre la línea ---------- */
+  const flow = $(".flow__steps");
+  if (flow) {
+    const dots = $$(".flow__dot", flow);
+    const setW = () => flow.style.setProperty("--flow-x", `${dots[dots.length - 1].offsetLeft - dots[0].offsetLeft}px`);
+    setW(); addEventListener("resize", setW);
+    gsap.from($$(".flow__step", flow), { y: 30, autoAlpha: 0, duration: 1, stagger: 0.09, ease: expo, scrollTrigger: { trigger: flow, start: "top 85%" } });
+  }
+
   /* ---------- Ilustraciones que se dibujan solas ---------- */
   $$("svg.draw").forEach((svg) => {
     const parts = [...svg.children].filter((p) => p.getTotalLength && !p.classList.contains("fd"));
