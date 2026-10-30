@@ -68,7 +68,7 @@ Todo respeta `prefers-reduced-motion` y funciona sin JS de animación (fallback 
 ## 4. Autoridad y cierre
 **Copy**
 - FAQ («Lo que suelen preguntarnos»): costo, cobertura geográfica, integraciones, soporte posterior.
-- Banda final: **Deja atrás los sistemas lentos. _Escala de verdad._** + consultoría de 45 min con mapa técnico. CTAs: Agendar Consultoría Técnica · Escribir por WhatsApp. Microcopy: sin compromiso · respuesta en menos de 24 h hábiles · hablas directo con un ingeniero.
+- Banda final: **Deja atrás los sistemas lentos. _Escala de verdad._** + consultoría de 45 min con mapa técnico. CTAs: Agendar Consultoría Técnica · Escribir por WhatsApp. Microcopy: sin compromiso · respuesta en menos de 24 h hábiles.
 
 **UX:** el FAQ es un acordeón nativo (`<details>`), accesible y bueno para SEO. La banda final es un panel blanco a dos columnas. A la izquierda va el texto alineado a la izquierda (dos líneas de lead), los botones y tres garantías como chips. A la derecha va una foto real que se revela como cortina, con tres tarjetas de vidrio («Consultoría agendada», «Tu negocio, creciendo» con barras que crecen, «Plan de acción listo») que aparecen en cascada, flotan y siguen al mouse. El titular tiene un brillo que recorre «Escala de verdad.» y el botón principal, un destello periódico.
 
