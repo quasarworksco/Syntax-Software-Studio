@@ -31,4 +31,5 @@ Para recibirla por correo con FormSubmit:
 
 ## Portafolio
 `assets/img/portafolio/` contiene capturas de proyectos reales del portafolio de DGP Global Group (repositorio `dgpglobal`):
-Cleaning Group, Pina Water System y MQ Store (sitios web) y los sistemas de MQ Store, AVA Multiservices y Moya Company.
+Cleaning Group, Pina Water System, MQ Store, Tecmeca, Caibo Construction y The Sweet Zone (sitios web).
+Las pantallas `sistema-*.webp` son maquetas con datos ficticios (marca «Tu Empresa»), no datos de clientes.

@@ -489,6 +489,7 @@ i.ok { display: inline-block; width: 7px; height: 7px; border-radius: 50%; backg
 
 /* ---------- Banda CTA final (clara, con foto y tarjetas flotantes) ---------- */
 .band { padding: clamp(64px, 8vw, 110px) 0; }
+.theme-light + .band { padding-top: 0; }
 .band__panel { position: relative; display: grid; grid-template-columns: 1.18fr .82fr; gap: clamp(32px, 5vw, 72px); align-items: center; padding: clamp(28px, 4.5vw, 64px); border: 1px solid var(--line); border-radius: 32px; background: linear-gradient(140deg, #ffffff 0%, #f6fafc 60%, #e9f4f6 100%); box-shadow: 0 50px 100px -60px rgba(11, 33, 53, .45), inset 0 1px 0 #fff; overflow: hidden; isolation: isolate; }
 .band__panel::before { content: ""; position: absolute; z-index: -1; right: -12%; top: -30%; width: 70%; height: 140%; background: radial-gradient(closest-side, rgba(50, 179, 185, .22), transparent); pointer-events: none; }
 .band__panel::after { content: ""; position: absolute; z-index: -1; left: -10%; bottom: -40%; width: 55%; height: 90%; background: radial-gradient(closest-side, rgba(23, 80, 123, .12), transparent); pointer-events: none; }
