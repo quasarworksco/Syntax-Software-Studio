@@ -326,8 +326,8 @@ body:not(.menu-open) .nav.on-light .burger span { background: #0b2135; }
 .theme-light::after { content: ""; position: absolute; z-index: -1; right: -10vw; top: -10vw; width: 70vw; height: 70vw; max-width: 900px; max-height: 900px; pointer-events: none; background: radial-gradient(closest-side, rgba(50, 179, 185, .16), rgba(50, 179, 185, .05) 55%, transparent); }
 .theme-light + .theme-light::before, .theme-light + .theme-light::after { display: none; }
 .theme-light .btn--primary { background: linear-gradient(100deg, #17507b, #1d939f); color: #fff; box-shadow: 0 14px 40px -14px rgba(23, 80, 123, .6); }
-.theme-light .pcard, .theme-light .inc, .theme-light .step { box-shadow: inset 0 1px 0 #fff, 0 20px 50px -30px rgba(11, 33, 53, .28); }
-.theme-light .pcard:hover, .theme-light .inc:hover { box-shadow: 0 30px 60px -30px rgba(23, 80, 123, .38); transform: translateY(-4px); }
+.theme-light .inc, .theme-light .step { box-shadow: inset 0 1px 0 #fff, 0 20px 50px -30px rgba(11, 33, 53, .28); }
+.theme-light .inc:hover { box-shadow: 0 30px 60px -30px rgba(23, 80, 123, .38); transform: translateY(-4px); }
 .theme-light .inc { transition: transform .6s var(--ease), box-shadow .6s var(--ease); }
 .theme-light .compare { box-shadow: 0 30px 70px -40px rgba(11, 33, 53, .3); }
 .theme-light .step.is-in { border-color: rgba(29, 147, 159, .55); box-shadow: 0 30px 70px -36px rgba(23, 80, 123, .45); }
@@ -345,13 +345,43 @@ body:not(.menu-open) .nav.on-light .burger span { background: #0b2135; }
 /* ---------- La diferencia ---------- */
 .diff { padding: 0 0 clamp(64px, 8vw, 120px); }
 .pillars4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.pcard { padding: 28px 26px 32px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(180deg, var(--panel), var(--bg-2)); transition: transform .6s var(--ease), border-color .4s; }
-.pcard:hover { border-color: var(--line-2); }
-.pcard__num { display: block; font-size: 12px; color: var(--dim); margin-bottom: 26px; }
-.pcard__art { width: 64px; height: 64px; margin-bottom: 34px; }
-.draw * { fill: none; stroke: var(--teal); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.pcard h3 { margin: 0 0 12px; font: 600 22px/1.15 var(--display); letter-spacing: -.02em; }
-.pcard p { margin: 0; font-size: 15px; color: var(--muted); }
+/* Tarjetas de «Por qué Syntax»: cada una con su color de la familia de marca */
+.pcard { --c1: #17507b; --c2: #2b7fd6; --soft: rgba(43, 127, 214, .1); position: relative; display: flex; flex-direction: column; padding: 26px 24px 24px; overflow: hidden; isolation: isolate; border: 1px solid rgba(23, 80, 123, .1); border-radius: 24px; background: #fff; box-shadow: 0 1px 0 #fff inset, 0 24px 50px -32px rgba(11, 33, 53, .35); transition: transform .7s var(--ease), box-shadow .7s var(--ease), color .5s; }
+.pcard--c2 { --c1: #14838e; --c2: #3cc3ca; --soft: rgba(60, 195, 202, .14); }
+.pcard--c3 { --c1: #3b4fc4; --c2: #6f86ff; --soft: rgba(111, 134, 255, .13); }
+.pcard--c4 { --c1: #0e426a; --c2: #1d939f; --soft: rgba(29, 147, 159, .13); }
+.pcard::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(150deg, var(--c1), var(--c2)); opacity: 0; transition: opacity .6s var(--ease); }
+.pcard::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: linear-gradient(90deg, var(--c1), var(--c2)); }
+.pcard__glow { position: absolute; z-index: -1; right: -60px; top: -60px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(closest-side, var(--soft), transparent); transition: transform .9s var(--ease); }
+.pcard__head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 26px; }
+.pcard__icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 18px; background: linear-gradient(140deg, var(--c1), var(--c2)); box-shadow: 0 16px 30px -12px var(--c2); transition: transform .7s var(--ease), background .5s; }
+.pcard__icon svg { width: 26px; height: 26px; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.pcard__num { font: 700 46px/1 var(--display); letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1.5px var(--c2); opacity: .45; transition: opacity .5s, -webkit-text-stroke-color .5s; }
+.pcard h3 { margin: 0 0 10px; font: 600 21px/1.2 var(--display); letter-spacing: -.02em; color: #0b2135; transition: color .5s; }
+.pcard p { margin: 0 0 18px; font-size: 14.5px; line-height: 1.6; color: #48607a; transition: color .5s; }
+.pcard__tags { display: flex; flex-wrap: wrap; gap: 6px; margin: auto 0 18px; padding: 0; list-style: none; }
+.pcard__tags li { padding: 5px 11px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600; color: var(--c1); transition: background .5s, color .5s; }
+.pcard__bar { display: block; height: 4px; border-radius: 4px; background: rgba(23, 80, 123, .08); overflow: hidden; transition: background .5s; }
+.pcard__bar i { display: block; width: 100%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--c1), var(--c2)); transform-origin: left; transform: scaleX(.35); transition: transform 1s var(--ease), background .5s; }
+.pcard:hover { transform: translateY(-8px); box-shadow: 0 40px 70px -34px var(--c2); color: #fff; }
+.pcard:hover::before { opacity: 1; }
+.pcard:hover .pcard__glow { transform: scale(1.6); background: radial-gradient(closest-side, rgba(255, 255, 255, .22), transparent); }
+.pcard:hover .pcard__icon { transform: rotate(-8deg) scale(1.06); background: rgba(255, 255, 255, .18); box-shadow: none; }
+.pcard:hover .pcard__num { opacity: .9; -webkit-text-stroke-color: rgba(255, 255, 255, .7); }
+.pcard:hover h3 { color: #fff; }
+.pcard:hover p { color: rgba(255, 255, 255, .85); }
+.pcard:hover .pcard__tags li { background: rgba(255, 255, 255, .18); color: #fff; }
+.pcard:hover .pcard__bar { background: rgba(255, 255, 255, .2); }
+.pcard:hover .pcard__bar i { transform: scaleX(1); background: #fff; }
+/* Fondo de la sección con halos de color */
+.diff.theme-light { background: radial-gradient(40% 50% at 8% 30%, rgba(43, 127, 214, .12), transparent 70%), radial-gradient(35% 45% at 95% 55%, rgba(60, 195, 202, .16), transparent 70%), radial-gradient(40% 40% at 50% 100%, rgba(111, 134, 255, .1), transparent 70%), #f3f7fa; }
+.diff .h2 em { background: linear-gradient(100deg, #17507b, #1d939f 50%, #6f86ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* Flujograma con los mismos colores */
+.flow__step:nth-child(1) .flow__dot, .flow__step:nth-child(4) .flow__dot { --fc: #2b7fd6; }
+.flow__step:nth-child(2) .flow__dot, .flow__step:nth-child(5) .flow__dot { --fc: #1d939f; }
+.flow__step:nth-child(3) .flow__dot, .flow__step:nth-child(6) .flow__dot { --fc: #5b6ee1; }
+.diff .flow__dot { border-color: var(--fc); color: var(--fc); background: color-mix(in srgb, var(--fc) 9%, #fff); }
+.diff .flow__step:hover .flow__dot { background: var(--fc); color: #fff; }
 
 .compare { margin-top: clamp(40px, 5vw, 72px); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--bg-2); }
 .compare__head, .compare__row { display: grid; grid-template-columns: 1fr 1.2fr 1.2fr; }

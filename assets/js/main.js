@@ -539,6 +539,12 @@
     gsap.from($$(".flow__step", flow), { y: 30, autoAlpha: 0, duration: 1, stagger: 0.09, ease: expo, scrollTrigger: { trigger: flow, start: "top 85%" } });
   }
 
+  /* ---------- Tarjetas de «Por qué Syntax»: el ícono y la barra entran al aparecer ---------- */
+  $$(".pcard").forEach((card, n) => {
+    gsap.from($(".pcard__icon", card), { scale: 0, rotate: -90, duration: 1, ease: "back.out(1.7)", delay: 0.15 + n * 0.08, scrollTrigger: { trigger: card, start: "top 88%" } });
+    gsap.from($(".pcard__bar i", card), { scaleX: 0, duration: 1.2, ease: expo, delay: 0.3 + n * 0.08, scrollTrigger: { trigger: card, start: "top 88%" }, clearProps: "transform" });
+  });
+
   /* ---------- Ilustraciones que se dibujan solas ---------- */
   $$("svg.draw").forEach((svg) => {
     const parts = [...svg.children].filter((p) => p.getTotalLength && !p.classList.contains("fd"));
