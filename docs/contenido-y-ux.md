@@ -4,7 +4,7 @@ Documento de referencia del sitio. El texto exacto vive en `src/pages/*.html`; a
 
 ## Identidad
 - **Paleta (tomada del logo):** azul marino `#17507B` / `#0E426A` y turquesa `#32B3B9` / `#1D939F`. Sobre fondo oscuro (`#070B10`, paneles `#0E1621`) se usan aclarados: turquesa `#3CC3CA` y azul `#5B9FDB`. Degradado azul→turquesa en palabras clave.
-- **Ritmo de secciones:** alternan oscuras y claras (`#F3F7FA` con retícula de puntos y halo turquesa). Home: hero oscuro → visión + Por qué Syntax claros → Labs oscuro → Para quién/FAQ oscuro → CTA. Labs: hero oscuro → intro clara → soluciones oscuras → incluido claro → CTA.
+- **Ritmo de secciones:** alternan oscuras y claras (`#F3F7FA` con retícula de puntos y halo turquesa). Home: hero claro (editor oscuro como contraste) → visión + Por qué Syntax claros → Labs oscuro → Para quién/FAQ oscuro → CTA. Labs: hero oscuro → intro clara → soluciones oscuras → incluido claro → CTA.
 - **Tipografía:** Space Grotesk (titulares, tracking negativo), Inter (texto), JetBrains Mono (etiquetas tipo código: `// manifiesto`, `análisis()`).
 - **Logo:** `assets/img/logo.png` (fondo claro) y `logo-dark.png` (variante con el azul aclarado para fondo oscuro). Original en `assets/img/logo-original.png`.
 - **Voz:** directa y en lenguaje de negocio. Sin términos técnicos que el cliente no use (nada de commit, deploy, API, sprint, frontend/backend, LCP…). Si un término es necesario (CRM, Google), se acompaña de una explicación sencilla. Hablamos de nuestros servicios y de lo que gana el cliente, no de lo que hacen otros.
