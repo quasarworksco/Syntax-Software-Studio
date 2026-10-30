@@ -626,6 +626,43 @@
   /* ---------- Bloques de funcionalidades: mockup con parallax ---------- */
   $$(".fblock__visual .mock").forEach((m) => gsap.fromTo(m, { yPercent: 8, rotate: -1.5 }, { yPercent: -8, rotate: 1.5, ease: "none", scrollTrigger: { trigger: m, start: "top bottom", end: "bottom top", scrub: true } }));
 
+  /* ---------- Hero Lab Web: pila de sitios reales que rota ---------- */
+  const stackCards = $$(".stack__card");
+  if (stackCards.length) {
+    const POS = [{ x: 0, y: 0, scale: 1, rotate: 0, filter: "brightness(1)" }, { x: "9%", y: "-15%", scale: 0.9, rotate: 3, filter: "brightness(.6)" }, { x: "18%", y: "-30%", scale: 0.8, rotate: 6, filter: "brightness(.4)" }];
+    let order = stackCards.map((_, i) => i);
+    const place = (instant) => order.forEach((ci, slot) => {
+      const card = stackCards[ci];
+      card.style.zIndex = 3 - slot;
+      gsap.to(card, { ...POS[slot], duration: instant ? 0 : 1.2, ease: "expo.inOut" });
+    });
+    place(true);
+    gsap.from(stackCards, { y: 80, autoAlpha: 0, rotate: -6, duration: 1.4, stagger: 0.12, ease: expo, delay: 0.6 });
+    let timer = null;
+    const cycle = () => {
+      const front = stackCards[order[0]];
+      gsap.timeline()
+        .to(front, { y: "28%", x: "-6%", rotate: -8, autoAlpha: 0, duration: 0.6, ease: "power3.in" })
+        .add(() => { order.push(order.shift()); place(); })
+        .to(front, { autoAlpha: 1, duration: 0.6 }, "+=0.2");
+    };
+    ScrollTrigger.create({ trigger: ".stack", start: "top bottom", end: "bottom top", onToggle: (s) => { clearInterval(timer); if (s.isActive) timer = setInterval(cycle, 3400); } });
+  }
+  /* ---------- Hero Lab Software: tarjetas que aparecen sobre el panel ---------- */
+  if ($(".appstack")) {
+    gsap.from(".appstack .device-browser", { y: 60, autoAlpha: 0, rotateY: -20, duration: 1.6, ease: expo, delay: 0.6 });
+    gsap.from(".hcard", { y: 30, scale: 0.85, autoAlpha: 0, duration: 1, stagger: 0.2, ease: "back.out(1.6)", delay: 1.3 });
+    gsap.from(".hcard .band__chart i", { scaleY: 0, transformOrigin: "bottom", duration: 0.8, stagger: 0.08, ease: "power3.out", delay: 1.9 });
+    if (finePointer) {
+      const box = $(".appstack");
+      box.parentElement.addEventListener("mousemove", (e) => {
+        const r = box.getBoundingClientRect();
+        const dx = (e.clientX - (r.left + r.width / 2)) / r.width, dy = (e.clientY - (r.top + r.height / 2)) / r.height;
+        $$(".hcard", box).forEach((c, n) => gsap.to(c, { x: dx * (16 + n * 8), y: dy * (12 + n * 5), duration: 1, ease: "power3", overwrite: "auto" }));
+      });
+    }
+  }
+
   /* ---------- Vitrina del portafolio: la página real se recorre sola; el sistema se acerca con el scroll ---------- */
   $$(".scrollshot").forEach((shot) => {
     const screen = shot.parentElement;
