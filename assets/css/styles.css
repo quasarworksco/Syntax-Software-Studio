@@ -472,22 +472,43 @@ i.ok { display: inline-block; width: 7px; height: 7px; border-radius: 50%; backg
 .faq__item[open] summary span::after { transform: rotate(0); }
 .faq__item p { margin: 0; padding: 0 60px 28px 0; color: var(--muted); max-width: 820px; }
 
-/* ---------- Banda CTA final ---------- */
-.band { position: relative; padding: clamp(84px, 10vw, 140px) 0; overflow: hidden; isolation: isolate; text-align: center; }
-.band__media { position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at 50% 120%, #0f3d5e 0%, #0a1724 50%, var(--bg-2) 80%); clip-path: inset(0 round 0); overflow: hidden; }
-.band__grid { position: absolute; inset: -40% -10% 0; background-image: linear-gradient(rgba(60, 195, 202, .14) 1px, transparent 1px), linear-gradient(90deg, rgba(60, 195, 202, .14) 1px, transparent 1px); background-size: 60px 60px; transform: perspective(600px) rotateX(58deg); transform-origin: 50% 100%; -webkit-mask-image: linear-gradient(transparent, #000 70%); mask-image: linear-gradient(transparent, #000 70%); animation: gridmove 6s linear infinite; }
-@keyframes gridmove { to { background-position: 0 60px; } }
-.band__orb { position: absolute; border-radius: 50%; filter: blur(80px); }
-.band__orb--a { width: 420px; height: 420px; left: 10%; top: 10%; background: rgba(60, 195, 202, .22); }
-.band__orb--b { width: 380px; height: 380px; right: 8%; bottom: 0; background: rgba(23, 80, 123, .5); }
-.band__inner { display: flex; flex-direction: column; align-items: center; }
-.band__title { margin: 0 auto 24px; max-width: 900px; font: 700 clamp(34px, 4.8vw, 68px)/1.04 var(--display); letter-spacing: -.045em; }
-.band__title em { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* ---------- Banda CTA final (clara, con foto y tarjetas flotantes) ---------- */
+.band { padding: clamp(64px, 8vw, 110px) 0; }
+.band__panel { position: relative; display: grid; grid-template-columns: 1.18fr .82fr; gap: clamp(32px, 5vw, 72px); align-items: center; padding: clamp(28px, 4.5vw, 64px); border: 1px solid var(--line); border-radius: 32px; background: linear-gradient(140deg, #ffffff 0%, #f6fafc 60%, #e9f4f6 100%); box-shadow: 0 50px 100px -60px rgba(11, 33, 53, .45), inset 0 1px 0 #fff; overflow: hidden; isolation: isolate; }
+.band__panel::before { content: ""; position: absolute; z-index: -1; right: -12%; top: -30%; width: 70%; height: 140%; background: radial-gradient(closest-side, rgba(50, 179, 185, .22), transparent); pointer-events: none; }
+.band__panel::after { content: ""; position: absolute; z-index: -1; left: -10%; bottom: -40%; width: 55%; height: 90%; background: radial-gradient(closest-side, rgba(23, 80, 123, .12), transparent); pointer-events: none; }
+.band__text .eyebrow { margin-bottom: 18px; }
+.band__title { margin: 0 0 18px; font: 700 clamp(32px, 4vw, 56px)/1.04 var(--display); letter-spacing: -.04em; color: var(--text); }
+.band__title em { background: linear-gradient(100deg, #17507b 0%, #1d939f 35%, #3cc3ca 50%, #1d939f 65%, #17507b 100%); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: sheen 6s ease-in-out infinite; }
 .band__title em .w-in, .band__title em { padding-right: .03em; }
-.band__lead { margin: 0 auto 40px; max-width: 680px; font-size: clamp(16px, 1.3vw, 19px); color: var(--muted); }
-.band__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
-.band__proof { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 28px; margin: 38px 0 0; padding: 0; list-style: none; font: 13px var(--mono); color: var(--muted); }
-.band__proof li::before { content: "✓ "; color: var(--blue); }
+@keyframes sheen { 0%, 100% { background-position: 100% 0; } 50% { background-position: 0 0; } }
+.band__lead { margin: 0 0 30px; max-width: 520px; font-size: clamp(16px, 1.25vw, 18px); color: var(--muted); }
+.band__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.band__actions .btn--lg { padding: 0 24px; }
+.band__proof { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 0; padding: 0; list-style: none; }
+.band__proof li { display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255, 255, 255, .8); font-size: 13px; color: var(--text); }
+.band__proof li::before { content: "✓"; display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: var(--grad); color: #fff; font-size: 10px; }
+.btn--shine::after { content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .55), transparent); transform: skewX(-20deg); animation: shine 4.5s ease-in-out infinite; pointer-events: none; }
+@keyframes shine { 0%, 60% { left: -60%; } 85%, 100% { left: 130%; } }
+
+.band__visual { position: relative; justify-self: center; width: min(100%, 390px); aspect-ratio: 4 / 5; }
+.band__photo { position: absolute; inset: 0; overflow: hidden; border-radius: 26px; box-shadow: 0 40px 80px -36px rgba(11, 33, 53, .55); clip-path: inset(0 round 26px); }
+.band__photo img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); }
+.band__photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(11, 33, 53, .35)), linear-gradient(130deg, rgba(23, 80, 123, .18), transparent 50%); }
+.band__ring { position: absolute; z-index: -1; right: -26px; top: -26px; width: 140px; height: 140px; border-radius: 50%; border: 1.5px dashed rgba(29, 147, 159, .45); animation: spin-ring 22s linear infinite; }
+@keyframes spin-ring { to { transform: rotate(360deg); } }
+.band__card { position: absolute; z-index: 1; display: flex; align-items: center; gap: 12px; padding: 12px 16px 12px 12px; border: 1px solid rgba(255, 255, 255, .7); border-radius: 16px; background: rgba(255, 255, 255, .88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 24px 50px -24px rgba(11, 33, 53, .45); color: var(--text); white-space: nowrap; animation: bob 6s ease-in-out infinite; }
+@keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+.band__card b { display: block; font: 600 14px/1.2 var(--display); }
+.band__card small { display: block; margin-top: 2px; font-size: 12px; color: var(--muted); }
+.band__card--a { left: -44px; top: 14%; }
+.band__card--b { right: -40px; bottom: 16%; animation-delay: -2s; }
+.band__card--c { left: -24px; bottom: -18px; gap: 10px; padding: 10px 16px 10px 10px; animation-delay: -4s; }
+.band__ico { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: var(--grad); }
+.band__ico svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; }
+.band__chart { display: flex; align-items: flex-end; gap: 4px; width: 46px; height: 38px; padding: 6px; border-radius: 12px; background: #eef5f8; }
+.band__chart i { flex: 1; height: var(--h); border-radius: 2px; background: var(--grad); transform-origin: bottom; }
+.band__check { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #1d939f; color: #fff; font-size: 13px; }
 
 /* ---------- Footer ---------- */
 .footer { padding: 70px 0 26px; border-top: 1px solid var(--line); background: var(--bg); overflow: hidden; }
@@ -644,6 +665,8 @@ a.ccard:hover { border-color: var(--line-2); }
   .services__grid { grid-template-columns: repeat(2, 1fr); }
   .contact__grid { grid-template-columns: 1fr; }
   .contact__formwrap { position: static; }
+  .band__panel { grid-template-columns: 1fr; }
+  .band__visual { width: min(100%, 360px); margin-top: 10px; }
 }
 @media (max-width: 860px) {
   .nav .btn--sm { display: none; }
@@ -682,6 +705,10 @@ a.ccard:hover { border-color: var(--line-2); }
   :root { --nav-h: 66px; }
   .brand__name small, .hide-sm { display: none; }
   .hero__actions .btn, .band__actions .btn { width: 100%; }
+  .band__card--a { left: -8px; }
+  .band__card--b { right: -8px; }
+  .band__card--c { left: 8px; }
+  .band__ring { display: none; }
   .btn--lg { height: 56px; padding: 0 22px; font-size: 15px; }
   .ide { font-size: 10.6px; }
   .ide__rail { display: none; }

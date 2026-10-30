@@ -25,3 +25,4 @@ Para recibirla por correo con FormSubmit:
 `assets/img/photos/` usa fotos de [Unsplash](https://unsplash.com) (licencia libre para uso comercial):
 - `lab-web.webp`: foto `1547658719-da2b51169166`
 - `lab-software.webp`: foto `1460925895917-afdab827c52f`
+- `cta-equipo.webp`: foto `1600880292203-757bb62b4baf`

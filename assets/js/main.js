@@ -619,11 +619,25 @@
   /* ---------- Bloques de funcionalidades: mockup con parallax ---------- */
   $$(".fblock__visual .mock").forEach((m) => gsap.fromTo(m, { yPercent: 8, rotate: -1.5 }, { yPercent: -8, rotate: 1.5, ease: "none", scrollTrigger: { trigger: m, start: "top bottom", end: "bottom top", scrub: true } }));
 
-  /* ---------- Banda final: el fondo se expande a pantalla completa ---------- */
-  if ($(".band")) {
-    gsap.fromTo(".band__media", { clipPath: "inset(8% 10% 8% 10% round 32px)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)", ease: "none", scrollTrigger: { trigger: ".band", start: "top 90%", end: "top 15%", scrub: true } });
-    gsap.to(".band__orb--a", { x: 120, y: 60, ease: "none", scrollTrigger: { trigger: ".band", start: "top bottom", end: "bottom top", scrub: true } });
-    gsap.to(".band__orb--b", { x: -120, y: -40, ease: "none", scrollTrigger: { trigger: ".band", start: "top bottom", end: "bottom top", scrub: true } });
+  /* ---------- Banda final: foto en cortina, tarjetas que aparecen y barras que crecen ---------- */
+  if ($(".band__visual")) {
+    const tl = gsap.timeline({ scrollTrigger: { trigger: ".band__panel", start: "top 72%" } });
+    tl.fromTo(".band__photo", { clipPath: "inset(100% 0% 0% 0% round 26px)" }, { clipPath: "inset(0% 0% 0% 0% round 26px)", duration: 1.5, ease: "expo.inOut" })
+      .fromTo(".band__photo img", { scale: 1.35 }, { scale: 1.06, duration: 2, ease: expo }, 0.2)
+      .from(".band__card", { y: 40, scale: 0.85, autoAlpha: 0, duration: 1, stagger: 0.18, ease: "back.out(1.6)" }, 0.9)
+      .from(".band__chart i", { scaleY: 0, duration: 0.8, stagger: 0.07, ease: "power3.out" }, 1.3)
+      .from(".band__ring", { scale: 0.4, autoAlpha: 0, duration: 1.2, ease: expo }, 0.6);
+    gsap.fromTo(".band__visual", { y: 40 }, { y: -40, ease: "none", scrollTrigger: { trigger: ".band", start: "top bottom", end: "bottom top", scrub: true } });
+    if (finePointer) {
+      const v = $(".band__visual");
+      const cards = $$(".band__card", v);
+      v.parentElement.addEventListener("mousemove", (e) => {
+        const r = v.getBoundingClientRect();
+        const dx = (e.clientX - (r.left + r.width / 2)) / r.width, dy = (e.clientY - (r.top + r.height / 2)) / r.height;
+        cards.forEach((c, n) => gsap.to(c, { x: dx * (14 + n * 8), y: dy * (10 + n * 6), duration: 1, ease: "power3", overwrite: "auto" }));
+        gsap.to(".band__photo img", { x: dx * -14, y: dy * -10, duration: 1.2, ease: "power3", overwrite: "auto" });
+      });
+    }
   }
 
   /* ---------- Wordmark gigante del footer ---------- */
