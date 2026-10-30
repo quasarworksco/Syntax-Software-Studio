@@ -1,6 +1,6 @@
 /* Syntax Software Studio — interacciones (GSAP + ScrollTrigger + Lenis)
    Base de movimiento heredada de JP Real Estate, Solar Engineering y All in One,
-   con efectos propios de estudio de software: terminal que compila, editor que se
+   con efectos propios de estudio de software: logo que se arma al cargar, editor que se
    escribe solo, red de nodos, texto que se descifra y cortina entre páginas. */
 (() => {
   const $ = (s, c = document) => c.querySelector(s);
@@ -406,7 +406,7 @@
   const withCurtain = root.classList.contains("from-curtain");
   try { sessionStorage.removeItem("syntax-curtain"); } catch (e) {}
 
-  /* ---------- Preloader (terminal) + entrada del hero ---------- */
+  /* ---------- Preloader (logo con anillo de progreso) + entrada del hero ---------- */
   body.classList.add("is-loading");
   lenis?.stop();
   gsap.set("[data-hero]", { y: 34, autoAlpha: 0 });
@@ -417,24 +417,29 @@
   const intro = gsap.timeline({ paused: true });
   let t = 0;
   if (withIntro && preloader) {
-    const code = $(".term__code");
-    const lines = [
-      '<span class="c-cy">$</span> <span class="c-wh">syntax iniciar</span>',
-      '  <span class="c-ok">✓</span> preparando tu experiencia',
-      '  <span class="c-ok">✓</span> cargando soluciones <span class="c-cy">[web · crm · automatización]</span>',
-      '  <span class="c-ok">✓</span> optimizando velocidad',
-      '  <span class="c-ok">✓</span> conectando tus herramientas',
-      '<span class="c-cy">→</span> <span class="c-wh">bienvenido a Syntax Software Studio</span>',
-    ];
-    gsap.set(".term", { y: 30, autoAlpha: 0, scale: 0.96 });
-    intro.to(".term", { y: 0, autoAlpha: 1, scale: 1, duration: 0.6, ease: expo }, 0);
-    lines.forEach((l, i) => intro.add(() => { code.innerHTML += (i ? "\n" : "") + l; }, 0.3 + i * 0.26));
+    const pct = $(".pl__pct b");
+    const counter = { v: 0 };
+    gsap.set(".pl__mark", { scale: 0.3, rotate: -120, autoAlpha: 0, filter: "blur(14px)" });
+    gsap.set(".pl__word span", { yPercent: 110 });
+    gsap.set([".pl__sub", ".pl__pct", ".pl__rings", ".pl__orbit"], { autoAlpha: 0 });
     intro
-      .to(".term__progress i", { scaleX: 1, duration: 1.7, ease: "power2.inOut" }, 0.25)
-      .to(".preloader__stage", { autoAlpha: 0, scale: 0.94, duration: 0.45, ease: "power2.in" }, 2.05)
-      .to(".preloader__half--top", { yPercent: -100, duration: 1, ease: "expo.inOut" }, 2.2)
-      .to(".preloader__half--bot", { yPercent: 100, duration: 1, ease: "expo.inOut" }, 2.2);
-    t = 2.45;
+      .fromTo(".pl__rings", { scale: 0.7, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 1, ease: expo }, 0)
+      .to(".pl__mark", { scale: 1, rotate: 0, autoAlpha: 1, filter: "blur(0px)", duration: 1.2, ease: "expo.out" }, 0.15)
+      .to(".pl__orbit", { autoAlpha: 1, duration: 0.6 }, 0.5)
+      .to(".pl__prog", { strokeDashoffset: 0, duration: 1.9, ease: "power2.inOut" }, 0.3)
+      .to(counter, { v: 100, duration: 1.9, ease: "power2.inOut", onUpdate: () => (pct.textContent = Math.round(counter.v)) }, 0.3)
+      .to(".pl__word span", { yPercent: 0, duration: 0.9, stagger: 0.05, ease: expo }, 0.55)
+      .fromTo(".pl__sub", { letterSpacing: "0.8em", autoAlpha: 0 }, { letterSpacing: "0.32em", autoAlpha: 1, duration: 1.1, ease: expo }, 0.75)
+      .to(".pl__pct", { autoAlpha: 1, duration: 0.5 }, 0.4)
+      // al llegar a 100%: el logo late y el resto se recoge
+      .to(".pl__mark", { scale: 1.12, duration: 0.25, ease: "power2.out" }, 2.2)
+      .to(".pl__mark", { scale: 1, duration: 0.35, ease: "back.out(3)" }, 2.45)
+      .to(".pl__rings", { scale: 1.25, autoAlpha: 0, duration: 0.6, ease: "power2.in" }, 2.5)
+      .to(".pl__orbit", { scale: 0.4, autoAlpha: 0, duration: 0.5, ease: "power2.in" }, 2.5)
+      .to(".preloader__stage", { autoAlpha: 0, y: -20, duration: 0.45, ease: "power2.in" }, 2.7)
+      .to(".preloader__half--top", { yPercent: -100, duration: 1.1, ease: "expo.inOut" }, 2.85)
+      .to(".preloader__half--bot", { yPercent: 100, duration: 1.1, ease: "expo.inOut" }, 2.85);
+    t = 3.1;
   } else if (withCurtain) {
     gsap.set(curtain, { scaleY: 1, transformOrigin: "top", "--o": 1 });
     intro.to(curtain, { "--o": 0, duration: 0.2 }, 0).to(curtain, { scaleY: 0, duration: 0.8, ease: "expo.inOut" }, 0.1);

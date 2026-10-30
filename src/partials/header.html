@@ -2,17 +2,24 @@
   <div class="preloader__half preloader__half--top"></div>
   <div class="preloader__half preloader__half--bot"></div>
   <div class="preloader__stage">
-    <img class="preloader__logo" src="assets/img/logo-dark-160.png" width="72" height="72" alt="" />
-    <div class="term">
-      <div class="term__bar"><i></i><i></i><i></i><span>syntax@studio: ~/build</span></div>
-      <pre class="term__body"><code class="term__code"></code><span class="caret"></span></pre>
-      <div class="term__progress"><i></i></div>
+    <div class="pl">
+      <svg class="pl__rings" viewBox="0 0 220 220">
+        <defs><linearGradient id="plg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#17507b" /><stop offset=".55" stop-color="#1d939f" /><stop offset="1" stop-color="#3cc3ca" /></linearGradient></defs>
+        <circle class="pl__track" cx="110" cy="110" r="96" />
+        <circle class="pl__dash" cx="110" cy="110" r="106" />
+        <circle class="pl__prog" cx="110" cy="110" r="96" pathLength="100" />
+      </svg>
+      <div class="pl__orbit"><i></i><i></i><i></i></div>
+      <div class="pl__mark"><img src="assets/img/logo.png" width="512" height="512" alt="" /></div>
     </div>
+    <p class="pl__word"><span>S</span><span>y</span><span>n</span><span>t</span><span>a</span><span>x</span></p>
+    <p class="pl__sub">Software Studio</p>
+    <p class="pl__pct"><b>0</b>%</p>
   </div>
 </div>
 
 <div class="curtain" aria-hidden="true">
-  <img class="curtain__mark" src="assets/img/logo-dark-160.png" width="80" height="80" alt="" />
+  <img class="curtain__mark" src="assets/img/logo-160.png" width="80" height="80" alt="" />
 </div>
 <div class="cursor" aria-hidden="true"><span class="cursor__label">Ver</span></div>
 <div class="grain" aria-hidden="true"></div>

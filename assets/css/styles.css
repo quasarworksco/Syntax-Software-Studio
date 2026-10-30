@@ -109,29 +109,40 @@ p, li { text-wrap: pretty; }
 /* ---------- Preloader: terminal que compila ---------- */
 .preloader { display: none; }
 .intro .preloader { display: block; position: fixed; inset: 0; z-index: 500; }
-.preloader__half { position: absolute; left: 0; right: 0; height: 50.5%; background: var(--bg); }
-.preloader__half--top { top: 0; border-bottom: 1px solid var(--line); }
+.preloader__half { position: absolute; left: 0; right: 0; height: 50.5%; background: #fff; }
+.preloader__half--top { top: 0; }
 .preloader__half--bot { bottom: 0; }
-.preloader__stage { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; padding: 16px; }
-.preloader__logo { width: 72px; height: 72px; filter: drop-shadow(0 10px 30px rgba(60, 195, 202, .4)); }
-.term { width: min(560px, 100%); border: 1px solid var(--line-2); border-radius: 14px; background: rgba(15, 20, 27, .9); box-shadow: 0 40px 120px -30px rgba(60, 195, 202, .25); overflow: hidden; }
-.term__bar { display: flex; align-items: center; gap: 7px; padding: 12px 14px; border-bottom: 1px solid var(--line); font: 12px var(--mono); color: var(--dim); }
-.term__bar i, .editor__bar i, .form__bar i, .mock__bar::before { width: 10px; height: 10px; border-radius: 50%; background: #2a3442; }
-.term__bar i:nth-child(1), .editor__bar i:nth-child(1), .form__bar i:nth-child(1) { background: #ff5f57; }
-.term__bar i:nth-child(2), .editor__bar i:nth-child(2), .form__bar i:nth-child(2) { background: #febc2e; }
-.term__bar i:nth-child(3), .editor__bar i:nth-child(3), .form__bar i:nth-child(3) { background: #28c840; }
-.term__bar span { margin-left: auto; }
-.term__body { margin: 0; min-height: 190px; padding: 18px 18px 8px; font: 13px/1.75 var(--mono); color: var(--muted); white-space: pre-wrap; }
-.term__body .c-ok { color: var(--blue); }
-.term__body .c-cy { color: var(--teal); }
-.term__body .c-wh { color: var(--text); }
-.term__progress { height: 2px; background: var(--line); }
-.term__progress i { display: block; height: 100%; width: 100%; transform: scaleX(0); transform-origin: left; background: var(--grad); }
+.preloader__half::after { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 50% 100%, rgba(50, 179, 185, .10), transparent 70%); }
+.preloader__half--bot::after { background: radial-gradient(60% 80% at 50% 0%, rgba(50, 179, 185, .10), transparent 70%); }
+.preloader__stage { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px; color: #0b2135; }
+.pl { position: relative; width: 220px; height: 220px; display: grid; place-items: center; }
+.pl__rings { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); overflow: visible; }
+.pl__rings circle { fill: none; }
+.pl__track { stroke: #e7eef4; stroke-width: 3; }
+.pl__dash { stroke: #b9d7de; stroke-width: 1.2; stroke-dasharray: 2 8; transform-origin: 110px 110px; animation: spin-ring 14s linear infinite; }
+.pl__prog { stroke: url(#plg); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; filter: drop-shadow(0 0 6px rgba(29, 147, 159, .45)); }
+.pl__orbit { position: absolute; inset: 0; animation: spin-ring 3.2s cubic-bezier(.6, .1, .4, .9) infinite; }
+.pl__orbit i { position: absolute; left: 50%; top: -2px; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: #1d939f; box-shadow: 0 0 14px rgba(29, 147, 159, .8); transform-origin: 5px 112px; }
+.pl__orbit i:nth-child(2) { transform: rotate(120deg); background: #17507b; width: 7px; height: 7px; margin-left: -3.5px; transform-origin: 3.5px 112px; }
+.pl__orbit i:nth-child(3) { transform: rotate(240deg); background: #3cc3ca; width: 5px; height: 5px; margin-left: -2.5px; transform-origin: 2.5px 112px; }
+.pl__mark { position: relative; width: 104px; height: 104px; }
+.pl__mark img { width: 100%; height: 100%; filter: drop-shadow(0 14px 30px rgba(23, 80, 123, .28)); }
+.pl__mark::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .95) 50%, transparent 65%); background-size: 260% 100%; background-position: 130% 0; -webkit-mask: url(../img/logo.png) center / contain no-repeat; mask: url(../img/logo.png) center / contain no-repeat; animation: pl-sheen 1.8s ease-in-out .9s infinite; }
+@keyframes pl-sheen { 0% { background-position: 130% 0; } 60%, 100% { background-position: -30% 0; } }
+.pl__word { display: flex; margin: 26px 0 0; overflow: hidden; font: 700 34px/1.1 var(--display); letter-spacing: -.04em; color: #0b2135; }
+.pl__word span { display: inline-block; }
+.pl__sub { margin: 4px 0 0; font: 500 11px var(--mono); letter-spacing: .32em; text-transform: uppercase; color: #48607a; }
+.pl__pct { margin: 22px 0 0; font: 500 13px var(--mono); color: #1d939f; }
+.pl__pct b { font-weight: 600; display: inline-block; min-width: 2.2ch; text-align: right; }
+.form__bar i, .mock__bar::before { width: 10px; height: 10px; border-radius: 50%; background: #2a3442; }
+.form__bar i:nth-child(1) { background: #ff5f57; }
+.form__bar i:nth-child(2) { background: #febc2e; }
+.form__bar i:nth-child(3) { background: #28c840; }
 .caret { display: inline-block; width: 8px; height: 1.1em; margin-left: 2px; vertical-align: -3px; background: var(--teal); animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 
 /* ---------- Cortina entre páginas ---------- */
-.curtain { position: fixed; inset: 0; z-index: 450; background: var(--panel); transform: scaleY(0); transform-origin: bottom; display: grid; place-items: center; pointer-events: none; }
+.curtain { position: fixed; inset: 0; z-index: 450; background: #fff; transform: scaleY(0); transform-origin: bottom; display: grid; place-items: center; pointer-events: none; }
 .from-curtain .curtain { transform: scaleY(1); transform-origin: top; }
 .curtain__mark { width: 80px; height: 80px; opacity: var(--o, 0); }
 
@@ -711,7 +722,7 @@ a.ccard:hover { border-color: var(--line-2); }
 
 /* Red de seguridad: si el script no llega a cargar, la cortina y el preloader se retiran solos */
 .from-curtain .curtain { animation: safety-curtain .01s 4s forwards; }
-.intro .preloader { animation: safety-hide .01s 6s forwards; }
+.intro .preloader { animation: safety-hide .01s 7s forwards; }
 @keyframes safety-curtain { to { transform: scaleY(0); } }
 @keyframes safety-hide { to { visibility: hidden; opacity: 0; } }
 
