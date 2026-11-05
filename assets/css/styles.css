@@ -112,7 +112,7 @@ p, li { text-wrap: pretty; }
 
 /* ---------- Preloader: terminal que compila ---------- */
 .preloader { display: none; }
-.intro .preloader { display: block; position: fixed; inset: 0; z-index: 500; }
+.is-intro .preloader { display: block; position: fixed; inset: 0; z-index: 500; }
 .preloader__half { position: absolute; left: 0; right: 0; height: 50.5%; background: #fff; }
 .preloader__half--top { top: 0; }
 .preloader__half--bot { bottom: 0; }
@@ -811,7 +811,7 @@ a.ccard:hover { border-color: var(--line-2); }
 
 /* Red de seguridad: si el script no llega a cargar, la cortina y el preloader se retiran solos */
 .from-curtain .curtain { animation: safety-curtain .01s 4s forwards; }
-.intro .preloader { animation: safety-hide .01s 4s forwards; }
+.is-intro .preloader { animation: safety-hide .01s 4s forwards; }
 @keyframes safety-curtain { to { transform: scaleY(0); } }
 @keyframes safety-hide { to { visibility: hidden; opacity: 0; } }
 

@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <script>
-  // "js" habilita los estados iniciales de animación; "intro" muestra la pantalla de carga
+  // "js" habilita los estados iniciales de animación; "is-intro" muestra la pantalla de carga
   // en cada carga o recarga (F5). Al navegar entre páginas se usa la cortina en su lugar.
   (function (d) {
     d.classList.add("js");
     try {
       if (sessionStorage.getItem("syntax-curtain")) d.classList.add("from-curtain");
-      else if (!matchMedia("(prefers-reduced-motion: reduce)").matches) d.classList.add("intro");
+      else if (!matchMedia("(prefers-reduced-motion: reduce)").matches) d.classList.add("is-intro");
     } catch (e) {}
   })(document.documentElement);
 </script>

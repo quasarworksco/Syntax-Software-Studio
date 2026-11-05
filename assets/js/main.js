@@ -379,7 +379,7 @@
      ========================================================= */
   if (!motion) {
     $(".preloader")?.remove();
-    root.classList.remove("intro", "from-curtain");
+    root.classList.remove("is-intro", "from-curtain");
     startRotator();
     ideStatic();
     $$(".step").forEach((s) => s.classList.add("is-in"));
@@ -405,7 +405,7 @@
      ========================================================= */
   const expo = "expo.out";
   const preloader = $(".preloader");
-  const withIntro = root.classList.contains("intro");
+  const withIntro = root.classList.contains("is-intro");
   const withCurtain = root.classList.contains("from-curtain");
   try { sessionStorage.removeItem("syntax-curtain"); } catch (e) {}
 
@@ -461,7 +461,7 @@
     .to(".marquee", { yPercent: 0, autoAlpha: 1, duration: 1.2, ease: expo }, t + 0.6)
     .add(() => {
       preloader?.remove();
-      root.classList.remove("intro", "from-curtain");
+      root.classList.remove("is-intro", "from-curtain");
       body.classList.remove("is-loading");
       lenis?.start();
       startRotator();
