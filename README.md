@@ -38,3 +38,8 @@ Las pantallas `sistema-*.webp` son maquetas con datos ficticios (marca «Tu Empr
 1. En `src/site.json` cambia `"url"` por `https://tudominio.com` y `"basePath"` por `"/"`.
 2. Crea un archivo `CNAME` en la raíz con el dominio (sin https).
 3. Ejecuta `node build.mjs` y sube los cambios. Canónicas, sitemap, datos estructurados e imagen para redes se actualizan solos.
+
+## SEO local (Venezuela)
+- Páginas por ciudad: `diseno-web-maracaibo.html` (sede), `-caracas`, `-valencia`, `-barquisimeto`, `-maracay`. Cada una con contenido propio, preguntas frecuentes de la ciudad y datos estructurados (Service con `areaServed` = ciudad, FAQPage, BreadcrumbList).
+- La empresa se declara como `LocalBusiness` con sede y coordenadas en Maracaibo y las ciudades atendidas (`build.mjs`, constante `CITIES`).
+- Para agregar una ciudad: crea su página en `src/pages/` siguiendo una existente, súmala a `CITIES`, al footer y a la sección «Cobertura» del inicio.

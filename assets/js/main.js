@@ -84,7 +84,10 @@
   addEventListener("pageshow", (e) => { if (e.persisted && hasGsap) gsap.set(curtain, { scaleY: 0, "--o": 0 }); });
 
   /* ---------- Preselección de servicio desde la URL (?servicio=web|software) ---------- */
-  const pre = new URLSearchParams(location.search).get("servicio");
+  const params = new URLSearchParams(location.search);
+  const pre = params.get("servicio");
+  const city = params.get("ciudad");
+  if (city && $("#f-city")) $("#f-city").value = city;
   if (pre) $$(`.chip-opt input[data-group="${pre}"]`).slice(0, 1).forEach((i) => (i.checked = true));
 
   /* ---------- Rotador de palabras del hero ---------- */
@@ -323,6 +326,7 @@
       whatsapp: f.whatsapp.value.trim(),
       presupuesto: f.presupuesto.value,
       plazo: f.plazo.value,
+      ciudad: f.ciudad.value ? f.ciudad.selectedOptions[0].textContent.trim() : "",
       mensaje: f.mensaje.value.trim(),
     });
     const done = () => {
@@ -366,6 +370,7 @@
         `• Necesito: ${d.servicios}`,
         d.presupuesto && `• Inversión: ${d.presupuesto}`,
         d.plazo && `• Plazo: ${d.plazo}`,
+        d.ciudad && `• Ciudad: ${d.ciudad}`,
         `• Proyecto: ${d.mensaje}`,
       ].filter(Boolean).join("\n");
       window.open(waUrl(text), "_blank", "noopener");

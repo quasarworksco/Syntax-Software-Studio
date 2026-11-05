@@ -45,15 +45,22 @@ const css = readFileSync(join(root, "assets/css/styles.css"), "utf8")
 writeFileSync(join(root, "assets/css/styles.min.css"), css);
 console.log("✓ styles.min.css", Math.round(css.length / 1024), "KB");
 
+// Ciudades con página propia (nombre, estado). La sede es Maracaibo.
+const CITIES = [["Maracaibo", "Zulia"], ["Caracas", "Distrito Capital"], ["Valencia", "Carabobo"], ["Barquisimeto", "Lara"], ["Maracay", "Aragua"]];
+
 // Datos estructurados (schema.org) de cada página: empresa, sitio, página, migas,
 // servicio (Labs) y preguntas frecuentes (extraídas del propio HTML).
 function schema(page, body) {
   const org = {
-    "@type": "ProfessionalService", "@id": `${site.url}/#empresa`, name: site.name, url: `${site.url}/`,
+    "@type": ["ProfessionalService", "LocalBusiness"], "@id": `${site.url}/#empresa`, name: site.name, url: `${site.url}/`,
+    description: "Estudio de diseño de páginas web y desarrollo de software a medida con sede en Maracaibo, Venezuela.",
     logo: `${site.url}/assets/img/logo.png`, image: `${site.url}/assets/img/og-image.jpg`,
     telephone: site.phoneHref, email: site.email, priceRange: "$$",
     address: { "@type": "PostalAddress", addressLocality: site.city, addressRegion: site.region, addressCountry: "VE" },
-    areaServed: [{ "@type": "Country", name: "Venezuela" }, { "@type": "Place", name: "Latinoamérica" }, { "@type": "Country", name: "Estados Unidos" }],
+    geo: { "@type": "GeoCoordinates", latitude: 10.6427, longitude: -71.6125 },
+    hasMap: "https://www.google.com/maps/search/?api=1&query=Maracaibo%2C+Zulia%2C+Venezuela",
+    openingHoursSpecification: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "18:00" },
+    areaServed: [{ "@type": "Country", name: "Venezuela" }, ...CITIES.map(([c, s]) => ({ "@type": "City", name: c, containedInPlace: { "@type": "State", name: s } }))],
     availableLanguage: ["es", "en"],
     contactPoint: { "@type": "ContactPoint", telephone: site.phoneHref, email: site.email, contactType: "sales", availableLanguage: ["es", "en"] },
     knowsAbout: ["Diseño de páginas web", "Landing pages", "SEO técnico", "Catálogos digitales", "CRM a medida", "Software de gestión", "Automatización de procesos"],
@@ -65,7 +72,8 @@ function schema(page, body) {
   if (page.crumb) graph.push({ "@type": "BreadcrumbList", itemListElement: [
     { "@type": "ListItem", position: 1, name: "Inicio", item: `${site.url}/` },
     { "@type": "ListItem", position: 2, name: page.crumb, item: page.canonical } ] });
-  if (page.service) graph.push({ "@type": "Service", name: page.service.name, serviceType: page.service.serviceType, provider: { "@id": org["@id"] }, areaServed: org.areaServed, url: page.canonical });
+  if (page.service) graph.push({ "@type": "Service", name: page.service.name, serviceType: page.service.serviceType, provider: { "@id": org["@id"] },
+    areaServed: page.city ? { "@type": "City", name: page.city.name, containedInPlace: { "@type": "State", name: page.city.state } } : org.areaServed, url: page.canonical });
   const faqs = [...body.matchAll(/<summary>([\s\S]*?)<span[^>]*><\/span><\/summary>\s*<p>([\s\S]*?)<\/p>/g)];
   if (faqs.length) graph.push({ "@type": "FAQPage", mainEntity: faqs.map(([, q, a]) => ({ "@type": "Question", name: q.trim(), acceptedAnswer: { "@type": "Answer", text: a.replace(/<[^>]+>/g, "").trim() } })) });
   return { "@context": "https://schema.org", "@graph": graph };
